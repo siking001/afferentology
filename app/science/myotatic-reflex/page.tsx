@@ -5,9 +5,9 @@ import type { Metadata } from "next"
 import Image from "next/image"
 
 export const metadata: Metadata = {
-  title: "The Myotatic Reflex | Afferentology",
+  title: "The Myotatic Reflex - Your Body's Defense Mechanism | Afferentology",
   description:
-    "Understanding the myotatic reflex - your body's most important defense mechanism for controlled movement, injury prevention, and maintaining muscle tone.",
+    "Learn about the myotatic reflex (stretch reflex), your body's most important defense mechanism for controlled movement, injury prevention, and maintaining proper muscle tone. Discover how muscle spindles protect joints from damage.",
   keywords: [
     "myotatic reflex",
     "stretch reflex",
@@ -15,12 +15,64 @@ export const metadata: Metadata = {
     "muscle tone",
     "injury prevention",
     "knee jerk reflex",
+    "joint protection",
+    "controlled movement",
+    "muscle length",
+    "osteoarthritis prevention",
+    "afferentology",
+    "spinal cord reflex",
   ],
+  openGraph: {
+    title: "The Myotatic Reflex - Understanding Your Body's Defense Mechanism",
+    description:
+      "Discover how the myotatic reflex protects your joints, controls movement, and prevents injuries through automatic muscle responses.",
+    type: "article",
+    url: "https://afferentology.org/science/myotatic-reflex",
+    images: [
+      {
+        url: "https://afferentology.org/images/knee-jerk-reflex.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Healthcare professional testing patient's myotatic reflex with reflex hammer",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "The Myotatic Reflex - Your Body's Defense System",
+    description:
+      "Learn how the stretch reflex protects joints, controls movement, and prevents injuries through muscle spindle activation.",
+  },
 }
 
 export default function MyotaticReflexPage() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: "The Myotatic Reflex",
+    description:
+      "Understanding the myotatic reflex - your body's most important defense mechanism for controlled movement, injury prevention, and maintaining muscle tone.",
+    author: {
+      "@type": "Person",
+      name: "Simon King",
+      jobTitle: "B.App.Sc.(Chiro)",
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "Afferentology",
+      url: "https://afferentology.org",
+    },
+    image: "https://afferentology.org/images/knee-jerk-reflex.jpg",
+    datePublished: "2024-01-01",
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": "https://afferentology.org/science/myotatic-reflex",
+    },
+  }
+
   return (
     <div className="flex flex-col">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <div className="bg-gradient-to-br from-primary to-secondary py-12 text-primary-foreground">
         <div className="container mx-auto px-4">
           <Link
@@ -44,7 +96,7 @@ export default function MyotaticReflexPage() {
       <div className="relative h-[400px] w-full overflow-hidden">
         <Image
           src="/images/knee-jerk-reflex.jpg"
-          alt="Healthcare professional testing patient's knee reflex with a reflex hammer"
+          alt="Medical professional demonstrating myotatic reflex test - using reflex hammer to test patient's knee-jerk stretch reflex response for neurological assessment"
           fill
           className="object-cover"
           priority

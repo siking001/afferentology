@@ -5,22 +5,75 @@ import Image from "next/image"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: "The Withdrawal Reflex | Afferentology",
+  title: "The Withdrawal Reflex - How Sensory Receptors Control Muscle Tone | Afferentology",
   description:
-    "How the withdrawal reflex protects us from danger by giving sensory receptors direct control over muscle tone, and its implications for pain and dysfunction.",
+    "Discover how the withdrawal reflex protects us from danger by giving sensory receptors direct control over muscle tone. Learn about pain reflexes, nerve interference, and the impact of piercings, acupuncture, and irritation on muscle function.",
   keywords: [
     "withdrawal reflex",
     "pain reflex",
-    "muscle tone",
+    "muscle tone control",
     "sensory receptors",
     "nerve interference",
     "reflexology",
+    "protective reflex",
+    "spinal cord reflex",
+    "acupuncture mechanism",
+    "muscle inhibition",
+    "afferentology",
+    "immediate protection",
   ],
+  openGraph: {
+    title: "The Withdrawal Reflex - Sensory Control Over Muscle Tone",
+    description:
+      "Learn how the withdrawal reflex gives your sensory receptors direct control over muscle tone to protect you from danger without thinking.",
+    type: "article",
+    url: "https://afferentology.org/science/withdrawal-reflex",
+    images: [
+      {
+        url: "https://afferentology.org/images/withdrawal-reflex-diagram.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Anatomical diagram of withdrawal reflex showing nerve pathways",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "The Withdrawal Reflex - Immediate Protection System",
+    description:
+      "Understand how your body's withdrawal reflex protects you through automatic muscle responses to pain and irritation.",
+  },
 }
 
 export default function WithdrawalReflexPage() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: "The Withdrawal Reflex",
+    description:
+      "How the withdrawal reflex protects us from danger by giving sensory receptors direct control over muscle tone, and its implications for pain and dysfunction.",
+    author: {
+      "@type": "Person",
+      name: "Simon King",
+      jobTitle: "B.App.Sc.(Chiro)",
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "Afferentology",
+      url: "https://afferentology.org",
+    },
+    image: "https://afferentology.org/images/withdrawal-reflex-diagram.jpg",
+    datePublished: "2024-01-01",
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": "https://afferentology.org/science/withdrawal-reflex",
+    },
+  }
+
   return (
     <div className="flex flex-col">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+
       <div className="bg-gradient-to-br from-primary to-secondary py-12 text-primary-foreground">
         <div className="container mx-auto px-4">
           <Link
@@ -46,7 +99,7 @@ export default function WithdrawalReflexPage() {
           <div className="mx-auto max-w-4xl">
             <Image
               src="/images/withdrawal-reflex-diagram.jpg"
-              alt="Anatomical diagram showing the withdrawal reflex mechanism - how afferent input from pain, pressure, or tickle triggers motor nerves to inhibit quadriceps and stimulate biceps muscle through excitatory and inhibitory interneurons in the spinal cord"
+              alt="Detailed anatomical diagram illustrating the withdrawal reflex mechanism: afferent sensory nerves responding to pain, pressure, and tickle stimuli; excitatory and inhibitory interneurons in the spinal cord; motor nerve pathways showing quadriceps muscle inhibition and biceps muscle stimulation for protective limb withdrawal"
               width={1200}
               height={900}
               className="rounded-lg"

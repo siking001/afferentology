@@ -5,15 +5,72 @@ import type { Metadata } from "next"
 import Image from "next/image"
 
 export const metadata: Metadata = {
-  title: "Why Afferent Input Matters | Afferentology",
+  title: "Why Afferent Input Matters - Understanding Neurological Assessment | Afferentology",
   description:
-    "Understanding why paying attention to afferent input is crucial for healthcare professionals examining and treating patients based on neurological input and output.",
-  keywords: ["afferent input", "nervous system", "healthcare", "diagnosis", "treatment", "patient strength"],
+    "Discover why paying attention to afferent input is crucial for healthcare professionals. Learn how neurological assessment and the nervous system defense mechanism can prevent injuries and build stronger, more resilient patients.",
+  keywords: [
+    "afferent input",
+    "nervous system assessment",
+    "neurological diagnosis",
+    "healthcare diagnosis",
+    "patient strength testing",
+    "injury prevention",
+    "nervous system defense",
+    "afferentology",
+    "muscle testing",
+    "wellness optimization",
+  ],
+  openGraph: {
+    title: "Why Afferent Input Matters - Neurological Assessment for Healthcare",
+    description:
+      "Learn how afferent input assessment helps healthcare professionals identify weaknesses and build resilient patients through neurological testing.",
+    type: "article",
+    url: "https://afferentology.org/science/afferent-input-matters",
+    images: [
+      {
+        url: "https://afferentology.org/images/afferent-input-matters-header.webp",
+        width: 1200,
+        height: 630,
+        alt: "Healthcare professional examining patient's nervous system",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Why Afferent Input Matters - Neurological Assessment",
+    description:
+      "Discover how healthcare professionals use afferent input to diagnose, prevent injuries, and build stronger patients.",
+  },
 }
 
 export default function AfferentInputMattersPage() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: "Why Afferent Input Matters",
+    description:
+      "Understanding why paying attention to afferent input is crucial for healthcare professionals examining and treating patients based on neurological input and output.",
+    author: {
+      "@type": "Person",
+      name: "Simon King",
+      jobTitle: "B.App.Sc.(Chiro)",
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "Afferentology",
+      url: "https://afferentology.org",
+    },
+    image: "https://afferentology.org/images/afferent-input-matters-header.webp",
+    datePublished: "2024-01-01",
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": "https://afferentology.org/science/afferent-input-matters",
+    },
+  }
+
   return (
     <div className="flex flex-col">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <div className="bg-gradient-to-br from-primary to-secondary py-12 text-primary-foreground">
         <div className="container mx-auto px-4">
           <Link
@@ -39,7 +96,7 @@ export default function AfferentInputMattersPage() {
       <div className="relative h-[400px] w-full overflow-hidden">
         <Image
           src="/images/afferent-input-matters-header.webp"
-          alt="Healthcare professional examining patient's nervous system"
+          alt="Healthcare professional performing neurological examination and assessing patient's nervous system function to identify weaknesses"
           fill
           className="object-cover"
           priority
