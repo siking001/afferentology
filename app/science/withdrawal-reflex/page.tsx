@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button"
 import { ArrowLeft, BookOpen } from "lucide-react"
 import Link from "next/link"
+import Image from "next/image"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
@@ -36,6 +37,21 @@ export default function WithdrawalReflexPage() {
             </div>
             <h1 className="mb-4 text-4xl font-bold leading-tight md:text-5xl text-balance">The Withdrawal Reflex</h1>
             <p className="text-lg text-primary-foreground/90">By Simon King B.App.Sc.(Chiro)</p>
+          </div>
+        </div>
+      </div>
+
+      <div className="border-b bg-muted/30">
+        <div className="container mx-auto px-4 py-8">
+          <div className="mx-auto max-w-4xl">
+            <Image
+              src="/images/withdrawal-reflex-diagram.jpg"
+              alt="Anatomical diagram showing the withdrawal reflex mechanism - how afferent input from pain, pressure, or tickle triggers motor nerves to inhibit quadriceps and stimulate biceps muscle through excitatory and inhibitory interneurons in the spinal cord"
+              width={1200}
+              height={900}
+              className="rounded-lg"
+              priority
+            />
           </div>
         </div>
       </div>

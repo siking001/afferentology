@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button"
 import { ArrowLeft, BookOpen } from "lucide-react"
 import Link from "next/link"
 import type { Metadata } from "next"
+import Image from "next/image"
 
 export const metadata: Metadata = {
   title: "Why Afferent Input Matters | Afferentology",
@@ -33,6 +34,16 @@ export default function AfferentInputMattersPage() {
             <p className="text-lg text-primary-foreground/90">By Simon King B.App.Sc.(Chiro)</p>
           </div>
         </div>
+      </div>
+
+      <div className="relative h-[400px] w-full overflow-hidden">
+        <Image
+          src="/images/afferent-input-matters-header.webp"
+          alt="Healthcare professional examining patient's nervous system"
+          fill
+          className="object-cover"
+          priority
+        />
       </div>
 
       <article className="py-16">

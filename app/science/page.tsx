@@ -43,21 +43,21 @@ export default async function SciencePage() {
       slug: "afferent-input-matters",
       excerpt:
         "Understanding why paying attention to afferent input is crucial for examining and treating patients based on neurological input and output.",
-      image: "/medical-icon-showing-nervous-system-nerve-pathways.jpg",
+      image: "/images/afferent-input-matters-header.webp",
     },
     {
       title: "The Myotatic Reflex",
       slug: "myotatic-reflex",
       excerpt:
         "Your body's most important defense mechanism for controlled movement, injury prevention, and maintaining proper muscle tone.",
-      image: "/medical-anatomical-diagram-showing-afferent-sensor.jpg",
+      image: "/images/knee-jerk-reflex.jpg",
     },
     {
       title: "The Withdrawal Reflex",
       slug: "withdrawal-reflex",
       excerpt:
         "How sensory receptors have direct control over muscle tone to protect us from danger and respond to irritation.",
-      image: "/patient-experiencing-chronic-pain-relief-after-tre.jpg",
+      image: "/images/withdrawal-reflex-diagram.jpg",
     },
   ]
 

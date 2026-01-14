@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button"
 import { ArrowLeft, BookOpen } from "lucide-react"
 import Link from "next/link"
 import type { Metadata } from "next"
+import Image from "next/image"
 
 export const metadata: Metadata = {
   title: "The Myotatic Reflex | Afferentology",
@@ -40,6 +41,16 @@ export default function MyotaticReflexPage() {
         </div>
       </div>
 
+      <div className="relative h-[400px] w-full overflow-hidden">
+        <Image
+          src="/images/knee-jerk-reflex.jpg"
+          alt="Healthcare professional testing patient's knee reflex with a reflex hammer"
+          fill
+          className="object-cover"
+          priority
+        />
+      </div>
+
       <article className="py-16">
         <div className="container mx-auto px-4">
           <div className="prose prose-lg mx-auto max-w-4xl">
@@ -72,7 +83,7 @@ export default function MyotaticReflexPage() {
               When a muscle is stretched, the muscle spindles are activated, which sends a signal through afferent
               sensory neurons to the spinal cord. The spinal cord then sends a signal back to the muscle through motor
               neurons, which causes the muscle to contract. This reflex contraction helps to resist the stretch and
-              maintain appropriate muscle tone and contraction.
+              maintain appropriate muscle tone and movement.
             </p>
 
             <h3>Protection and Function</h3>
