@@ -12,6 +12,17 @@ export async function POST(request: Request) {
     const data = await request.json()
     console.log("[v0] Received data:", { email: data.email, clinic: data.clinic_name })
 
+    const supabase = createAdminClient()
+
+    const { data: existingPractitioner } = await supabase
+      .from("practitioners")
+      .select("id, status, first_name, last_name")
+      .eq("email", data.email)
+      .single()
+
+    const isUpdate = !!existingPractitioner
+    console.log("[v0] Existing practitioner found:", isUpdate)
+
     console.log("[v0] Geocoding address components:", {
       street: data.street_address,
       city: data.city,
@@ -32,50 +43,80 @@ export async function POST(request: Request) {
       console.warn("[v0] Geocoding failed for address components")
     }
 
-    const supabase = createAdminClient()
-
-    console.log("[v0] Attempting to insert practitioner into database")
-    const { data: practitioner, error } = await supabase
-      .from("practitioners")
-      .insert({
-        first_name: data.first_name,
-        last_name: data.last_name,
-        email: data.email,
-        phone: data.phone,
-        clinic_name: data.clinic_name,
-        website: data.website,
-        street_address: data.street_address,
-        city: data.city,
-        state: data.state,
-        zip_code: data.zip_code,
-        country: data.country || "United States",
-        latitude: location?.lat,
-        longitude: location?.lng,
-        certifications: data.certifications ? [data.certifications] : [],
-        years_experience: data.years_experience,
-        specialties: data.specialties ? [data.specialties] : [],
-        bio: data.bio,
-        status: "pending",
-      })
-      .select()
-      .single()
-
-    if (error) {
-      console.error("[v0] Database error:", error.message)
-      return NextResponse.json({ error: error.message || "Failed to submit application" }, { status: 500 })
+    const practitionerData = {
+      first_name: data.first_name,
+      last_name: data.last_name,
+      email: data.email,
+      phone: data.phone,
+      clinic_name: data.clinic_name,
+      website: data.website,
+      street_address: data.street_address,
+      city: data.city,
+      state: data.state,
+      zip_code: data.zip_code,
+      country: data.country || "United States",
+      latitude: location?.lat,
+      longitude: location?.lng,
+      certifications: data.certifications ? [data.certifications] : [],
+      years_experience: data.years_experience,
+      specialties: data.specialties ? [data.specialties] : [],
+      bio: data.bio,
+      updated_at: new Date().toISOString(),
     }
 
-    console.log("[v0] Successfully inserted practitioner:", practitioner.id)
+    let practitioner
+
+    if (isUpdate) {
+      console.log("[v0] Updating existing practitioner:", existingPractitioner.id)
+      const { data: updated, error } = await supabase
+        .from("practitioners")
+        .update(practitionerData)
+        .eq("id", existingPractitioner.id)
+        .select()
+        .single()
+
+      if (error) {
+        console.error("[v0] Database error:", error.message)
+        return NextResponse.json({ error: error.message || "Failed to update information" }, { status: 500 })
+      }
+
+      practitioner = updated
+      console.log("[v0] Successfully updated practitioner:", practitioner.id)
+    } else {
+      console.log("[v0] Creating new practitioner")
+      const { data: created, error } = await supabase
+        .from("practitioners")
+        .insert({
+          ...practitionerData,
+          status: "pending",
+        })
+        .select()
+        .single()
+
+      if (error) {
+        console.error("[v0] Database error:", error.message)
+        return NextResponse.json({ error: error.message || "Failed to submit application" }, { status: 500 })
+      }
+
+      practitioner = created
+      console.log("[v0] Successfully inserted practitioner:", practitioner.id)
+    }
 
     try {
       console.log("[v0] Attempting to send email notification")
       await resend.emails.send({
         from: "Afferentology Directory <onboarding@resend.dev>",
         to: "info@afferentology.org",
-        subject: `New Practitioner Application - ${data.clinic_name}`,
+        subject: isUpdate
+          ? `Practitioner Information Updated - ${data.clinic_name}`
+          : `New Practitioner Application - ${data.clinic_name}`,
         html: `
-          <h2>New Practitioner Application Submitted</h2>
-          <p>A new practitioner has applied to join the directory:</p>
+          <h2>${isUpdate ? "Practitioner Information Updated" : "New Practitioner Application Submitted"}</h2>
+          <p>${
+            isUpdate
+              ? `${data.first_name} ${data.last_name} has updated their practitioner information:`
+              : "A new practitioner has applied to join the directory:"
+          }</p>
           
           <h3>Practitioner Details:</h3>
           <ul>
@@ -83,11 +124,14 @@ export async function POST(request: Request) {
             <li><strong>Clinic:</strong> ${data.clinic_name}</li>
             <li><strong>Email:</strong> ${data.email}</li>
             <li><strong>Phone:</strong> ${data.phone || "N/A"}</li>
-            <li><strong>Location:</strong> ${data.city}, ${data.state}</li>
+            <li><strong>Location:</strong> ${data.city}, ${data.state}, ${data.country}</li>
             <li><strong>Years Experience:</strong> ${data.years_experience || "N/A"}</li>
+            ${isUpdate ? `<li><strong>Current Status:</strong> ${existingPractitioner.status}</li>` : ""}
           </ul>
 
-          <p><a href="https://afferentology.org/admin/practitioners" style="background-color: #1e40af; color: white; padding: 12px 24px; text-decoration: none; border-radius: 6px; display: inline-block; margin-top: 16px;">Review Application</a></p>
+          <p><a href="https://afferentology.org/admin/practitioners" style="background-color: #1e40af; color: white; padding: 12px 24px; text-decoration: none; border-radius: 6px; display: inline-block; margin-top: 16px;">${
+            isUpdate ? "View Updated Information" : "Review Application"
+          }</a></p>
         `,
       })
       console.log("[v0] Email sent successfully")
@@ -96,7 +140,7 @@ export async function POST(request: Request) {
       // Don't fail the submission if email fails
     }
 
-    return NextResponse.json({ success: true, practitioner })
+    return NextResponse.json({ success: true, practitioner, isUpdate })
   } catch (error) {
     console.error("[v0] Error in practitioner submission:", error)
     return NextResponse.json(

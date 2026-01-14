@@ -58,8 +58,10 @@ export default function SubmitPractitionerPage() {
 
       setIsSubmitted(true)
       toast({
-        title: "Application Submitted!",
-        description: "We'll review your application and contact you soon.",
+        title: result.isUpdate ? "Information Updated!" : "Application Submitted!",
+        description: result.isUpdate
+          ? "Your practitioner information has been updated successfully."
+          : "We'll review your application and contact you soon.",
       })
     } catch (error) {
       console.error("Submission error:", error)
@@ -79,10 +81,10 @@ export default function SubmitPractitionerPage() {
         <Card className="w-full max-w-md">
           <CardContent className="pt-12 pb-12 text-center">
             <CheckCircle2 className="mx-auto mb-6 h-16 w-16 text-secondary" />
-            <h2 className="mb-4 text-2xl font-bold text-foreground">Thank You for Applying!</h2>
+            <h2 className="mb-4 text-2xl font-bold text-foreground">Thank You!</h2>
             <p className="mb-6 text-muted-foreground leading-relaxed">
-              Your application has been received and is pending approval. We will review your information and contact
-              you at <strong>{}</strong> within 2-3 business days.
+              Your information has been successfully submitted. If this is a new application, we will review it and
+              contact you within 2-3 business days. If you updated existing information, the changes have been saved.
             </p>
             <p className="mb-6 text-sm text-muted-foreground">
               Once approved, your practice will appear in our practitioner directory for patients to find you.
@@ -151,7 +153,7 @@ export default function SubmitPractitionerPage() {
                     <Input id="years_experience" name="years_experience" type="number" min="0" />
                   </div>
                   <div>
-                    <Label htmlFor="certifications">Certifications</Label>
+                    <Label htmlFor="certifications">Qualifications</Label>
                     <Input id="certifications" name="certifications" placeholder="e.g., Certified Afferentologist" />
                   </div>
                   <div>
