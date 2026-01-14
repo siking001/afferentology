@@ -9,15 +9,17 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
-import { ArrowLeft, Save } from "lucide-react"
+import { ArrowLeft, Save, Upload, X } from "lucide-react"
 import Link from "next/link"
 import { useToast } from "@/hooks/use-toast"
 import { slugify } from "@/lib/utils/slugify"
+import Image from "next/image"
 
 export default function NewArticlePage() {
   const router = useRouter()
   const { toast } = useToast()
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [isUploading, setIsUploading] = useState(false)
   const [formData, setFormData] = useState({
     title: "",
     slug: "",
@@ -35,6 +37,45 @@ export default function NewArticlePage() {
       title,
       slug: slugify(title),
     })
+  }
+
+  async function handleImageUpload(e: React.ChangeEvent<HTMLInputElement>) {
+    const file = e.target.files?.[0]
+    if (!file) return
+
+    setIsUploading(true)
+
+    try {
+      const formDataObj = new FormData()
+      formDataObj.append("file", file)
+
+      const response = await fetch("/api/articles/upload-image", {
+        method: "POST",
+        body: formDataObj,
+      })
+
+      if (!response.ok) {
+        const error = await response.json()
+        throw new Error(error.error || "Upload failed")
+      }
+
+      const { url } = await response.json()
+      setFormData((prev) => ({ ...prev, featured_image_url: url }))
+
+      toast({
+        title: "Success",
+        description: "Image uploaded successfully.",
+      })
+    } catch (error) {
+      console.error("Image upload error:", error)
+      toast({
+        title: "Error",
+        description: error instanceof Error ? error.message : "Failed to upload image.",
+        variant: "destructive",
+      })
+    } finally {
+      setIsUploading(false)
+    }
   }
 
   async function handleSubmit(e: React.FormEvent, publish = false) {
@@ -168,24 +209,59 @@ export default function NewArticlePage() {
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="image">Featured Image URL</Label>
-                <Input
-                  id="image"
-                  value={formData.featured_image_url}
-                  onChange={(e) => setFormData({ ...formData, featured_image_url: e.target.value })}
-                  placeholder="https://example.com/image.jpg"
-                  type="url"
-                />
-              </div>
-
-              <div className="space-y-2">
-                <Label htmlFor="tags">Tags (comma separated)</Label>
-                <Input
-                  id="tags"
-                  value={formData.tags}
-                  onChange={(e) => setFormData({ ...formData, tags: e.target.value })}
-                  placeholder="neuroscience, research, pain science"
-                />
+                <Label htmlFor="image">Featured Image</Label>
+                <div className="flex gap-2">
+                  <Input
+                    id="image"
+                    value={formData.featured_image_url}
+                    onChange={(e) => setFormData({ ...formData, featured_image_url: e.target.value })}
+                    placeholder="Or paste image URL"
+                    type="url"
+                    className="flex-1"
+                  />
+                  <div className="relative">
+                    <Input
+                      type="file"
+                      accept="image/*"
+                      onChange={handleImageUpload}
+                      disabled={isUploading}
+                      className="absolute inset-0 opacity-0 cursor-pointer"
+                      id="file-upload"
+                    />
+                    <Button
+                      type="button"
+                      variant="outline"
+                      disabled={isUploading}
+                      className="w-full bg-transparent"
+                      asChild
+                    >
+                      <label htmlFor="file-upload" className="cursor-pointer">
+                        <Upload className="mr-2 h-4 w-4" />
+                        {isUploading ? "Uploading..." : "Upload"}
+                      </label>
+                    </Button>
+                  </div>
+                </div>
+                {formData.featured_image_url && (
+                  <div className="relative mt-2 rounded-lg border overflow-hidden">
+                    <Image
+                      src={formData.featured_image_url || "/placeholder.svg"}
+                      alt="Featured image preview"
+                      width={400}
+                      height={200}
+                      className="w-full h-48 object-cover"
+                    />
+                    <Button
+                      type="button"
+                      variant="destructive"
+                      size="icon"
+                      className="absolute top-2 right-2"
+                      onClick={() => setFormData({ ...formData, featured_image_url: "" })}
+                    >
+                      <X className="h-4 w-4" />
+                    </Button>
+                  </div>
+                )}
               </div>
 
               <div className="flex gap-3 pt-4">

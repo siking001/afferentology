@@ -37,6 +37,30 @@ export default async function SciencePage() {
     console.log("[v0] Database not yet set up for articles")
   }
 
+  const featuredArticles = [
+    {
+      title: "Why Afferent Input Matters",
+      slug: "afferent-input-matters",
+      excerpt:
+        "Understanding why paying attention to afferent input is crucial for examining and treating patients based on neurological input and output.",
+      image: "/medical-icon-showing-nervous-system-nerve-pathways.jpg",
+    },
+    {
+      title: "The Myotatic Reflex",
+      slug: "myotatic-reflex",
+      excerpt:
+        "Your body's most important defense mechanism for controlled movement, injury prevention, and maintaining proper muscle tone.",
+      image: "/medical-anatomical-diagram-showing-afferent-sensor.jpg",
+    },
+    {
+      title: "The Withdrawal Reflex",
+      slug: "withdrawal-reflex",
+      excerpt:
+        "How sensory receptors have direct control over muscle tone to protect us from danger and respond to irritation.",
+      image: "/patient-experiencing-chronic-pain-relief-after-tre.jpg",
+    },
+  ]
+
   return (
     <div className="flex flex-col">
       {/* Hero Section */}
@@ -55,16 +79,59 @@ export default async function SciencePage() {
         </div>
       </section>
 
-      {/* Articles Grid */}
+      <section className="py-16 md:py-24 bg-muted/30">
+        <div className="container mx-auto px-4">
+          <div className="mx-auto max-w-6xl">
+            <div className="mb-12 text-center">
+              <h2 className="text-3xl font-bold text-foreground mb-3">Foundation Articles</h2>
+              <p className="text-muted-foreground text-lg">Essential concepts for understanding Afferentology</p>
+            </div>
+
+            <div className="grid gap-8 md:grid-cols-3">
+              {featuredArticles.map((article) => (
+                <Link key={article.slug} href={`/science/${article.slug}`}>
+                  <Card className="group h-full overflow-hidden border-2 border-primary/20 shadow-lg transition-all hover:shadow-xl hover:border-primary">
+                    <div className="relative aspect-video w-full overflow-hidden bg-gradient-to-br from-primary/10 to-secondary/10">
+                      <Image
+                        src={article.image || "/placeholder.svg"}
+                        alt={article.title}
+                        fill
+                        className="object-cover transition-transform group-hover:scale-105"
+                      />
+                    </div>
+                    <CardContent className="p-6">
+                      <div className="mb-2">
+                        <span className="text-xs font-semibold uppercase tracking-wide text-primary">Foundation</span>
+                      </div>
+                      <h3 className="mb-3 text-xl font-bold text-foreground group-hover:text-primary transition-colors">
+                        {article.title}
+                      </h3>
+                      <p className="text-sm text-muted-foreground leading-relaxed">{article.excerpt}</p>
+                      <div className="mt-4 flex items-center text-sm font-semibold text-primary group-hover:gap-2 transition-all">
+                        Read Article
+                        <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                      </div>
+                    </CardContent>
+                  </Card>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section className="py-16 md:py-24">
         <div className="container mx-auto px-4">
           <div className="mx-auto max-w-6xl">
             <div className="mb-12 flex items-center justify-between">
-              <h2 className="text-3xl font-bold text-foreground">Latest Research & Articles</h2>
+              <div>
+                <h2 className="text-3xl font-bold text-foreground mb-2">Latest Research & Articles</h2>
+                <p className="text-muted-foreground">Recent insights and case studies</p>
+              </div>
               <Button asChild variant="outline">
                 <Link href="/admin/articles">
-                  <ArrowRight className="mr-2 h-4 w-4" />
                   Manage Articles
+                  <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
             </div>
@@ -74,7 +141,7 @@ export default async function SciencePage() {
                 <CardContent className="py-16 text-center">
                   <p className="text-muted-foreground mb-4">No articles published yet.</p>
                   <Button asChild>
-                    <Link href="/admin/articles/new">Create First Article</Link>
+                    <Link href="/admin/articles/seed-first">Publish Your First Article</Link>
                   </Button>
                 </CardContent>
               </Card>
