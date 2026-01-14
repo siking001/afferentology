@@ -1,7 +1,6 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import { createClient } from "@/lib/supabase/client"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
@@ -22,6 +21,7 @@ interface Practitioner {
   city: string
   state: string
   zip_code: string
+  country: string
   latitude?: number
   longitude?: number
   years_experience?: number
@@ -41,12 +41,14 @@ export default function AdminPractitionersPage() {
 
   async function loadPractitioners() {
     try {
-      const supabase = createClient()
-      const { data, error } = await supabase.from("practitioners").select("*").order("created_at", { ascending: false })
+      const response = await fetch("/api/practitioners/admin")
+      const result = await response.json()
 
-      if (error) throw error
+      if (!response.ok) {
+        throw new Error(result.error || "Failed to load practitioners")
+      }
 
-      setPractitioners(data || [])
+      setPractitioners(result.practitioners || [])
     } catch (error) {
       console.error("Error loading practitioners:", error)
       toast({
@@ -61,16 +63,17 @@ export default function AdminPractitionersPage() {
 
   async function updateStatus(id: string, status: "approved" | "rejected") {
     try {
-      const supabase = createClient()
-      const { error } = await supabase
-        .from("practitioners")
-        .update({
-          status,
-          approved_at: status === "approved" ? new Date().toISOString() : null,
-        })
-        .eq("id", id)
+      const response = await fetch("/api/practitioners/admin", {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ id, status }),
+      })
 
-      if (error) throw error
+      const result = await response.json()
+
+      if (!response.ok) {
+        throw new Error(result.error || "Failed to update status")
+      }
 
       toast({
         title: "Success",
@@ -182,6 +185,7 @@ export default function AdminPractitionersPage() {
                             <p>
                               {practitioner.city}, {practitioner.state} {practitioner.zip_code}
                             </p>
+                            <p className="text-muted-foreground">{practitioner.country}</p>
                           </div>
                         </div>
                       </div>

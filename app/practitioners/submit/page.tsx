@@ -34,6 +34,7 @@ export default function SubmitPractitionerPage() {
       city: formData.get("city"),
       state: formData.get("state"),
       zip_code: formData.get("zip_code"),
+      country: formData.get("country"),
       years_experience: formData.get("years_experience")
         ? Number.parseInt(formData.get("years_experience") as string)
         : null,
@@ -172,13 +173,22 @@ export default function SubmitPractitionerPage() {
                       <Input id="city" name="city" required />
                     </div>
                     <div>
-                      <Label htmlFor="state">State *</Label>
-                      <Input id="state" name="state" required />
+                      <Label htmlFor="state">State/County *</Label>
+                      <Input id="state" name="state" required placeholder="e.g., Dublin, London" />
                     </div>
                     <div>
-                      <Label htmlFor="zip_code">ZIP Code *</Label>
+                      <Label htmlFor="zip_code">Postal Code *</Label>
                       <Input id="zip_code" name="zip_code" required />
                     </div>
+                  </div>
+                  <div>
+                    <Label htmlFor="country">Country *</Label>
+                    <Input
+                      id="country"
+                      name="country"
+                      required
+                      placeholder="e.g., Ireland, United Kingdom, United States"
+                    />
                   </div>
                 </div>
 

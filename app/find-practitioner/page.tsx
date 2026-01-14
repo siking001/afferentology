@@ -22,6 +22,7 @@ interface Practitioner {
   city: string
   state: string
   zip_code: string
+  country: string
   latitude: number
   longitude: number
   bio?: string
@@ -115,7 +116,7 @@ export default function FindPractitionerPage() {
 
   function getDirectionsUrl(practitioner: Practitioner) {
     return `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(
-      `${practitioner.street_address}, ${practitioner.city}, ${practitioner.state} ${practitioner.zip_code}`,
+      `${practitioner.street_address}, ${practitioner.city}, ${practitioner.state} ${practitioner.zip_code}, ${practitioner.country}`,
     )}`
   }
 
@@ -236,6 +237,7 @@ export default function FindPractitionerPage() {
                             <p>
                               {practitioner.city}, {practitioner.state} {practitioner.zip_code}
                             </p>
+                            <p className="text-muted-foreground">{practitioner.country}</p>
                           </div>
                         </div>
                         {practitioner.phone && (

@@ -12,11 +12,25 @@ export async function POST(request: Request) {
     const data = await request.json()
     console.log("[v0] Received data:", { email: data.email, clinic: data.clinic_name })
 
-    // Geocode the address
-    const fullAddress = `${data.street_address}, ${data.city}, ${data.state} ${data.zip_code}`
-    console.log("[v0] Geocoding address:", fullAddress)
-    const location = await geocodeAddress(fullAddress)
+    console.log("[v0] Geocoding address components:", {
+      street: data.street_address,
+      city: data.city,
+      state: data.state,
+      postal: data.zip_code,
+      country: data.country,
+    })
+    const location = await geocodeAddress(
+      data.street_address,
+      data.city,
+      data.state,
+      data.zip_code,
+      data.country || "United States",
+    )
     console.log("[v0] Geocoded location:", location)
+
+    if (!location) {
+      console.warn("[v0] Geocoding failed for address components")
+    }
 
     const supabase = createAdminClient()
 

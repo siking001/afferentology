@@ -1,29 +1,73 @@
 // Geocoding utility to convert addresses to lat/lng
-export async function geocodeAddress(address: string): Promise<{ lat: number; lng: number } | null> {
-  try {
-    const response = await fetch(
-      `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(address)}&limit=1`,
-      {
-        headers: {
-          "User-Agent": "Afferentology Directory",
+export async function geocodeAddress(
+  street: string,
+  city: string,
+  state: string,
+  postalCode: string,
+  country: string,
+): Promise<{ lat: number; lng: number } | null> {
+  // Try multiple address formats for better success rate
+  const addressFormats = [
+    // Format 1: Full address with all components
+    `${street}, ${city}, ${state} ${postalCode}, ${country}`,
+    // Format 2: Without state (for UK addresses where state might be county)
+    `${street}, ${city}, ${postalCode}, ${country}`,
+    // Format 3: Just postcode and country (UK postcodes are very specific)
+    `${postalCode}, ${country}`,
+    // Format 4: City and postcode
+    `${city}, ${postalCode}, ${country}`,
+  ]
+
+  for (let i = 0; i < addressFormats.length; i++) {
+    const address = addressFormats[i]
+    console.log(`[v0] Geocoding attempt ${i + 1}:`, address)
+
+    try {
+      const response = await fetch(
+        `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(address)}&limit=1&addressdetails=1&countrycodes=${getCountryCode(country)}`,
+        {
+          headers: {
+            "User-Agent": "Afferentology Directory (afferentology.org)",
+          },
         },
-      },
-    )
+      )
 
-    const data = await response.json()
-
-    if (data && data.length > 0) {
-      return {
-        lat: Number.parseFloat(data[0].lat),
-        lng: Number.parseFloat(data[0].lon),
+      if (!response.ok) {
+        console.error("[v0] Geocoding API error:", response.status, response.statusText)
+        continue
       }
-    }
 
-    return null
-  } catch (error) {
-    console.error("Geocoding error:", error)
-    return null
+      const data = await response.json()
+
+      if (data && data.length > 0) {
+        console.log("[v0] Geocoding succeeded on attempt", i + 1)
+        return {
+          lat: Number.parseFloat(data[0].lat),
+          lng: Number.parseFloat(data[0].lon),
+        }
+      }
+
+      // Small delay between attempts to respect API rate limits
+      await new Promise((resolve) => setTimeout(resolve, 500))
+    } catch (error) {
+      console.error(`[v0] Geocoding error on attempt ${i + 1}:`, error)
+      continue
+    }
   }
+
+  console.error("[v0] All geocoding attempts failed for:", addressFormats[0])
+  return null
+}
+
+function getCountryCode(country: string): string {
+  const countryMap: { [key: string]: string } = {
+    "United Kingdom": "gb",
+    Ireland: "ie",
+    "United States": "us",
+    UK: "gb",
+    USA: "us",
+  }
+  return countryMap[country] || ""
 }
 
 // Calculate distance between two points using Haversine formula (in miles)
