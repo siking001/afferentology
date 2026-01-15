@@ -2,7 +2,7 @@
 
 import type React from "react"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { useRouter } from "next/navigation"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
@@ -14,11 +14,13 @@ import Link from "next/link"
 import { useToast } from "@/hooks/use-toast"
 import { slugify } from "@/lib/utils/slugify"
 import Image from "next/image"
+import { createClient } from "@/lib/supabase/client"
 import { AdminAuth } from "@/components/admin-auth"
 
-export default function NewArticlePage() {
+export default function EditArticlePage({ params }: { params: { id: string } }) {
   const router = useRouter()
   const { toast } = useToast()
+  const [isLoading, setIsLoading] = useState(true)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isUploading, setIsUploading] = useState(false)
   const [formData, setFormData] = useState({
@@ -30,7 +32,44 @@ export default function NewArticlePage() {
     featured_image_url: "",
     category: "",
     tags: "",
+    published: false,
   })
+
+  useEffect(() => {
+    loadArticle()
+  }, [params.id])
+
+  async function loadArticle() {
+    try {
+      const supabase = createClient()
+      const { data, error } = await supabase.from("articles").select("*").eq("id", params.id).single()
+
+      if (error) throw error
+
+      if (data) {
+        setFormData({
+          title: data.title || "",
+          slug: data.slug || "",
+          excerpt: data.excerpt || "",
+          content: data.content || "",
+          author_name: data.author_name || "Simon King",
+          featured_image_url: data.featured_image_url || "",
+          category: data.category || "",
+          tags: Array.isArray(data.tags) ? data.tags.join(", ") : "",
+          published: data.published || false,
+        })
+      }
+    } catch (error) {
+      console.error("Error loading article:", error)
+      toast({
+        title: "Error",
+        description: "Failed to load article.",
+        variant: "destructive",
+      })
+    } finally {
+      setIsLoading(false)
+    }
+  }
 
   function handleTitleChange(title: string) {
     setFormData({
@@ -79,43 +118,70 @@ export default function NewArticlePage() {
     }
   }
 
-  async function handleSubmit(e: React.FormEvent, publish = false) {
+  async function handleSubmit(e: React.FormEvent, publish?: boolean) {
     e.preventDefault()
     setIsSubmitting(true)
 
     try {
-      const response = await fetch("/api/articles/create", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          ...formData,
-          tags: formData.tags
-            .split(",")
-            .map((tag) => tag.trim())
-            .filter(Boolean),
-          published: publish,
-          published_at: publish ? new Date().toISOString() : null,
-        }),
+      const updateData = {
+        id: params.id,
+        title: formData.title,
+        slug: formData.slug,
+        excerpt: formData.excerpt,
+        content: formData.content,
+        author_name: formData.author_name,
+        featured_image_url: formData.featured_image_url,
+        category: formData.category,
+        tags: formData.tags
+          .split(",")
+          .map((tag) => tag.trim())
+          .filter(Boolean),
+        published: publish !== undefined ? publish : formData.published,
+        published_at: publish ? new Date().toISOString() : formData.published ? undefined : null,
+      }
+
+      const response = await fetch("/api/articles/update", {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(updateData),
       })
 
-      if (!response.ok) throw new Error("Failed to create article")
+      if (!response.ok) {
+        const error = await response.json()
+        throw new Error(error.error || "Failed to update article")
+      }
 
       toast({
         title: "Success",
-        description: `Article ${publish ? "published" : "saved as draft"} successfully.`,
+        description: "Article updated successfully.",
       })
 
       router.push("/admin/articles")
+      router.refresh()
     } catch (error) {
-      console.error("Error creating article:", error)
+      console.error("Error updating article:", error)
       toast({
         title: "Error",
-        description: "Failed to create article.",
+        description: error instanceof Error ? error.message : "Failed to update article.",
         variant: "destructive",
       })
     } finally {
       setIsSubmitting(false)
     }
+  }
+
+  if (isLoading) {
+    return (
+      <AdminAuth>
+        <div className="bg-muted/30 py-16">
+          <div className="container mx-auto max-w-4xl px-4">
+            <p className="text-center">Loading article...</p>
+          </div>
+        </div>
+      </AdminAuth>
+    )
   }
 
   return (
@@ -131,7 +197,7 @@ export default function NewArticlePage() {
 
           <Card>
             <CardHeader>
-              <CardTitle>Create New Article</CardTitle>
+              <CardTitle>Edit Article</CardTitle>
             </CardHeader>
             <CardContent>
               <form className="space-y-6">
@@ -155,9 +221,7 @@ export default function NewArticlePage() {
                     placeholder="article-url-slug"
                     required
                   />
-                  <p className="text-xs text-muted-foreground">
-                    Auto-generated from title. This will be the URL: /science/{formData.slug}
-                  </p>
+                  <p className="text-xs text-muted-foreground">This will be the URL: /science/{formData.slug}</p>
                 </div>
 
                 <div className="space-y-2">
@@ -284,7 +348,7 @@ export default function NewArticlePage() {
                     className="flex-1"
                   >
                     <Save className="mr-2 h-4 w-4" />
-                    Publish Now
+                    {formData.published ? "Update & Keep Published" : "Publish Now"}
                   </Button>
                 </div>
               </form>
