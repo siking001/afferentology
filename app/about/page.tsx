@@ -318,7 +318,7 @@ export default function AboutPage() {
                   </div>
                   <div className="order-1 md:order-2">
                     <h3 className="text-2xl font-bold text-foreground mb-2">Grant Pretorius</h3>
-                    <p className="text-primary font-semibold mb-4">Physiotherapist</p>
+                    <p className="text-primary font-semibold mb-4">Chiropractor</p>
                     <p className="text-muted-foreground leading-relaxed italic">
                       "The results speak for themselves. My patients are getting better faster and staying better
                       longer."

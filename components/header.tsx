@@ -29,7 +29,7 @@ export function Header() {
           <Link href="/science" className="text-sm font-medium text-foreground transition-colors hover:text-primary">
             The Science
           </Link>
-          <Link href="/about-us" className="text-sm font-medium text-foreground transition-colors hover:text-primary">
+          <Link href="/about" className="text-sm font-medium text-foreground transition-colors hover:text-primary">
             About Us
           </Link>
           <Link href="/contact" className="text-sm font-medium text-foreground transition-colors hover:text-primary">
@@ -72,7 +72,7 @@ export function Header() {
               The Science
             </Link>
             <Link
-              href="/about-us"
+              href="/about"
               className="text-sm font-medium text-foreground transition-colors hover:text-primary"
               onClick={() => setMobileMenuOpen(false)}
             >

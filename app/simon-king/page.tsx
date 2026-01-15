@@ -13,7 +13,7 @@ export default function SimonKingPage() {
             <div className="grid gap-8 md:grid-cols-[300px_1fr] md:gap-12 items-center">
               <div className="relative mx-auto h-[300px] w-[300px] overflow-hidden rounded-full border-4 border-primary-foreground/20 shadow-2xl">
                 <Image
-                  src="/images/simon-square.jpg"
+                  src="/images/simon-square.png"
                   alt="Simon King - Founder of Afferentology"
                   fill
                   className="object-cover"
@@ -122,8 +122,8 @@ export default function SimonKingPage() {
                 <div className="grid gap-6 md:grid-cols-2">
                   <div className="relative h-[300px] w-full overflow-hidden rounded-lg shadow-lg">
                     <Image
-                      src="/images/img-0406-201.jpg"
-                      alt="Training group photo with Simon King and practitioners"
+                      src="/images/img-7670.jpg"
+                      alt="Simon King teaching healthcare professionals in classroom training session"
                       fill
                       className="object-cover"
                     />
