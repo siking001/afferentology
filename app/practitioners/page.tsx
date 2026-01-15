@@ -51,8 +51,8 @@ export default function PractitionersPage() {
         <section className="relative bg-gradient-to-br from-primary to-secondary py-16 text-primary-foreground md:py-24 overflow-hidden">
           <div className="absolute inset-0 z-0">
             <Image
-              src="/healthcare-professional-teaching-muscle-testing-t.jpg"
-              alt="Professional training session"
+              src="/images/img-7782-201.jpg"
+              alt="Afferentology training session - practitioner demonstrating muscle testing"
               fill
               className="object-cover opacity-20"
               priority
@@ -84,7 +84,7 @@ export default function PractitionersPage() {
                   variant="outline"
                   className="border-primary-foreground/20 text-primary-foreground hover:bg-primary-foreground/10 bg-transparent"
                 >
-                  <a href="https://learn.afferentology.org" target="_blank" rel="noopener noreferrer">
+                  <a href="https://learn.afferentology.org/courses" target="_blank" rel="noopener noreferrer">
                     View All Courses
                   </a>
                 </Button>
@@ -93,15 +93,16 @@ export default function PractitionersPage() {
           </div>
         </section>
 
-        <section className="bg-[#0a1a1a] py-16 md:py-24">
+        {/* Updated Neurological Foundation Section */}
+        <section className="bg-gradient-to-br from-blue-50 to-teal-50 py-16 md:py-24">
           <div className="container mx-auto px-4">
             <div className="mx-auto max-w-5xl">
               <div className="mb-12 text-center">
-                <p className="text-blue-400 text-sm font-semibold uppercase tracking-wider mb-3">
+                <p className="text-blue-600 text-sm font-semibold uppercase tracking-wider mb-3">
                   The Neurological Foundation
                 </p>
-                <h2 className="mb-4 text-3xl font-bold text-white md:text-4xl">The Afferent Loop</h2>
-                <p className="text-lg text-slate-400 leading-relaxed max-w-2xl mx-auto">
+                <h2 className="mb-4 text-3xl font-bold text-slate-900 md:text-4xl">The Afferent Loop</h2>
+                <p className="text-lg text-slate-700 leading-relaxed max-w-2xl mx-auto">
                   Muscles are not isolated mechanical units—they are the beginning and ending of the nervous system.
                   Every muscle is in continuous dialogue with the spinal cord.
                 </p>
@@ -110,34 +111,34 @@ export default function PractitionersPage() {
               <AfferentLoopAnimation />
 
               <div className="mt-12 grid md:grid-cols-3 gap-6">
-                <div className="bg-slate-900/50 border border-slate-800 rounded-xl p-6">
-                  <div className="w-12 h-12 rounded-lg bg-blue-500/20 flex items-center justify-center mb-4">
-                    <span className="text-blue-400 font-bold text-lg">1</span>
+                <div className="bg-white border border-blue-200 rounded-xl p-6 shadow-sm">
+                  <div className="w-12 h-12 rounded-lg bg-blue-100 flex items-center justify-center mb-4">
+                    <span className="text-blue-600 font-bold text-lg">1</span>
                   </div>
-                  <h3 className="text-white font-bold text-lg mb-2">Afferent Input</h3>
-                  <p className="text-slate-400 text-sm leading-relaxed">
+                  <h3 className="text-slate-900 font-bold text-lg mb-2">Afferent Input</h3>
+                  <p className="text-slate-600 text-sm leading-relaxed">
                     Sensory receptors detect irritants (scars, dental interference, joint dysfunction) and send signals
                     to the spinal cord via afferent neurons.
                   </p>
                 </div>
 
-                <div className="bg-slate-900/50 border border-slate-800 rounded-xl p-6">
-                  <div className="w-12 h-12 rounded-lg bg-purple-500/20 flex items-center justify-center mb-4">
-                    <span className="text-purple-400 font-bold text-lg">2</span>
+                <div className="bg-white border border-purple-200 rounded-xl p-6 shadow-sm">
+                  <div className="w-12 h-12 rounded-lg bg-purple-100 flex items-center justify-center mb-4">
+                    <span className="text-purple-600 font-bold text-lg">2</span>
                   </div>
-                  <h3 className="text-white font-bold text-lg mb-2">Spinal Processing</h3>
-                  <p className="text-slate-400 text-sm leading-relaxed">
+                  <h3 className="text-slate-900 font-bold text-lg mb-2">Spinal Processing</h3>
+                  <p className="text-slate-600 text-sm leading-relaxed">
                     The spinal cord processes the input. If it detects a threat, it triggers the Withdrawal Reflex and
                     down-regulates the motor signal to protect the system.
                   </p>
                 </div>
 
-                <div className="bg-slate-900/50 border border-slate-800 rounded-xl p-6">
-                  <div className="w-12 h-12 rounded-lg bg-emerald-500/20 flex items-center justify-center mb-4">
-                    <span className="text-emerald-400 font-bold text-lg">3</span>
+                <div className="bg-white border border-emerald-200 rounded-xl p-6 shadow-sm">
+                  <div className="w-12 h-12 rounded-lg bg-emerald-100 flex items-center justify-center mb-4">
+                    <span className="text-emerald-600 font-bold text-lg">3</span>
                   </div>
-                  <h3 className="text-white font-bold text-lg mb-2">Efferent Output</h3>
-                  <p className="text-slate-400 text-sm leading-relaxed">
+                  <h3 className="text-slate-900 font-bold text-lg mb-2">Efferent Output</h3>
+                  <p className="text-slate-600 text-sm leading-relaxed">
                     The efferent signal—the 50Hz resting tone—determines muscle readiness and stability. Remove the
                     irritant, restore the signal.
                   </p>
@@ -146,17 +147,17 @@ export default function PractitionersPage() {
             </div>
           </div>
         </section>
-        {/* </CHANGE> */}
 
-        <section className="bg-[#0d1f1f] py-16 md:py-24 border-y border-teal-900/50">
+        {/* Updated Clinical Application Section */}
+        <section className="bg-gradient-to-br from-slate-50 to-amber-50 py-16 md:py-24 border-y border-amber-200">
           <div className="container mx-auto px-4">
             <div className="mx-auto max-w-5xl">
               <div className="mb-12 text-center">
-                <p className="text-emerald-400 text-sm font-semibold uppercase tracking-wider mb-3">
+                <p className="text-amber-600 text-sm font-semibold uppercase tracking-wider mb-3">
                   Clinical Application
                 </p>
-                <h2 className="mb-4 text-3xl font-bold text-white md:text-4xl">Precision Muscle Testing</h2>
-                <p className="text-lg text-slate-400 leading-relaxed max-w-2xl mx-auto">
+                <h2 className="mb-4 text-3xl font-bold text-slate-900 md:text-4xl">Precision Muscle Testing</h2>
+                <p className="text-lg text-slate-700 leading-relaxed max-w-2xl mx-auto">
                   Learn to challenge the muscle's ability to maintain its 50Hz resting tone. When a muscle fails to
                   "lock," you've found a window into the nervous system's protective response.
                 </p>
@@ -164,43 +165,46 @@ export default function PractitionersPage() {
 
               <PrecisionTestingDashboard />
 
-              <div className="mt-12 bg-[#071414] border border-teal-900/50 rounded-xl p-6 md:p-8">
-                <h3 className="text-white font-bold text-xl mb-4">The Protocol</h3>
-                <div className="prose prose-invert max-w-none">
-                  <ol className="space-y-4 text-slate-300">
+              <div className="mt-12 bg-white border border-amber-200 rounded-xl p-6 md:p-8 shadow-sm">
+                <h3 className="text-slate-900 font-bold text-xl mb-4">The Protocol</h3>
+                <div className="prose prose-slate max-w-none">
+                  <ol className="space-y-4 text-slate-700">
                     <li className="flex gap-4">
-                      <span className="flex-shrink-0 w-8 h-8 rounded-full bg-amber-500/20 text-amber-400 flex items-center justify-center font-bold text-sm">
+                      <span className="flex-shrink-0 w-8 h-8 rounded-full bg-amber-100 text-amber-700 flex items-center justify-center font-bold text-sm">
                         1
                       </span>
                       <div>
-                        <strong className="text-white">Challenge the Muscle</strong>
-                        <p className="text-slate-400 mt-1 text-sm">
-                          Use Precision Muscle Testing to challenge the muscle's ability to maintain its 50Hz resting
-                          tone. A healthy muscle will "lock" and resist—a compromised muscle will fail.
+                        <strong className="text-slate-900">Challenge the Muscle</strong>
+                        <p className="text-slate-600 mt-1 text-sm">
+                          Use Precision Muscle Testing to feel for the muscle's ability to maintain its 50Hz resting
+                          tone against a stable external force. A healthy muscle will instantly adapt to resist a
+                          steadily increasing external force—a compromised muscle will fail.
                         </p>
                       </div>
                     </li>
                     <li className="flex gap-4">
-                      <span className="flex-shrink-0 w-8 h-8 rounded-full bg-red-500/20 text-red-400 flex items-center justify-center font-bold text-sm">
+                      <span className="flex-shrink-0 w-8 h-8 rounded-full bg-red-100 text-red-700 flex items-center justify-center font-bold text-sm">
                         2
                       </span>
                       <div>
-                        <strong className="text-white">Identify the Irritant</strong>
-                        <p className="text-slate-400 mt-1 text-sm">
-                          If the muscle fails to lock, the practitioner identifies and "negates" the noxious afferent
-                          input—the metaphorical "nail in the foot" triggering the Withdrawal Reflex.
+                        <strong className="text-slate-900">Identify the Irritant</strong>
+                        <p className="text-slate-600 mt-1 text-sm">
+                          If the muscle fails, the practitioner identifies and "negates" the noxious afferent input—the
+                          metaphorical "nail in the foot" triggering the Withdrawal Reflex. Negating the bad input
+                          involves changing proprioception through position, muscle contraction, pressure or
+                          stretch—temporarily as part of the diagnosis and then permanently as part of the treatment.
                         </p>
                       </div>
                     </li>
                     <li className="flex gap-4">
-                      <span className="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold text-sm">
+                      <span className="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-sm">
                         3
                       </span>
                       <div>
-                        <strong className="text-white">Restore the Signal</strong>
-                        <p className="text-slate-400 mt-1 text-sm">
+                        <strong className="text-slate-900">Restore the Signal</strong>
+                        <p className="text-slate-600 mt-1 text-sm">
                           By neutralizing the corrupted data, you restore the neurological signal, allowing the brain to
-                          re-establish the resting tone and instantly regain functional stability.
+                          re-establish the normal resting tone and strength to instantly regain functional stability.
                         </p>
                       </div>
                     </li>
@@ -210,7 +214,6 @@ export default function PractitionersPage() {
             </div>
           </div>
         </section>
-        {/* </CHANGE> */}
 
         {/* Software Not Hardware section - updated styling */}
         <section className="py-16 md:py-24 bg-muted/30">
@@ -350,7 +353,7 @@ export default function PractitionersPage() {
                           Afferentology practitioner.
                         </p>
                         <Button asChild variant="outline">
-                          <a href="https://learn.afferentology.org" target="_blank" rel="noopener noreferrer">
+                          <a href="https://learn.afferentology.org/courses" target="_blank" rel="noopener noreferrer">
                             Browse All Courses
                             <ArrowRight className="ml-2 h-4 w-4" />
                           </a>

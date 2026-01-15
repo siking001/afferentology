@@ -152,8 +152,8 @@ export default function HomePage() {
               <Card className="overflow-hidden border-none shadow-lg">
                 <div className="relative aspect-video w-full">
                   <Image
-                    src="/patient-experiencing-chronic-pain-relief-after-tre.jpg"
-                    alt="Patient seeking pain relief"
+                    src="/images/photodune-3821116-back-pain-s-1.jpg"
+                    alt="Person experiencing back pain"
                     fill
                     className="object-cover"
                   />
@@ -177,8 +177,8 @@ export default function HomePage() {
               <Card className="overflow-hidden border-none shadow-lg">
                 <div className="relative aspect-video w-full">
                   <Image
-                    src="/healthcare-practitioner-performing-shoulder-muscle.jpg"
-                    alt="Practitioner testing patient"
+                    src="/images/img-7789-202.jpg"
+                    alt="Practitioner demonstrating precision muscle testing during training"
                     fill
                     className="object-cover"
                   />
