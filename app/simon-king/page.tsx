@@ -84,12 +84,24 @@ export default function SimonKingPage() {
                       Simon's book explores the relationship between afferent input and chronic pain, offering insights
                       into why conventional treatments often fail and what can be done about it.
                     </p>
-                    <Button asChild variant="outline" size="sm" className="w-full bg-transparent">
-                      <a href="mailto:info@afferentology.org">
-                        <BookOpen className="mr-2 h-4 w-4" />
-                        Inquire About Book
-                      </a>
-                    </Button>
+                    <div className="space-y-2">
+                      <Button asChild className="w-full bg-primary hover:bg-primary/90">
+                        <a
+                          href="https://www.amazon.co.uk/Live-Without-Pain-Theory-Whats/dp/0955986907/"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <ExternalLink className="mr-2 h-4 w-4" />
+                          Buy on Amazon UK
+                        </a>
+                      </Button>
+                      <Button asChild variant="outline" size="sm" className="w-full bg-transparent">
+                        <a href="mailto:info@afferentology.org">
+                          <BookOpen className="mr-2 h-4 w-4" />
+                          Inquire About Book
+                        </a>
+                      </Button>
+                    </div>
                   </CardContent>
                 </Card>
 
@@ -123,7 +135,7 @@ export default function SimonKingPage() {
                   <div className="relative h-[300px] w-full overflow-hidden rounded-lg shadow-lg">
                     <Image
                       src="/images/img-7670.jpg"
-                      alt="Simon King teaching healthcare professionals in classroom training session"
+                      alt="Simon teaching in a classroom training session"
                       fill
                       className="object-cover"
                     />
