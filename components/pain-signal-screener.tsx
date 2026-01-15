@@ -18,8 +18,8 @@ interface Question {
 const questions: Question[] = [
   {
     id: "pain_at_rest",
-    question: "Is your pain worse at rest or when you're not moving?",
-    subtext: "Pain that persists without movement may indicate a neurological holding pattern.",
+    question: "Is your pain reocurring or resistant to conventional treatment?",
+    subtext: "Pain that doesn't improve with rest or exercise may indicate hidden neurological interference.",
     type: "yesno",
     riskWeight: 2,
   },
@@ -66,14 +66,14 @@ const questions: Question[] = [
   {
     id: "piercings",
     question: "Do you have any piercings apart from the ear lobes?",
-    subtext: "Body piercings can create continuous afferent signals that affect muscle tone.",
+    subtext: "Body piercings can create irritating afferent signals that affect muscle tone.",
     type: "yesno",
     riskWeight: 1,
   },
   {
     id: "strength",
     question: "Are you as strong as you think you should be for your age and condition?",
-    subtext: "Unexplained weakness often indicates neurological inhibition, not muscle failure.",
+    subtext: "Unexplained weakness often indicates neurological inhibition, not muscle weakness.",
     type: "yesno",
     riskWeight: 3,
   },
