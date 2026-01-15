@@ -1,4 +1,3 @@
-import { createClient } from "@/lib/supabase/admin"
 import { type NextRequest, NextResponse } from "next/server"
 
 export async function POST(request: NextRequest) {
@@ -21,35 +20,13 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: "File too large. Maximum size is 5MB." }, { status: 400 })
     }
 
-    const supabase = createClient()
-
-    // Generate unique filename
-    const timestamp = Date.now()
-    const fileExt = file.name.split(".").pop()
-    const fileName = `${timestamp}-${Math.random().toString(36).substring(7)}.${fileExt}`
-
-    // Convert file to buffer
+    // Convert file to base64 data URL
     const arrayBuffer = await file.arrayBuffer()
     const buffer = Buffer.from(arrayBuffer)
+    const base64 = buffer.toString("base64")
+    const dataUrl = `data:${file.type};base64,${base64}`
 
-    // Upload to Supabase Storage
-    const { data, error } = await supabase.storage.from("article-images").upload(fileName, buffer, {
-      contentType: file.type,
-      cacheControl: "3600",
-      upsert: false,
-    })
-
-    if (error) {
-      console.error("Supabase storage error:", error)
-      return NextResponse.json({ error: "Failed to upload image" }, { status: 500 })
-    }
-
-    // Get public URL
-    const {
-      data: { publicUrl },
-    } = supabase.storage.from("article-images").getPublicUrl(data.path)
-
-    return NextResponse.json({ url: publicUrl })
+    return NextResponse.json({ url: dataUrl })
   } catch (error) {
     console.error("Upload error:", error)
     return NextResponse.json({ error: "Failed to upload image" }, { status: 500 })
