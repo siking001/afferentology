@@ -18,8 +18,8 @@ interface Question {
 const questions: Question[] = [
   {
     id: "pain_at_rest",
-    question: "Is your pain worse at rest or when you're not moving?",
-    subtext: "Pain that persists without movement may indicate a neurological holding pattern.",
+    question: "Is your problem reocurring or resistant to conventional treatment like rest and exercise?",
+    subtext: "Pain that persists without movement may indicate a neurological irritation.",
     type: "yesno",
     riskWeight: 2,
   },
