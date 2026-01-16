@@ -8,7 +8,7 @@ import { ArrowLeft, Calendar, Eye, Tag } from "lucide-react"
 import type { Metadata } from "next"
 
 interface ArticlePageProps {
-  params: { slug: string }
+  params: Promise<{ slug: string }>
 }
 
 interface Article {
@@ -26,11 +26,12 @@ interface Article {
 }
 
 export async function generateMetadata({ params }: ArticlePageProps): Promise<Metadata> {
+  const { slug } = await params
   const supabase = await createClient()
   const { data: article } = await supabase
     .from("articles")
     .select("title, excerpt, featured_image_url")
-    .eq("slug", params.slug)
+    .eq("slug", slug)
     .eq("published", true)
     .single()
 
@@ -53,13 +54,14 @@ export async function generateMetadata({ params }: ArticlePageProps): Promise<Me
 }
 
 export default async function ArticlePage({ params }: ArticlePageProps) {
+  const { slug } = await params
   const supabase = await createClient()
 
   // Fetch article
   const { data: article, error } = await supabase
     .from("articles")
     .select("*")
-    .eq("slug", params.slug)
+    .eq("slug", slug)
     .eq("published", true)
     .single()
 
