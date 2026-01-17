@@ -2,7 +2,7 @@
 
 import type React from "react"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, use } from "react"
 import { useRouter } from "next/navigation"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
@@ -17,7 +17,8 @@ import Image from "next/image"
 import { createClient } from "@/lib/supabase/client"
 import { AdminAuth } from "@/components/admin-auth"
 
-export default function EditArticlePage({ params }: { params: { id: string } }) {
+export default function EditArticlePage({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = use(params)
   const router = useRouter()
   const { toast } = useToast()
   const [isLoading, setIsLoading] = useState(true)
@@ -37,16 +38,20 @@ export default function EditArticlePage({ params }: { params: { id: string } }) 
 
   useEffect(() => {
     loadArticle()
-  }, [params.id])
+  }, [id])
 
   async function loadArticle() {
+    console.log("[v0] Loading article with id:", id)
     try {
       const supabase = createClient()
-      const { data, error } = await supabase.from("articles").select("*").eq("id", params.id).single()
+      const { data, error } = await supabase.from("articles").select("*").eq("id", id).single()
+
+      console.log("[v0] Supabase response - data:", data, "error:", error)
 
       if (error) throw error
 
       if (data) {
+        console.log("[v0] Setting form data with article:", data.title)
         setFormData({
           title: data.title || "",
           slug: data.slug || "",
@@ -60,7 +65,7 @@ export default function EditArticlePage({ params }: { params: { id: string } }) 
         })
       }
     } catch (error) {
-      console.error("Error loading article:", error)
+      console.error("[v0] Error loading article:", error)
       toast({
         title: "Error",
         description: "Failed to load article.",
@@ -124,7 +129,7 @@ export default function EditArticlePage({ params }: { params: { id: string } }) 
 
     try {
       const updateData = {
-        id: params.id,
+        id: id,
         title: formData.title,
         slug: formData.slug,
         excerpt: formData.excerpt,
