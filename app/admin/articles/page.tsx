@@ -37,7 +37,7 @@ export default function AdminArticlesPage() {
       const { data, error } = await supabase
         .from("articles")
         .select("id, created_at, title, slug, excerpt, category, published, published_at, views")
-        .order("created_at", { ascending: false })
+        .order("updated_at", { ascending: false })
 
       if (error) throw error
 

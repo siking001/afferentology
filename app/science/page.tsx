@@ -19,22 +19,53 @@ export const metadata: Metadata = {
 
 export const revalidate = 3600
 
-export default async function SciencePage() {
+export default async function SciencePage({
+  searchParams,
+}: {
+  searchParams: Promise<{ category?: string }>
+}) {
+  const { category: selectedCategory } = await searchParams
+  
   let articles: any[] = []
+  let categories: { category: string; count: number }[] = []
 
   try {
     const { createClient } = await import("@/lib/supabase/server")
     const supabase = await createClient()
 
-    const { data } = await supabase
+    // Fetch categories with counts
+    const { data: categoryData } = await supabase
+      .from("articles")
+      .select("category")
+      .eq("published", true)
+    
+    if (categoryData) {
+      const categoryCounts = categoryData.reduce((acc: Record<string, number>, item) => {
+        if (item.category) {
+          acc[item.category] = (acc[item.category] || 0) + 1
+        }
+        return acc
+      }, {})
+      categories = Object.entries(categoryCounts)
+        .map(([category, count]) => ({ category, count }))
+        .sort((a, b) => b.count - a.count)
+    }
+
+    // Fetch articles with optional category filter
+    let query = supabase
       .from("articles")
       .select("id, title, slug, excerpt, featured_image_url, category, published_at, views")
       .eq("published", true)
-      .order("published_at", { ascending: false })
+    
+    if (selectedCategory) {
+      query = query.eq("category", selectedCategory)
+    }
+    
+    const { data } = await query.order("published_at", { ascending: false })
 
     articles = data || []
   } catch (error) {
-    console.log("[v0] Database not yet set up for articles")
+    console.log("Database not yet set up for articles")
   }
 
   const featuredArticles = [
@@ -123,18 +154,60 @@ export default async function SciencePage() {
       <section className="py-16 md:py-24">
         <div className="container mx-auto px-4">
           <div className="mx-auto max-w-6xl">
-            <div className="mb-12 flex items-center justify-between">
+            <div className="mb-8 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
               <div>
                 <h2 className="text-3xl font-bold text-foreground mb-2">Latest Research & Articles</h2>
                 <p className="text-muted-foreground">Recent insights and case studies</p>
               </div>
-              <Button asChild variant="outline">
+              <Button asChild variant="outline" className="bg-transparent w-fit">
                 <Link href="/admin/articles">
                   Manage Articles
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
             </div>
+
+            {/* Category Filter */}
+            {categories.length > 0 && (
+              <div className="mb-10 flex flex-wrap items-center gap-2">
+                <span className="text-sm font-medium text-muted-foreground mr-2">Filter by:</span>
+                <Link href="/science">
+                  <Button
+                    variant={!selectedCategory ? "default" : "outline"}
+                    size="sm"
+                    className={!selectedCategory ? "" : "bg-transparent"}
+                  >
+                    All
+                  </Button>
+                </Link>
+                {categories.map(({ category, count }) => (
+                  <Link key={category} href={`/science?category=${encodeURIComponent(category)}`}>
+                    <Button
+                      variant={selectedCategory === category ? "default" : "outline"}
+                      size="sm"
+                      className={selectedCategory === category ? "" : "bg-transparent"}
+                    >
+                      {category}
+                      <span className="ml-1.5 rounded-full bg-muted/50 px-1.5 py-0.5 text-xs">
+                        {count}
+                      </span>
+                    </Button>
+                  </Link>
+                ))}
+              </div>
+            )}
+
+            {/* Show active filter indicator */}
+            {selectedCategory && (
+              <div className="mb-6 flex items-center gap-2">
+                <span className="text-sm text-muted-foreground">
+                  Showing {articles.length} article{articles.length !== 1 ? 's' : ''} in "{selectedCategory}"
+                </span>
+                <Link href="/science" className="text-sm text-primary hover:underline">
+                  Clear filter
+                </Link>
+              </div>
+            )}
 
             {!articles || articles.length === 0 ? (
               <Card>

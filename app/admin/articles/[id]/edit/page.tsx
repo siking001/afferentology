@@ -41,17 +41,13 @@ export default function EditArticlePage({ params }: { params: Promise<{ id: stri
   }, [id])
 
   async function loadArticle() {
-    console.log("[v0] Loading article with id:", id)
     try {
       const supabase = createClient()
       const { data, error } = await supabase.from("articles").select("*").eq("id", id).single()
 
-      console.log("[v0] Supabase response - data:", data, "error:", error)
-
       if (error) throw error
 
       if (data) {
-        console.log("[v0] Setting form data with article:", data.title)
         setFormData({
           title: data.title || "",
           slug: data.slug || "",
@@ -65,7 +61,7 @@ export default function EditArticlePage({ params }: { params: Promise<{ id: stri
         })
       }
     } catch (error) {
-      console.error("[v0] Error loading article:", error)
+      console.error("Error loading article:", error)
       toast({
         title: "Error",
         description: "Failed to load article.",
