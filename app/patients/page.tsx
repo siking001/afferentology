@@ -169,7 +169,7 @@ export default function PatientsPage() {
               <div className="mb-12 overflow-hidden rounded-lg border-2 border-primary/20 bg-background">
                 <div className="relative aspect-video w-full">
                   <Image
-                    src="/medical-anatomical-diagram-showing-afferent-sensor.jpg"
+                    src="/images/afferent-input-diagram.jpg"
                     alt="Afferent input pathway diagram showing how sensory signals travel to the brain"
                     fill
                     className="object-contain p-4"
