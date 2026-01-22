@@ -110,136 +110,62 @@ export default function WithdrawalReflexPage() {
       </div>
 
       <article className="py-16">
-        <div className="container mx-auto px-4">
-          <div className="prose prose-lg mx-auto max-w-4xl">
-            <p className="lead">
-              To navigate a changing, unpredictable and sometimes dangerous environment, our sensors need direct control
-              over our muscle tone.
-            </p>
+  <div className="container mx-auto px-4 flex justify-center">
+    <div className="max-w-4xl w-full [&_h2]:text-3xl [&_h2]:font-bold [&_h2]:mt-12 [&_h2]:mb-6 [&_h2]:text-foreground [&_h2]:tracking-tight [&_h2]:border-b [&_h2]:pb-2 [&_p]:text-lg [&_p]:leading-relaxed [&_p]:mb-6 [&_p]:text-foreground/80 [&_blockquote]:border-l-4 [&_blockquote]:border-primary [&_blockquote]:bg-muted/30 [&_blockquote]:p-6 [&_blockquote]:my-8 [&_blockquote]:italic [&_blockquote]:rounded-r-lg [&_ul]:list-disc [&_ul]:ml-6 [&_ul]:mb-6 [&_ul]:space-y-2 [&_li]:text-foreground/80 [&_strong]:text-foreground [&_strong]:font-bold [&_a]:text-primary [&_a]:underline hover:[&_a]:text-secondary">
+      
+      <p className="italic text-xl border-l-4 border-primary pl-6 mb-12">
+        To navigate an unpredictable and sometimes dangerous environment, our sensors require direct, autonomous control over our muscle tone. In Afferentology, we call this the "Survival Override."
+      </p>
 
-            <h2>Immediate Protection Without Thinking</h2>
+      <p>When you touch a hot iron, nerve messages race up your arm and into your spinal cord. They connect directly to the motor neurons that contract the muscles, pulling your hand away before your brain even registers the heat. This is the <strong>Withdrawal Reflex</strong>—a hard-wired circuit designed to protect the hardware at all costs.</p>
 
-            <p>
-              When you touch a hot iron, nerve messages race up your arm and into your spinal cord where they connect
-              directly to the motor neurons that contract the muscles which pull your hand away from the iron, even
-              before your brain registers that there is a problem.
-            </p>
+      
 
-            <p>
-              Without a direct connection between your skin and your muscles, the pain warning would have had to travel
-              all the way to your brain, be interpreted and wait for you to send messages to your arm – wasting valuable
-              milliseconds as your hand sizzled.
-            </p>
+      <h2>Immediate Protection Without Thinking</h2>
+      <p>Without this direct connection between your skin and your muscles, the pain warning would have to travel all the way to the brain, be interpreted, and wait for a conscious command. Those lost milliseconds are the difference between a minor startle and a third-degree burn. The reflex bypasses the "CPU" of the brain to ensure the integrity of the system.</p>
 
-            <h3>How It Works</h3>
+      <blockquote>
+        "If you stand on a nail, pain sensors fire, causing an immediate contraction of the hamstrings and hip flexors. Simultaneously, the antagonists are inhibited, preventing you from pushing your foot further through the nail. The software has taken control."
+      </blockquote>
 
-            <p>
-              If you stand on a nail, pain sensors fire causing contraction of the hamstrings and hip flexors, lifting
-              your foot off the nail. At the same time, the antagonists are inhibited, preventing you from pushing your
-              foot further through the nail. The sensors that detect the damage to your tissues stop you walking (and
-              therefore prevents more damage) because they change your muscle tone.
-            </p>
+      <h2>Beyond Pain: The "Silent" Withdrawal</h2>
+      <p>While we recognize the reflex in extreme pain, it operates throughout the body in response to any persistent irritation. A pebble in your shoe may not 'hurt,' but it forces a limp. Your nervous system hates irritation; it requires the skin to be free of insult to maintain a clean <strong>50Hz resting tone</strong>.</p>
 
-            <p>
-              The direct link between your skin and muscles is called a reflex. In this case, the withdrawal reflex.
-            </p>
+      <div className="my-10 rounded-lg bg-primary/5 p-8 border-l-4 border-primary">
+        <p className="text-xl font-bold mb-0 italic">
+          Crucially, the reflex has priority over your brain's conscious instruction. This is why it is physically impossible to force yourself to hold your hand on a red-hot iron. The survival software outranks the conscious user.
+        </p>
+      </div>
 
-            <h2>Beyond Pain: Responding to All Irritation</h2>
+      <h2>The Modern "Nail": Piercings and Scars</h2>
+      <p>Our skin is sensitive enough to feel a single hair move. When our sensors are alerted to irritation, they ready us for action by changing our muscle tone. In the modern world, this irritation often comes from intentional foreign bodies or surgical trauma.</p>
 
-            <p>
-              You probably recognise the withdrawal reflex in the feet (standing on a nail) and hands (pulling away
-              after touching a hotplate) but it operates throughout the body, even if the stimulus is not painful.
-            </p>
+      <h3>Case Study: The Belly Piercing and the Back Sprain</h3>
+      <p>A piercing near the belly button can constantly activate the abdominals while inhibiting the spinal extensors. You may feel "normal" until you lift a heavy load, at which point the inhibited extensors fail to protect the spine. Unless the "Nail" (the piercing) is addressed, the back pain remains a software glitch that no amount of physical therapy can override.</p>
 
-            <p>
-              A pebble in our shoe doesn't really hurt, but we stop and take it out as soon as we can. Otherwise we
-              would limp.
-            </p>
+      <h2>Afferentology: The Common Language of Therapy</h2>
+      <p>Afferentology provides a scientific framework for the beneficial effects of all physical therapies—from Chiropractic and Physiotherapy to Acupuncture and Reflexology. Any practitioner who touches, moves, or manipulates a patient is effectively <strong>reprogramming the patient's afferent input.</strong></p>
 
-            <div className="my-8 rounded-lg bg-accent/10 p-6">
-              <p className="font-semibold">
-                Notice that it's the reflex which controls your movement, not your brain. The reflex HAS PRIORITY over
-                your brain's conscious instruction, which is why it's impossible to force yourself to hold your hand on
-                a hot iron.
-              </p>
-            </div>
+      <ul>
+        <li><strong>Reflexology:</strong> Stimulating receptors in the feet to facilitate or inhibit tone throughout the body.</li>
+        <li><strong>Acupuncture:</strong> Inducing a specific, powerful withdrawal reflex through the stimulation of free nerve endings.</li>
+        <li><strong>Manual Therapy:</strong> Adjusting joints to clear the "noise" from mechanoreceptors, allowing the 50Hz signal to stabilize.</li>
+      </ul>
 
-            <p>
-              Our nervous system hates irritation. Our skin needs to be free of insult for us to be at peace and able to
-              function normally. It's not just princesses who are bothered by peas.
-            </p>
+      <h2>Foreign Bodies and Long-Term Stability</h2>
+      <p>If a nail in the foot induces the withdrawal reflex, a "nail" (earring) through the ear or nose must do the same. It is impossible for a foreign body not to induce changes in muscle tone as the body withdraws from the irritant.</p>
 
-            <h2>The Withdrawal Reflex at Work</h2>
+      <p className="text-primary font-bold text-xl">
+        Once we understand that these neurological shifts are inevitable, it becomes medically negligent not to examine for them in any case of chronic muscular inhibition.
+      </p>
 
-            <p>
-              Our skin is so sensitive that it can feel one hair move. If our sensors are alerted to any irritation,
-              they ready us for action, by changing our muscle tone.
-            </p>
+      <hr className="my-12 border-border" />
 
-            <p>
-              The irritation doesn't have to be painful. Tickling is a very effective way of activating some muscles
-              while inhibiting their antagonists.
-            </p>
-
-            <h3>Real-World Example: Belly Piercings and Back Pain</h3>
-
-            <p>
-              If you put a piercing through skin around your belly button, it will activate your abdominals and inhibit
-              your spinal extensors, the ones that hold you upright.
-            </p>
-
-            <p>
-              You will feel perfectly normal until the next time you have to lift something heavy, when you may well
-              sprain the joints of your low back. Unless you take the belly piercing out, your low back pain might never
-              go away.
-            </p>
-
-            <h2>Physical Therapies and Afferent Input</h2>
-
-            <p>
-              Afferentology provides a common understanding of the beneficial effects of all the physical therapies,
-              from reflexology to yoga, chiropractic to physiotherapy, Qi Gong to aerobics, Pilates to Shiatsu.
-            </p>
-
-            <p>
-              Any practitioner who touches, moves, pokes, prods, adjusts, manipulates or mobilises a patient is altering
-              that patient's afferent input.
-            </p>
-
-            <h3>Understanding Reflexology</h3>
-
-            <p>
-              When a reflexologist rubs or stimulates points on the feet they are activating sensory receptors in the
-              skin, fascia and muscles of the feet. This stimulation facilitates some muscles while inhibiting others,
-              creating measurable changes in muscle tone throughout the body.
-            </p>
-
-            <h3>Acupuncture Explained</h3>
-
-            <p>
-              Acupuncture can likewise be explained in terms of skin receptor stimulation. The insertion of needles
-              induces the withdrawal reflex, but this time the effects will be more specific and far more powerful than
-              simple pressure on the skin because the needle may physically damage free nerve endings. The stimulation
-              from those nerve receptors may last hours to days after the needles are withdrawn.
-            </p>
-
-            <h2>Foreign Bodies and Long-Term Effects</h2>
-
-            <p>
-              Afferentology offers an alternative explanation for the practice of acupuncture and leads us to look for
-              the effects of other foreign bodies we commonly leave in the skin.
-            </p>
-
-            <p>
-              A nail in the foot is the classic example of the withdrawal reflex, but a nail through the ear or the nose
-              will also produce facilitation of some muscles and inhibition of others.
-            </p>
-
-            <p className="font-semibold text-primary">
-              It is impossible for an earring not to induce muscle tone changes as the body withdraws from the
-              irritating foreign body. Once we are aware that these changes are inevitable, it would be negligent not to
-              examine for it as long as the examination is appropriate for inhibition.
-            </p>
+      <p className="text-center">
+        <a href="https://learn.afferentology.org" className="text-2xl font-bold">
+          Learn to Identify the "Silent" Withdrawal Reflex →
+        </a>
+      </p>
 
             <div className="mt-12 rounded-lg bg-muted p-8">
               <h3 className="mb-4 text-2xl font-bold">Learn to Identify and Address Withdrawal Reflex Issues</h3>

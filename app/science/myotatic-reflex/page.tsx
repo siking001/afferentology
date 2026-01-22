@@ -105,98 +105,55 @@ export default function MyotaticReflexPage() {
 
       <article className="py-16">
         <div className="container mx-auto px-4">
-          <div className="prose prose-lg mx-auto max-w-4xl">
-            <p className="lead">
-              The Myotatic Reflex (sometimes myotactic reflex) is probably our body's most important and unrecognised
-              defence mechanism. When it comes to making it safely through the day, nothing comes close to the myotatic
-              reflex.
-            </p>
+          <div className="mx-auto max-w-4xl [&_h2]:text-3xl [&_h2]:font-bold [&_h2]:mt-12 [&_h2]:mb-6 [&_h2]:text-foreground [&_h2]:tracking-tight [&_h2]:border-b [&_h2]:pb-2 [&_p]:text-lg [&_p]:leading-relaxed [&_p]:mb-6 [&_p]:text-foreground/80 [&_blockquote]:border-l-4 [&_blockquote]:border-primary [&_blockquote]:bg-muted/30 [&_blockquote]:p-6 [&_blockquote]:my-8 [&_blockquote]:italic [&_blockquote]:rounded-r-lg [&_ul]:list-disc [&_ul]:ml-6 [&_ul]:mb-6 [&_ul]:space-y-2 [&_li]:text-foreground/80 [&_strong]:text-foreground [&_strong]:font-bold [&_a]:text-primary [&_a]:underline hover:[&_a]:text-secondary">
+      
+            <p className="italic text-xl border-l-4 border-primary pl-6 mb-12">
+        The Myotatic Reflex is the body's primary defense against structural collapse. While traditional therapy focuses on muscle bulk, Afferentology focuses on the speed and integrity of this vital neurological circuit.
+      </p>
 
-            <h2>How the Myotatic Reflex Works</h2>
+      <p>The Myotatic Reflex (or stretch reflex) is likely our body's most important and unrecognized defense mechanism. When it comes to navigating the physical world safely, nothing is more critical to joint stability and injury prevention.</p>
 
-            <p>
-              Muscles constantly monitor their own length and tension, and feed back changes in length or tension to the
-              spinal cord. Without the myotatic reflex, controlled movement would be impossible.
-            </p>
+      
 
-            <p>
-              The myotatic reflex starts in the muscle spindle, which constantly and spontaneously produces afferent
-              impulses to the spine (and therefore the brain) – at rates between 5 and 50 times per second.
-            </p>
+      <h2>The Mechanics of the 50Hz Signal</h2>
+      <p>Muscles constantly monitor their own length and tension via the muscle spindle. These spindles spontaneously produce afferent impulses—the <strong>50Hz resting tone</strong>—sent directly to the spinal cord. Without this constant "hum" of data, controlled movement would be impossible.</p>
 
-            <p>
-              Any change in tension or stretch in the muscle will increase this feedback to spine and produce a rapid
-              increase in muscle tone.
-            </p>
+      <blockquote>
+        "Any sudden change in tension or stretch increases this feedback. If the software is clear, the spinal cord produces an instantaneous increase in muscle tone to protect the joint."
+      </blockquote>
 
-            <h3>The Reflex Pathway</h3>
+      <h2>The Reflex Pathway: The Body's Software Loop</h2>
+      <p>When a muscle is stretched, the spindle is activated, sending a signal through afferent sensory neurons to the spinal cord. The cord then sends a return signal through motor neurons, causing the muscle to contract. This loop resists the stretch and maintains the <strong>cortical drive</strong> necessary for movement.</p>
 
-            <p>
-              When a muscle is stretched, the muscle spindles are activated, which sends a signal through afferent
-              sensory neurons to the spinal cord. The spinal cord then sends a signal back to the muscle through motor
-              neurons, which causes the muscle to contract. This reflex contraction helps to resist the stretch and
-              maintain appropriate muscle tone and movement.
-            </p>
+      <p>This reflex doesn't work in isolation. It coordinates with the opposing muscle group (the antagonist) to create balance. By limiting excessive stretch, it protects ligaments and joints from the sprains, tears, and dislocations that occur when the hardware is left undefended.</p>
 
-            <h3>Protection and Function</h3>
+      <h2>The Walking Paradox: Eccentric Control</h2>
+      <p>Consider walking down stairs. As you step down, your quadriceps must lengthen under load—an eccentric contraction. As the muscle stretches, the myotatic reflex triggers a proportional contraction to control your descent. If this reflex is delayed by even a millisecond due to a <strong>Withdrawal Reflex</strong> elsewhere in the body, the knee joint takes the full force of the impact.</p>
 
-            <p>
-              The myotatic (or stretch) reflex helps to protect the muscle from being overstretched, and also helps to
-              maintain muscle length, which is important for proper muscle function and movement. The reflex works in
-              conjunction with the opposing muscle group, the antagonist, to create balance and stability in muscle tone
-              and movement.
-            </p>
+      <div className="my-10 rounded-lg bg-primary/5 p-8 border-l-4 border-primary">
+        <h3 className="text-2xl font-bold mb-4 text-foreground">The Knee-Jerk Phenomenon</h3>
+        <p className="mb-0">The famous "knee-jerk" test is a clinical audit of the myotatic reflex. A sudden tap on the tendon induces a quick firing at the anterior motor neuron. In Afferentology, we don't just look for the presence of the jerk; we look for the <em>quality</em> and <em>symmetry</em> of the neurological response.</p>
+      </div>
 
-            <p>
-              By limiting the stretch of muscles, the myotatic reflex protects ligaments and joints from overstretching
-              which prevents sprain, strain, tearing and dislocation.
-            </p>
+      <h2>Joint Damage and the "Silent" Inhibition</h2>
+      <p>The myotatic reflex is the primary guardian of your joints. When it is working properly, joints are shielded from excessive movement. However, when the system is plagued by "software glitches"—abnormal afferent inputs—the reflex becomes inhibited.</p>
 
-            <h2>Real-World Example: Walking Down Stairs</h2>
+      <p className="text-primary font-bold text-xl">
+        Inhibition of the myotatic reflex is the hidden precursor to osteoarthritis. When the muscle cannot protect the joint, the "hardware" (cartilage and bone) begins to degrade.
+      </p>
 
-            <p>
-              The myotatic reflex helps us walk down stairs safely. As you step down on a stair, the quadriceps muscle,
-              which is located in the front of the thigh, has to lengthen or "eccentrically contract" to control the
-              descent of the body.
-            </p>
+      <h2>The Clinical Goal of Afferentology</h2>
+      <p>The ultimate aim of Afferentology is the <strong>elimination of abnormal inhibition</strong> within the myotatic reflex. By removing the "Nail in the Foot" and neutralizing aberrant afferent signals, we restore the full nerve supply to the muscles.</p>
 
-            <p>
-              As the quadriceps muscle is stretched, the muscle spindles are activated, which sends a signal to the
-              spinal cord, triggering a reflex contraction in the muscle, to help resist the stretch and maintain muscle
-              tone. The amount of contraction will be proportional to the input so that the same result can be achieved
-              whatever load the person is carrying.
-            </p>
+      <p>Only when the reflex loop is fully operational can the body provide the support and feedback required for true repair and long-term healing.</p>
 
-            <div className="my-8 rounded-lg bg-accent/10 p-6">
-              <h3 className="mb-3 text-xl font-bold">The Knee-Jerk Reflex</h3>
-              <p>
-                The myotatic reflex is what causes the knee-jerk reflex. A sudden increase in quadriceps length induces
-                a quick firing at the anterior motor neuron.
-              </p>
-            </div>
-
-            <h2>Joint Protection and Long-Term Health</h2>
-
-            <p>
-              The myotatic reflex prevents damage to joints. When it is working properly, joints are protected from
-              excessive movement or strain.
-            </p>
-
-            <p className="font-semibold text-primary">
-              If the myotatic reflex is inhibited, the joint will be damaged – causing pain initially, and
-              osteoarthritis in the long term.
-            </p>
-
-            <h2>The Goal of Afferentology</h2>
-
-            <p className="text-lg font-semibold text-primary">
-              Eliminating abnormal inhibition of the myotatic reflex is the ultimate aim of afferentology.
-            </p>
-
-            <p>
-              Only when muscles have their full nerve supply are they able to provide the support and feedback the body
-              needs for repair and healing.
-            </p>
+      <hr className="my-12 border-border" />
+      
+      <p className="text-center">
+        <a href="https://learn.afferentology.org" className="text-2xl font-bold">
+          Master the Audit of the Myotatic Reflex →
+        </a>
+      </p>
 
             <div className="mt-12 rounded-lg bg-muted p-8">
               <h3 className="mb-4 text-2xl font-bold">Learn to Work With the Myotatic Reflex</h3>
@@ -207,7 +164,7 @@ export default function MyotaticReflexPage() {
                 <Button asChild>
                   <Link href="/practitioners">Practitioner Training</Link>
                 </Button>
-                <Button asChild variant="outline">
+                <Button asChild variant="outline" className="bg-transparent">
                   <Link href="/science">More Science Articles</Link>
                 </Button>
               </div>
