@@ -130,7 +130,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
       {/* Article Content */}
       <section className="py-16">
         <div className="container mx-auto px-4">
-          <div className="mx-auto max-w-3xl">
+          <div className="mx-auto max-w-4xl px-4 sm:px-6">
             {article.excerpt && (
               <p className="mb-8 text-xl text-muted-foreground leading-relaxed italic border-l-4 border-primary pl-6">
                 {article.excerpt}
@@ -138,14 +138,15 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
             )}
 
             <div
-              className="prose prose-slate prose-lg max-w-none 
-                prose-headings:font-bold prose-headings:text-foreground prose-headings:tracking-tight
-                prose-p:text-foreground/80 prose-p:leading-loose prose-p:mb-8
-                prose-blockquote:border-l-primary prose-blockquote:bg-muted/30 prose-blockquote:py-4 prose-blockquote:px-8 prose-blockquote:rounded-r-lg prose-blockquote:my-10
-                prose-li:text-foreground/80 prose-li:mb-4"
-              dangerouslySetInnerHTML={{ __html: article.content }}
-            />
-          </div>
+    className="prose prose-lg !max-w-none 
+      prose-headings:font-bold prose-headings:text-foreground prose-headings:tracking-tight
+      prose-p:text-foreground/90 prose-p:leading-relaxed prose-p:mb-8
+      prose-blockquote:border-l-primary prose-blockquote:bg-muted/30 prose-blockquote:py-4 prose-blockquote:px-8 prose-blockquote:rounded-r-lg prose-blockquote:italic
+      prose-li:text-foreground/90 prose-li:mb-4
+      prose-strong:text-foreground prose-strong:font-bold"
+    dangerouslySetInnerHTML={{ __html: article.content }}
+  />
+</div>
           {/* Tags */}
           {article.tags && article.tags.length > 0 && (
             <div className="mt-12 border-t pt-8">
