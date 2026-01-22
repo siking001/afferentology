@@ -108,54 +108,34 @@ export default function AfferentInputMattersPage() {
     <div className="max-w-4xl w-full [&_h2]:text-3xl [&_h2]:font-bold [&_h2]:mt-12 [&_h2]:mb-6 [&_h2]:text-foreground [&_h2]:tracking-tight [&_h2]:border-b [&_h2]:pb-2 [&_p]:text-lg [&_p]:leading-relaxed [&_p]:mb-6 [&_p]:text-foreground/80 [&_blockquote]:border-l-4 [&_blockquote]:border-primary [&_blockquote]:bg-muted/30 [&_blockquote]:p-6 [&_blockquote]:my-8 [&_blockquote]:italic [&_blockquote]:rounded-r-lg [&_ul]:list-disc [&_ul]:ml-6 [&_ul]:mb-6 [&_ul]:space-y-2 [&_li]:text-foreground/80 [&_strong]:text-foreground [&_strong]:font-bold [&_a]:text-primary [&_a]:underline hover:[&_a]:text-secondary">
             <h2>Why Paying Attention to Afferent Input is Important</h2>
 
-            <p>
-              Afferentology is a way for doctors and other healthcare professionals to examine, diagnose and treat
-              patients based on neurological input and output. It uses knowledge about the body's anatomy, nerves, and
-              how the body works in new and helpful ways.
-            </p>
+            <p className="italic text-xl border-l-4 border-primary pl-6 mb-12">
+        In a world focused on treating symptoms, Afferentology shifts the gaze toward the source: the neurological data that dictates every movement, reflex, and healing response in the human body.
+      </p>
 
-            <p>
-              Afferentology helps qualified healthcare professionals examine and test their patients' main defense
-              system, which is the nervous system. By doing this, they can find any weaknesses that could make the
-              patients more likely to get sick or injured. This analysis helps them find the best solution for each
-              patient.
-            </p>
+      <p>Afferentology provides doctors and healthcare professionals with a sophisticated framework to examine, diagnose, and treat patients based on the constant dialogue between neurological input and output. It isn't just anatomy; it is the study of how the body functions in real-time.</p>
 
-            <p>
-              Our health depends on how well our bodies can handle outside forces. The Afferent Input Solution gives
-              healthcare professionals the tools to assess a patient's ability to handle these forces by looking for
-              their biggest weakness or weakest point.
-            </p>
+      <blockquote>
+        "Our health depends on how well our bodies handle outside forces. Afferentology identifies the weakest point in that defense, allowing us to repair the software before the hardware breaks."
+      </blockquote>
 
-            <p>
-              Once the weakness is found, the healthcare professional can work backwards to find a solution to the
-              problem.
-            </p>
+      <h2>The Nervous System: Your Primary Defense</h2>
+      <p>Afferentology allows qualified professionals to test the body's main defense system: the nervous system. By auditing the <strong>50Hz resting tone</strong>, clinicians can find the hidden weaknesses that make a patient susceptible to chronic injury or systemic decline.</p>
 
-            <p>Patients who have no weaknesses are generally very strong and healthy, which is how it should be.</p>
+      <p>Once a neurological weakness is identified, the practitioner can work backward to find the <strong>Afferent Input</strong> responsible for the glitch—the "Nail in the Foot" that is sending threat data to the brain and triggering a <strong>Withdrawal Reflex</strong>.</p>
 
-            <h3>Building Stronger, More Resilient Patients</h3>
+      <h2>Building Resilience, Not Just Strength</h2>
+      <p>By eliminating these neurological blind spots, a patient becomes stronger in every dimension: physically, mentally, and chemically. This is not the "hardware" strength built in a gym; this is the natural, resilient strength of a high-functioning nervous system.</p>
 
-            <p>
-              By eliminating weaknesses in any patient, they become stronger in every way – physically, mentally,
-              emotionally, and chemically. Being stronger helps patients handle the stresses of life, no matter what
-              they are doing or what condition they have.
-            </p>
+      <ul>
+        <li><strong>Software Restoration:</strong> Resetting the cortical drive to inhibited muscles.</li>
+        <li><strong>Stress Response:</strong> Teaching the body to respond to external forces appropriately.</li>
+        <li><strong>True Prevention:</strong> Identifying the weakest link before it manifests as a clinical diagnosis.</li>
+      </ul>
 
-            <p>
-              No other diagnostic system allows healthcare professionals to test for the normal, natural strength that
-              comes from having a well-functioning nervous system. This strength is different from the strength that
-              comes from exercise.
-            </p>
+      <h2>A New Standard for Prevention and Treatment</h2>
+      <p>While the Afferent Input system is a powerful diagnostic tool for treatment, its greatest advantage lies in <strong>restoration</strong>. By returning the body to optimal function, we build resilient patients who don't just recover from injury—they prevent it.</p>
 
-            <h3>Prevention and Treatment</h3>
-
-            <p>
-              The Afferent Input system is always helpful in diagnosing and planning treatment. It builds strong and
-              resilient patients who can overcome any health challenge. It helps them respond to stress appropriately
-              and heal quickly. While it's very effective for treatment, its main advantage is in restoring optimal
-              function to prevent future injuries and illness.
-            </p>
+      <p>Patients who have no neurological weaknesses are fundamentally stronger, healthier, and more capable of handling the stresses of life. That is the goal of Afferentology.</p>
 
             <div className="mt-12 rounded-lg bg-muted p-8">
               <h3 className="mb-4 text-2xl font-bold">Learn More About Afferentology</h3>
