@@ -144,10 +144,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
               </p>
             )}
 
-            <div
-              className="prose prose-lg max-w-none prose-headings:font-bold prose-headings:text-foreground prose-p:text-muted-foreground prose-p:leading-relaxed prose-a:text-primary prose-a:no-underline hover:prose-a:underline prose-strong:text-foreground prose-img:rounded-lg"
-              dangerouslySetInnerHTML={{ __html: article.content }}
-            />
+            <div className="prose prose-lg max-w-none prose-headings:font-serif prose-headings:tracking-tight prose-blockquote:border-l-primary prose-blockquote:bg-muted/20 prose-blockquote:py-1 prose-blockquote:px-6 prose-blockquote:rounded-r-lg prose-p:text-foreground/90 prose-p:leading-relaxed prose-li:text-foreground/90" dangerouslySetInnerHTML={{ __html: article.content }} />
 
             {/* Tags */}
             {article.tags && article.tags.length > 0 && (
