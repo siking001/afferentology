@@ -138,15 +138,8 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
             )}
 
             <div
-              className="article-content max-w-none
-    [&_h2]:text-3xl [&_h2]:font-bold [&_h2]:mt-12 [&_h2]:mb-6 [&_h2]:text-foreground [&_h2]:tracking-tight [&_h2]:border-b [&_h2]:pb-2
-    [&_p]:text-lg [&_p]:leading-relaxed [&_p]:mb-6 [&_p]:text-foreground/80
-    [&_blockquote]:border-l-4 [&_blockquote]:border-primary [&_blockquote]:bg-muted/30 [&_blockquote]:p-6 [&_blockquote]:my-8 [&_blockquote]:italic [&_blockquote]:rounded-r-lg
-    [&_ul]:list-disc [&_ul]:ml-6 [&_ul]:mb-6 [&_ul]:space-y-2
-    [&_li]:text-foreground/80
-    [&_strong]:text-foreground [&_strong]:font-bold
-    [&_a]:text-primary [&_a]:underline hover:[&_a]:text-secondary"
-  dangerouslySetInnerHTML={{ __html: article.content }}
+              className="prose prose-lg max-w-none prose-headings:font-serif prose-headings:tracking-tight prose-h2:mt-12 prose-h2:mb-6 prose-h2:border-b prose-h2:border-border prose-h2:pb-2 prose-p:text-foreground/90 prose-p:leading-relaxed prose-blockquote:border-l-primary prose-blockquote:bg-muted/20 prose-blockquote:py-1 prose-blockquote:px-6 prose-blockquote:rounded-r-lg prose-li:text-foreground/90 prose-a:text-primary prose-strong:text-foreground"
+              dangerouslySetInnerHTML={{ __html: article.content }}
             />
           </div>
           {/* Tags */}
