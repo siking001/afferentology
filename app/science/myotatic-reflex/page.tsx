@@ -148,12 +148,7 @@ export default function MyotaticReflexPage() {
       <p>Only when the reflex loop is fully operational can the body provide the support and feedback required for true repair and long-term healing.</p>
 
       <hr className="my-12 border-border" />
-      
-      <p className="text-center">
-        <a href="https://learn.afferentology.org" className="text-2xl font-bold">
-          Master the Audit of the Myotatic Reflex →
-        </a>
-      </p>
+    
 
             <div className="mt-12 rounded-lg bg-muted p-8">
               <h3 className="mb-4 text-2xl font-bold">Learn to Work With the Myotatic Reflex</h3>

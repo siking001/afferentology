@@ -161,12 +161,6 @@ export default function WithdrawalReflexPage() {
 
       <hr className="my-12 border-border" />
 
-      <p className="text-center">
-        <a href="https://learn.afferentology.org" className="text-2xl font-bold">
-          Learn to Identify the "Silent" Withdrawal Reflex →
-        </a>
-      </p>
-
             <div className="mt-12 rounded-lg bg-muted p-8">
               <h3 className="mb-4 text-2xl font-bold">Learn to Identify and Address Withdrawal Reflex Issues</h3>
               <p className="mb-6 text-muted-foreground">
