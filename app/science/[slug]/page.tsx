@@ -88,13 +88,6 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
             </Link>
           </Button>
           <div className="mx-auto max-w-4xl">
-            {article.category && (
-              <div className="mb-4">
-                <span className="text-sm font-semibold uppercase tracking-wide text-primary-foreground/80">
-                  {article.category}
-                </span>
-              </div>
-            )}
             <h1 className="mb-6 text-4xl font-bold leading-tight md:text-5xl text-balance">{article.title}</h1>
             <div className="flex flex-wrap items-center gap-4 text-sm text-primary-foreground/80">
               <div className="flex items-center gap-2">
@@ -144,22 +137,28 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
               </p>
             )}
 
-            <div className="prose prose-lg max-w-none prose-headings:font-serif prose-headings:tracking-tight prose-blockquote:border-l-primary prose-blockquote:bg-muted/20 prose-blockquote:py-1 prose-blockquote:px-6 prose-blockquote:rounded-r-lg prose-p:text-foreground/90 prose-p:leading-relaxed prose-li:text-foreground/90" dangerouslySetInnerHTML={{ __html: article.content }} />
-
-            {/* Tags */}
-            {article.tags && article.tags.length > 0 && (
-              <div className="mt-12 border-t pt-8">
-                <div className="flex flex-wrap items-center gap-2">
-                  <Tag className="h-4 w-4 text-muted-foreground" />
-                  {article.tags.map((tag) => (
-                    <span key={tag} className="rounded-full bg-muted px-3 py-1 text-sm text-muted-foreground">
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            )}
+            <div
+              className="prose prose-slate prose-lg max-w-none 
+                prose-headings:font-bold prose-headings:text-foreground prose-headings:tracking-tight
+                prose-p:text-foreground/80 prose-p:leading-loose prose-p:mb-8
+                prose-blockquote:border-l-primary prose-blockquote:bg-muted/30 prose-blockquote:py-4 prose-blockquote:px-8 prose-blockquote:rounded-r-lg prose-blockquote:my-10
+                prose-li:text-foreground/80 prose-li:mb-4"
+              dangerouslySetInnerHTML={{ __html: article.content }}
+            />
           </div>
+          {/* Tags */}
+          {article.tags && article.tags.length > 0 && (
+            <div className="mt-12 border-t pt-8">
+              <div className="flex flex-wrap items-center gap-2">
+                <Tag className="h-4 w-4 text-muted-foreground" />
+                {article.tags.map((tag) => (
+                  <span key={tag} className="rounded-full bg-muted px-3 py-1 text-sm text-muted-foreground">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
       </section>
 
