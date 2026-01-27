@@ -2,6 +2,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Users, Target, Award, ArrowRight } from "lucide-react"
 import Link from "next/link"
+import Image from "next/image"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
@@ -337,10 +338,12 @@ export default function AboutPage() {
                       practice!"
                     </p>
                     <div className="flex items-center gap-3">
-                      <img
+                      <Image
                         src="/images/kepa-photo.jpg"
                         alt="Repps Chapatigul"
-                        className="w-12 h-12 rounded-full object-cover"
+                        width={48}
+                        height={48}
+                        className="rounded-full object-cover"
                       />
                       <div>
                         <p className="font-semibold text-foreground">Repps Chapatigul</p>
@@ -357,10 +360,12 @@ export default function AboutPage() {
                       simple reinforcement of main themes so as not to confuse a newbie like me."
                     </p>
                     <div className="flex items-center gap-3">
-                      <img
+                      <Image
                         src="/images/nick-parry2.jpg"
                         alt="Rick Perry"
-                        className="w-12 h-12 rounded-full object-cover"
+                        width={48}
+                        height={48}
+                        className="rounded-full object-cover"
                       />
                       <div>
                         <p className="font-semibold text-foreground">Rick Perry</p>
@@ -377,10 +382,12 @@ export default function AboutPage() {
                       practitioner as I have been since learning these skills, thank you."
                     </p>
                     <div className="flex items-center gap-3">
-                      <img
+                      <Image
                         src="/images/mark-tucker.jpeg"
                         alt="Mark Tucker"
-                        className="w-12 h-12 rounded-full object-cover"
+                        width={48}
+                        height={48}
+                        className="rounded-full object-cover"
                       />
                       <div>
                         <p className="font-semibold text-foreground">Mark Tucker</p>
