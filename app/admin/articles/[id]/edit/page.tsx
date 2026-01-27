@@ -2,22 +2,23 @@
 
 import type React from "react"
 
-import { useState, useEffect, use } from "react"
-import { useRouter } from "next/navigation"
+import { useState, useEffect } from "react"
+import { useRouter, useParams } from "next/navigation"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
-import { ArrowLeft, Save, Upload, X, Sparkles, Link2 } from "lucide-react"
+import { ArrowLeft, Save, Upload, X, Sparkles, Link2, Calendar, Clock } from "lucide-react"
 import Link from "next/link"
 import { useToast } from "@/hooks/use-toast"
 import { slugify } from "@/lib/utils/slugify"
 import Image from "next/image"
 import { AdminAuth } from "@/components/admin-auth"
 
-export default function EditArticlePage({ params }: { params: Promise<{ id: string }> }) {
-  const { id } = use(params)
+export default function EditArticlePage() {
+  const params = useParams()
+  const id = params.id as string
   const router = useRouter()
   const { toast } = useToast()
   const [isLoading, setIsLoading] = useState(true)
@@ -65,7 +66,9 @@ export default function EditArticlePage({ params }: { params: Promise<{ id: stri
     category: "",
     tags: "",
     published: false,
+    scheduled_at: "",
   })
+  const [isScheduling, setIsScheduling] = useState(false)
 
   useEffect(() => {
     loadArticle()
@@ -94,7 +97,12 @@ export default function EditArticlePage({ params }: { params: Promise<{ id: stri
           category: data.category || "",
           tags: Array.isArray(data.tags) ? data.tags.join(", ") : "",
           published: data.published || false,
+          scheduled_at: data.scheduled_at || "",
         })
+        // If there's a scheduled_at date, enable scheduling mode
+        if (data.scheduled_at) {
+          setIsScheduling(true)
+        }
       }
     } catch (error) {
       console.error("Error loading article:", error)
@@ -155,11 +163,27 @@ export default function EditArticlePage({ params }: { params: Promise<{ id: stri
     }
   }
 
-  async function handleSubmit(e: React.FormEvent, publish?: boolean) {
+  async function handleSubmit(e: React.FormEvent, publish?: boolean, schedule?: boolean) {
     e.preventDefault()
     setIsSubmitting(true)
 
     try {
+      // Determine published state and scheduled_at
+      let publishedState = publish !== undefined ? publish : formData.published
+      let publishedAt = formData.published ? undefined : null
+      let scheduledAt: string | null = null
+
+      if (schedule && formData.scheduled_at) {
+        // Scheduling: set scheduled_at, keep unpublished
+        scheduledAt = new Date(formData.scheduled_at).toISOString()
+        publishedState = false
+        publishedAt = null
+      } else if (publish) {
+        // Publishing now: clear scheduled_at, set published_at
+        publishedAt = new Date().toISOString()
+        scheduledAt = null
+      }
+
       const updateData = {
         id: id,
         title: formData.title,
@@ -173,8 +197,9 @@ export default function EditArticlePage({ params }: { params: Promise<{ id: stri
           .split(",")
           .map((tag) => tag.trim())
           .filter(Boolean),
-        published: publish !== undefined ? publish : formData.published,
-        published_at: publish ? new Date().toISOString() : formData.published ? undefined : null,
+        published: publishedState,
+        published_at: publishedAt,
+        scheduled_at: scheduledAt,
       }
 
       const response = await fetch("/api/articles/update", {
@@ -402,6 +427,65 @@ export default function EditArticlePage({ params }: { params: Promise<{ id: stri
                   )}
                 </div>
 
+                {/* Scheduling Section */}
+                <div className="space-y-4 rounded-lg border p-4 bg-muted/20">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-2">
+                      <Calendar className="h-5 w-5 text-primary" />
+                      <Label className="text-base font-medium">Schedule Publication</Label>
+                    </div>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setIsScheduling(!isScheduling)
+                        if (isScheduling) {
+                          setFormData({ ...formData, scheduled_at: "" })
+                        }
+                      }}
+                      className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${
+                        isScheduling ? "bg-primary" : "bg-muted-foreground/30"
+                      }`}
+                    >
+                      <span
+                        className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${
+                          isScheduling ? "translate-x-6" : "translate-x-1"
+                        }`}
+                      />
+                    </button>
+                  </div>
+                  
+                  {isScheduling && (
+                    <div className="space-y-3">
+                      <p className="text-sm text-muted-foreground">
+                        Set a future date and time when this article should be automatically published.
+                      </p>
+                      <div className="flex gap-3 items-end">
+                        <div className="flex-1 space-y-2">
+                          <Label htmlFor="scheduled_at">Publish Date & Time</Label>
+                          <Input
+                            id="scheduled_at"
+                            type="datetime-local"
+                            value={formData.scheduled_at ? new Date(formData.scheduled_at).toISOString().slice(0, 16) : ""}
+                            onChange={(e) => setFormData({ ...formData, scheduled_at: e.target.value })}
+                            min={new Date().toISOString().slice(0, 16)}
+                            className="bg-background"
+                          />
+                        </div>
+                        <div className="flex items-center gap-2 text-sm text-muted-foreground pb-2">
+                          <Clock className="h-4 w-4" />
+                          <span>Your local timezone</span>
+                        </div>
+                      </div>
+                      {formData.scheduled_at && (
+                        <p className="text-sm text-primary flex items-center gap-2">
+                          <Calendar className="h-4 w-4" />
+                          Scheduled for: {new Date(formData.scheduled_at).toLocaleString()}
+                        </p>
+                      )}
+                    </div>
+                  )}
+                </div>
+
                 <div className="flex gap-3 pt-4">
                   <Button
                     type="button"
@@ -413,15 +497,27 @@ export default function EditArticlePage({ params }: { params: Promise<{ id: stri
                     <Save className="mr-2 h-4 w-4" />
                     Save as Draft
                   </Button>
-                  <Button
-                    type="button"
-                    onClick={(e) => handleSubmit(e, true)}
-                    disabled={isSubmitting}
-                    className="flex-1"
-                  >
-                    <Save className="mr-2 h-4 w-4" />
-                    {formData.published ? "Update & Keep Published" : "Publish Now"}
-                  </Button>
+                  {isScheduling && formData.scheduled_at ? (
+                    <Button
+                      type="button"
+                      onClick={(e) => handleSubmit(e, false, true)}
+                      disabled={isSubmitting || !formData.scheduled_at}
+                      className="flex-1"
+                    >
+                      <Calendar className="mr-2 h-4 w-4" />
+                      Schedule Publication
+                    </Button>
+                  ) : (
+                    <Button
+                      type="button"
+                      onClick={(e) => handleSubmit(e, true)}
+                      disabled={isSubmitting}
+                      className="flex-1"
+                    >
+                      <Save className="mr-2 h-4 w-4" />
+                      {formData.published ? "Update & Keep Published" : "Publish Now"}
+                    </Button>
+                  )}
                 </div>
 
                 {/* Atomize Tool Link */}
