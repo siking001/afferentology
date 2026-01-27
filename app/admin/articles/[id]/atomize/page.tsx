@@ -7,7 +7,6 @@ import { Badge } from "@/components/ui/badge"
 import { ArrowLeft, Sparkles, Link2, Copy, Check, Linkedin, ExternalLink } from "lucide-react"
 import Link from "next/link"
 import { useToast } from "@/hooks/use-toast"
-import { createClient } from "@/lib/supabase/client"
 import { AdminAuth } from "@/components/admin-auth"
 import { Textarea } from "@/components/ui/textarea"
 
@@ -65,14 +64,15 @@ export default function AtomizePage({ params }: { params: Promise<{ id: string }
 
   async function loadArticle() {
     try {
-      const supabase = createClient()
-      const { data, error } = await supabase
-        .from("articles")
-        .select("id, title, slug, excerpt, content, category")
-        .eq("id", id)
-        .single()
+      // Use API route with admin client to bypass RLS for unpublished articles
+      const response = await fetch(`/api/articles/${id}`)
+      
+      if (!response.ok) {
+        const error = await response.json()
+        throw new Error(error.error || "Failed to fetch article")
+      }
 
-      if (error) throw error
+      const data = await response.json()
 
       if (data) {
         setArticle(data)
@@ -83,7 +83,7 @@ export default function AtomizePage({ params }: { params: Promise<{ id: string }
       console.error("Error loading article:", error)
       toast({
         title: "Error",
-        description: "Failed to load article.",
+        description: error instanceof Error ? error.message : "Failed to load article.",
         variant: "destructive",
       })
     } finally {
