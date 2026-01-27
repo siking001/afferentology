@@ -63,16 +63,20 @@ export default function AtomizePage({ params }: { params: Promise<{ id: string }
   }, [id])
 
   async function loadArticle() {
+    console.log("[v0] loadArticle called with id:", id)
     try {
       // Use API route with admin client to bypass RLS for unpublished articles
       const response = await fetch(`/api/articles/${id}`)
+      console.log("[v0] API response status:", response.status)
       
       if (!response.ok) {
         const error = await response.json()
+        console.log("[v0] API error:", error)
         throw new Error(error.error || "Failed to fetch article")
       }
 
       const data = await response.json()
+      console.log("[v0] Article data received:", data?.title)
 
       if (data) {
         setArticle(data)
@@ -80,7 +84,7 @@ export default function AtomizePage({ params }: { params: Promise<{ id: string }
         generateLinkedInPost(data)
       }
     } catch (error) {
-      console.error("Error loading article:", error)
+      console.error("[v0] Error loading article:", error)
       toast({
         title: "Error",
         description: error instanceof Error ? error.message : "Failed to load article.",
