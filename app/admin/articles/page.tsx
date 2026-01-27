@@ -1,7 +1,6 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import { createClient } from "@/lib/supabase/client"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
@@ -33,14 +32,15 @@ export default function AdminArticlesPage() {
 
   async function loadArticles() {
     try {
-      const supabase = createClient()
-      const { data, error } = await supabase
-        .from("articles")
-        .select("id, created_at, title, slug, excerpt, category, published, published_at, views")
-        .order("updated_at", { ascending: false })
-
-      if (error) throw error
-
+      // Use the admin API route to fetch all articles (including drafts)
+      // This bypasses RLS which only allows public to see published articles
+      const response = await fetch("/api/articles/list")
+      
+      if (!response.ok) {
+        throw new Error("Failed to fetch articles")
+      }
+      
+      const data = await response.json()
       setArticles(data || [])
     } catch (error) {
       console.error("Error loading articles:", error)

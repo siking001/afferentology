@@ -10,30 +10,30 @@ This guide explains how to import your existing practitioners from the CSV file 
 ## Installation
 
 1. Install the required Python package:
-   ```bash
+   \`\`\`bash
    pip install supabase
-   ```
+   \`\`\`
 
 2. Set your environment variables:
-   ```bash
+   \`\`\`bash
    export SUPABASE_URL="https://uhvecjdalejhfhubaixu.supabase.co"
    export SUPABASE_SERVICE_ROLE_KEY="your_service_role_key_here"
-   ```
+   \`\`\`
    
    Or on Windows:
-   ```cmd
+   \`\`\`cmd
    set SUPABASE_URL=https://uhvecjdalejhfhubaixu.supabase.co
    set SUPABASE_SERVICE_ROLE_KEY=your_service_role_key_here
-   ```
+   \`\`\`
 
 ## Running the Import
 
 1. Navigate to the project directory in your terminal
 
 2. Run the import script:
-   ```bash
+   \`\`\`bash
    python scripts/import_practitioners_csv.py
-   ```
+   \`\`\`
 
 ## What the Script Does
 
