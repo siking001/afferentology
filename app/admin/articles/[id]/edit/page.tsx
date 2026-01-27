@@ -17,7 +17,8 @@ import Image from "next/image"
 import { AdminAuth } from "@/components/admin-auth"
 
 export default function EditArticlePage({ params }: { params: Promise<{ id: string }> }) {
-  const { id } = use(params)
+  const resolvedParams = use(params)
+  const id = resolvedParams.id
   const router = useRouter()
   const { toast } = useToast()
   const [isLoading, setIsLoading] = useState(true)
