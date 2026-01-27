@@ -9,7 +9,7 @@ Add a paid subscription tier for practitioners to get enhanced listings with pho
 
 ### New Fields for `practitioners` Table
 
-```sql
+\`\`\`sql
 -- Add subscription and pro feature columns
 ALTER TABLE practitioners ADD COLUMN IF NOT EXISTS subscription_tier TEXT DEFAULT 'free' CHECK (subscription_tier IN ('free', 'pro'));
 ALTER TABLE practitioners ADD COLUMN IF NOT EXISTS stripe_customer_id TEXT;
@@ -30,7 +30,7 @@ ALTER TABLE practitioners ADD COLUMN IF NOT EXISTS languages TEXT[];
 -- Indexes for performance
 CREATE INDEX IF NOT EXISTS idx_practitioners_subscription_tier ON practitioners(subscription_tier);
 CREATE INDEX IF NOT EXISTS idx_practitioners_stripe_customer ON practitioners(stripe_customer_id);
-```
+\`\`\`
 
 ---
 
@@ -50,14 +50,14 @@ CREATE INDEX IF NOT EXISTS idx_practitioners_stripe_customer ON practitioners(st
 
 ### Required Environment Variables
 
-```
+\`\`\`
 STRIPE_SECRET_KEY=sk_live_...
 STRIPE_PUBLISHABLE_KEY=pk_live_...
 NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=pk_live_...
 STRIPE_PRO_MONTHLY_PRICE_ID=price_...
 STRIPE_PRO_ANNUAL_PRICE_ID=price_...
 STRIPE_WEBHOOK_SECRET=whsec_...
-```
+\`\`\`
 
 ---
 
@@ -188,7 +188,7 @@ STRIPE_WEBHOOK_SECRET=whsec_...
 ## Phase 6: Email Templates
 
 ### Welcome Email (Pro Upgrade)
-```
+\`\`\`
 Subject: Welcome to Afferentology Pro! 🎉
 
 Your pro listing is now live with enhanced features:
@@ -202,26 +202,26 @@ Next steps:
 3. Complete your featured services section
 
 [Go to Dashboard]
-```
+\`\`\`
 
 ### Payment Failed Email
-```
+\`\`\`
 Subject: Payment Issue - Afferentology Pro
 
 We couldn't process your payment. Your pro features will be paused in 7 days if not resolved.
 
 [Update Payment Method]
-```
+\`\`\`
 
 ### Subscription Cancelled
-```
+\`\`\`
 Subject: Your Pro Subscription Has Been Cancelled
 
 Your pro listing will remain active until [end date].
 After that, your listing will revert to the free tier.
 
 [Reactivate Subscription]
-```
+\`\`\`
 
 ---
 
