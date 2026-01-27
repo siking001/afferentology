@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect, use } from "react"
+import React, { useState, useEffect } from "react"
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
@@ -9,6 +9,7 @@ import Link from "next/link"
 import { useToast } from "@/hooks/use-toast"
 import { AdminAuth } from "@/components/admin-auth"
 import { Textarea } from "@/components/ui/textarea"
+import { useParams } from "next/navigation"
 
 // Keywords mapped to internal article slugs
 const KEYWORD_MAP: Record<string, { slug: string; title: string }> = {
@@ -49,8 +50,9 @@ interface Article {
   category: string
 }
 
-export default function AtomizePage({ params }: { params: Promise<{ id: string }> }) {
-  const { id } = use(params)
+export default function AtomizePage() {
+  const params = useParams()
+  const id = params.id as string
   const { toast } = useToast()
   const [article, setArticle] = useState<Article | null>(null)
   const [isLoading, setIsLoading] = useState(true)
