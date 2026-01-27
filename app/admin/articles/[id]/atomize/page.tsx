@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react"
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { ArrowLeft, Sparkles, Link2, Copy, Check, Linkedin, ExternalLink } from "lucide-react"
+import { ArrowLeft, Sparkles, Link2, Copy, Check, Linkedin, ExternalLink, CheckCircle, Loader2 } from "lucide-react"
 import Link from "next/link"
 import { useToast } from "@/hooks/use-toast"
 import { AdminAuth } from "@/components/admin-auth"
@@ -59,26 +59,23 @@ export default function AtomizePage() {
   const [suggestions, setSuggestions] = useState<LinkSuggestion[]>([])
   const [linkedinPost, setLinkedinPost] = useState("")
   const [copiedStates, setCopiedStates] = useState<Record<string, boolean>>({})
+  const [acceptingStates, setAcceptingStates] = useState<Record<string, boolean>>({})
 
   useEffect(() => {
     loadArticle()
   }, [id])
 
   async function loadArticle() {
-    console.log("[v0] loadArticle called with id:", id)
     try {
       // Use API route with admin client to bypass RLS for unpublished articles
       const response = await fetch(`/api/articles/${id}`)
-      console.log("[v0] API response status:", response.status)
       
       if (!response.ok) {
         const error = await response.json()
-        console.log("[v0] API error:", error)
         throw new Error(error.error || "Failed to fetch article")
       }
 
       const data = await response.json()
-      console.log("[v0] Article data received:", data?.title)
 
       if (data) {
         setArticle(data)
@@ -86,7 +83,6 @@ export default function AtomizePage() {
         generateLinkedInPost(data)
       }
     } catch (error) {
-      console.error("[v0] Error loading article:", error)
       toast({
         title: "Error",
         description: error instanceof Error ? error.message : "Failed to load article.",
@@ -173,6 +169,75 @@ ${hashtags}`
 
   function generateLinkHtml(suggestion: LinkSuggestion) {
     return `<a href="/science/${suggestion.slug}">${suggestion.keyword}</a>`
+  }
+
+  async function acceptSuggestion(suggestion: LinkSuggestion, index: number) {
+    if (!article) return
+    
+    setAcceptingStates({ ...acceptingStates, [`accept-${index}`]: true })
+    
+    try {
+      // Find and replace the keyword with the link in the content
+      // Use a case-insensitive regex to find the first unlinked occurrence
+      const linkHtml = `<a href="/science/${suggestion.slug}">${suggestion.keyword}</a>`
+      
+      // Create a regex that finds the keyword but not if it's already inside an <a> tag
+      // This is a simplified approach - finds first occurrence not already in a link
+      let newContent = article.content
+      const keywordRegex = new RegExp(`(?<!<a[^>]*>.*?)\\b(${suggestion.keyword})\\b(?![^<]*</a>)`, 'i')
+      
+      const match = newContent.match(keywordRegex)
+      if (match && match.index !== undefined) {
+        newContent = newContent.slice(0, match.index) + linkHtml + newContent.slice(match.index + match[0].length)
+      } else {
+        // Fallback: simple replace of first occurrence
+        const lowerContent = newContent.toLowerCase()
+        const lowerKeyword = suggestion.keyword.toLowerCase()
+        const keywordIndex = lowerContent.indexOf(lowerKeyword)
+        
+        if (keywordIndex !== -1) {
+          const originalKeyword = newContent.slice(keywordIndex, keywordIndex + suggestion.keyword.length)
+          newContent = newContent.slice(0, keywordIndex) + 
+            `<a href="/science/${suggestion.slug}">${originalKeyword}</a>` + 
+            newContent.slice(keywordIndex + suggestion.keyword.length)
+        }
+      }
+      
+      // Save the updated content via API
+      const response = await fetch("/api/articles/update", {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          id: article.id,
+          content: newContent,
+        }),
+      })
+      
+      if (!response.ok) {
+        throw new Error("Failed to update article")
+      }
+      
+      // Update local state
+      const updatedArticle = { ...article, content: newContent }
+      setArticle(updatedArticle)
+      
+      // Re-analyze to update suggestions
+      analyzeContent(updatedArticle)
+      
+      toast({
+        title: "Link Added",
+        description: `Successfully linked "${suggestion.keyword}" to ${suggestion.title}`,
+      })
+    } catch (error) {
+      console.error("Error accepting suggestion:", error)
+      toast({
+        title: "Error",
+        description: "Failed to add link. Please try again.",
+        variant: "destructive",
+      })
+    } finally {
+      setAcceptingStates({ ...acceptingStates, [`accept-${index}`]: false })
+    }
   }
 
   if (isLoading) {
@@ -266,18 +331,34 @@ ${hashtags}`
                           </p>
                         </div>
                         {!suggestion.alreadyLinked && (
-                          <Button
-                            size="sm"
-                            variant="outline"
-                            className="bg-transparent shrink-0"
-                            onClick={() => copyToClipboard(generateLinkHtml(suggestion), `link-${index}`)}
-                          >
-                            {copiedStates[`link-${index}`] ? (
-                              <Check className="h-4 w-4" />
-                            ) : (
-                              <Copy className="h-4 w-4" />
-                            )}
-                          </Button>
+                          <div className="flex gap-2 shrink-0">
+                            <Button
+                              size="sm"
+                              variant="outline"
+                              className="bg-transparent"
+                              onClick={() => copyToClipboard(generateLinkHtml(suggestion), `link-${index}`)}
+                              title="Copy link HTML"
+                            >
+                              {copiedStates[`link-${index}`] ? (
+                                <Check className="h-4 w-4" />
+                              ) : (
+                                <Copy className="h-4 w-4" />
+                              )}
+                            </Button>
+                            <Button
+                              size="sm"
+                              variant="default"
+                              onClick={() => acceptSuggestion(suggestion, index)}
+                              disabled={acceptingStates[`accept-${index}`]}
+                              title="Accept and insert link"
+                            >
+                              {acceptingStates[`accept-${index}`] ? (
+                                <Loader2 className="h-4 w-4 animate-spin" />
+                              ) : (
+                                <CheckCircle className="h-4 w-4" />
+                              )}
+                            </Button>
+                          </div>
                         )}
                       </div>
                     </div>
