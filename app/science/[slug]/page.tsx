@@ -130,7 +130,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
       {/* Article Content */}
       <section className="py-16">
         <div className="container mx-auto px-4">
-          <div className="mx-auto max-w-4xl px-4 sm:px-6">
+          <div className="mx-auto max-w-4xl">
             {article.excerpt && (
               <p className="mb-8 text-xl text-muted-foreground leading-relaxed italic border-l-4 border-primary pl-6">
                 {article.excerpt}

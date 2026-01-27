@@ -9,7 +9,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
-import { ArrowLeft, Save, Upload, X } from "lucide-react"
+import { ArrowLeft, Save, Upload, X, Sparkles, Link2 } from "lucide-react"
 import Link from "next/link"
 import { useToast } from "@/hooks/use-toast"
 import { slugify } from "@/lib/utils/slugify"
@@ -24,6 +24,38 @@ export default function EditArticlePage({ params }: { params: Promise<{ id: stri
   const [isLoading, setIsLoading] = useState(true)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isUploading, setIsUploading] = useState(false)
+  const [linkSuggestions, setLinkSuggestions] = useState<Array<{ keyword: string; slug: string; title: string }>>([])
+
+  // Keywords mapped to internal article slugs for auto-suggestions
+  const KEYWORD_MAP: Record<string, { slug: string; title: string }> = {
+    "withdrawal reflex": { slug: "withdrawal-reflex", title: "The Withdrawal Reflex" },
+    "myotatic reflex": { slug: "myotatic-reflex", title: "The Myotatic Reflex" },
+    "stretch reflex": { slug: "myotatic-reflex", title: "The Myotatic Reflex" },
+    "50hz": { slug: "afferent-input-matters", title: "Why Afferent Input Matters" },
+    "resting tone": { slug: "muscle-reflexes", title: "Muscle Reflexes" },
+    "afferent input": { slug: "afferent-input-universal-treatment", title: "Afferent Input - Universal Treatment" },
+    "muscle inhibition": { slug: "muscle-reflexes", title: "Muscle Reflexes" },
+    "muscle testing": { slug: "testing-the-adductors", title: "Testing the Adductors" },
+    "dental": { slug: "slipped-disc-from-a-dental-crown", title: "Slipped Disc From A Dental Crown" },
+    "low back pain": { slug: "acute-low-back-pain", title: "Acute Low Back Pain" },
+  }
+
+  function checkForLinkSuggestions(content: string) {
+    const suggestions: Array<{ keyword: string; slug: string; title: string }> = []
+    const contentLower = content.toLowerCase()
+    
+    for (const [keyword, target] of Object.entries(KEYWORD_MAP)) {
+      if (contentLower.includes(keyword) && 
+          !contentLower.includes(`href="/science/${target.slug}"`) &&
+          !contentLower.includes(`href='/science/${target.slug}'`)) {
+        suggestions.push({ keyword, ...target })
+      }
+    }
+    
+    // Dedupe by slug
+    const unique = suggestions.filter((s, i, arr) => arr.findIndex(x => x.slug === s.slug) === i)
+    setLinkSuggestions(unique.slice(0, 5)) // Limit to 5 suggestions
+  }
   const [formData, setFormData] = useState({
     title: "",
     slug: "",
@@ -241,7 +273,10 @@ export default function EditArticlePage({ params }: { params: Promise<{ id: stri
                   <Textarea
                     id="content"
                     value={formData.content}
-                    onChange={(e) => setFormData({ ...formData, content: e.target.value })}
+                    onChange={(e) => {
+                      setFormData({ ...formData, content: e.target.value })
+                      checkForLinkSuggestions(e.target.value)
+                    }}
                     placeholder="Write your article content here. HTML tags are supported for formatting."
                     rows={15}
                     required
@@ -251,6 +286,38 @@ export default function EditArticlePage({ params }: { params: Promise<{ id: stri
                     You can use HTML tags like &lt;h2&gt;, &lt;p&gt;, &lt;strong&gt;, &lt;em&gt;, &lt;ul&gt;,
                     &lt;ol&gt;, etc.
                   </p>
+                  
+                  {/* Link Suggestions */}
+                  {linkSuggestions.length > 0 && (
+                    <div className="mt-3 p-3 bg-primary/5 border border-primary/20 rounded-lg">
+                      <p className="text-sm font-medium flex items-center gap-2 mb-2">
+                        <Link2 className="h-4 w-4 text-primary" />
+                        Internal Link Suggestions
+                      </p>
+                      <div className="flex flex-wrap gap-2">
+                        {linkSuggestions.map((suggestion, index) => (
+                          <button
+                            key={index}
+                            type="button"
+                            onClick={() => {
+                              const linkHtml = `<a href="/science/${suggestion.slug}">${suggestion.keyword}</a>`
+                              navigator.clipboard.writeText(linkHtml)
+                              toast({
+                                title: "Link HTML Copied",
+                                description: `Replace "${suggestion.keyword}" with the copied link.`,
+                              })
+                            }}
+                            className="text-xs px-2 py-1 bg-primary/10 text-primary rounded hover:bg-primary/20 transition-colors"
+                          >
+                            {suggestion.keyword} → {suggestion.title}
+                          </button>
+                        ))}
+                      </div>
+                      <p className="text-xs text-muted-foreground mt-2">
+                        Click to copy link HTML. For full analysis, use the Atomize tool below.
+                      </p>
+                    </div>
+                  )}
                 </div>
 
                 <div className="grid gap-6 md:grid-cols-2">
@@ -337,7 +404,7 @@ export default function EditArticlePage({ params }: { params: Promise<{ id: stri
                     onClick={(e) => handleSubmit(e, false)}
                     disabled={isSubmitting}
                     variant="outline"
-                    className="flex-1"
+                    className="flex-1 bg-transparent"
                   >
                     <Save className="mr-2 h-4 w-4" />
                     Save as Draft
@@ -350,6 +417,16 @@ export default function EditArticlePage({ params }: { params: Promise<{ id: stri
                   >
                     <Save className="mr-2 h-4 w-4" />
                     {formData.published ? "Update & Keep Published" : "Publish Now"}
+                  </Button>
+                </div>
+
+                {/* Atomize Tool Link */}
+                <div className="pt-4 border-t">
+                  <Button asChild variant="outline" className="w-full bg-transparent">
+                    <Link href={`/admin/articles/${id}/atomize`}>
+                      <Sparkles className="mr-2 h-4 w-4" />
+                      Atomize: Get Link Suggestions & Social Posts
+                    </Link>
                   </Button>
                 </div>
               </form>
