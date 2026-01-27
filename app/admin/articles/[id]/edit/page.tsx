@@ -2,8 +2,8 @@
 
 import type React from "react"
 
-import { useState, useEffect, use } from "react"
-import { useRouter } from "next/navigation"
+import { useState, useEffect } from "react"
+import { useRouter, useParams } from "next/navigation"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -16,9 +16,9 @@ import { slugify } from "@/lib/utils/slugify"
 import Image from "next/image"
 import { AdminAuth } from "@/components/admin-auth"
 
-export default function EditArticlePage({ params }: { params: Promise<{ id: string }> }) {
-  const resolvedParams = use(params)
-  const id = resolvedParams.id
+export default function EditArticlePage() {
+  const params = useParams()
+  const id = params.id as string
   const router = useRouter()
   const { toast } = useToast()
   const [isLoading, setIsLoading] = useState(true)
