@@ -14,7 +14,6 @@ import Link from "next/link"
 import { useToast } from "@/hooks/use-toast"
 import { slugify } from "@/lib/utils/slugify"
 import Image from "next/image"
-import { createClient } from "@/lib/supabase/client"
 import { AdminAuth } from "@/components/admin-auth"
 
 export default function EditArticlePage({ params }: { params: Promise<{ id: string }> }) {
@@ -74,10 +73,15 @@ export default function EditArticlePage({ params }: { params: Promise<{ id: stri
 
   async function loadArticle() {
     try {
-      const supabase = createClient()
-      const { data, error } = await supabase.from("articles").select("*").eq("id", id).single()
+      // Use API route with admin client to bypass RLS for unpublished articles
+      const response = await fetch(`/api/articles/${id}`)
+      
+      if (!response.ok) {
+        const error = await response.json()
+        throw new Error(error.error || "Failed to fetch article")
+      }
 
-      if (error) throw error
+      const data = await response.json()
 
       if (data) {
         setFormData({
