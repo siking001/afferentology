@@ -79,29 +79,75 @@ export async function POST(request: Request) {
   }
 }
 
-// GET endpoint to check scheduled articles status
-export async function GET() {
+// GET endpoint - Used by Vercel Cron to trigger publishing
+// Vercel Cron jobs make GET requests, so this handler performs the actual publishing
+export async function GET(request: Request) {
   try {
-    const supabase = createClient()
+    // Verify cron secret for security
+    const authHeader = request.headers.get("authorization")
+    const cronSecret = process.env.CRON_SECRET
 
-    const { data: scheduledArticles, error } = await supabase
+    // If CRON_SECRET is set, require it for automated calls
+    if (cronSecret && authHeader !== `Bearer ${cronSecret}`) {
+      return NextResponse.json({ error: "Unauthorized" }, { status: 401 })
+    }
+
+    const supabase = createClient()
+    const now = new Date().toISOString()
+
+    // Find all articles that are scheduled and past their scheduled_at time
+    const { data: scheduledArticles, error: fetchError } = await supabase
       .from("articles")
-      .select("id, title, slug, scheduled_at, created_at")
+      .select("id, title, slug, scheduled_at")
       .eq("published", false)
       .not("scheduled_at", "is", null)
-      .order("scheduled_at", { ascending: true })
+      .lte("scheduled_at", now)
 
-    if (error) {
-      console.error("[v0] Error fetching scheduled articles:", error)
-      return NextResponse.json({ error: error.message }, { status: 500 })
+    if (fetchError) {
+      console.error("[v0] Error fetching scheduled articles:", fetchError)
+      return NextResponse.json({ error: fetchError.message }, { status: 500 })
+    }
+
+    if (!scheduledArticles || scheduledArticles.length === 0) {
+      return NextResponse.json({
+        message: "No articles to publish",
+        published: [],
+      })
+    }
+
+    // Publish each scheduled article
+    const publishedArticles = []
+    const errors = []
+
+    for (const article of scheduledArticles) {
+      const { error: updateError } = await supabase
+        .from("articles")
+        .update({
+          published: true,
+          published_at: now,
+          scheduled_at: null, // Clear the scheduled_at after publishing
+        })
+        .eq("id", article.id)
+
+      if (updateError) {
+        console.error(`[v0] Error publishing article ${article.id}:`, updateError)
+        errors.push({ id: article.id, title: article.title, error: updateError.message })
+      } else {
+        publishedArticles.push({
+          id: article.id,
+          title: article.title,
+          slug: article.slug,
+        })
+      }
     }
 
     return NextResponse.json({
-      count: scheduledArticles?.length || 0,
-      articles: scheduledArticles || [],
+      message: `Published ${publishedArticles.length} article(s)`,
+      published: publishedArticles,
+      errors: errors.length > 0 ? errors : undefined,
     })
   } catch (error) {
-    console.error("[v0] Error in get scheduled articles API:", error)
-    return NextResponse.json({ error: "Failed to fetch scheduled articles" }, { status: 500 })
+    console.error("[v0] Error in publish-scheduled cron:", error)
+    return NextResponse.json({ error: "Failed to publish scheduled articles" }, { status: 500 })
   }
 }
