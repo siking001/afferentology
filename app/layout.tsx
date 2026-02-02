@@ -75,8 +75,11 @@ export const metadata: Metadata = {
   },
   generator: "v0.app",
   icons: {
-    icon: "/icon.png?v=2",
-    apple: "/apple-icon.png?v=2",
+    icon: [
+      { url: "/favicon.ico", sizes: "32x32" },
+      { url: "/icon.png", type: "image/png", sizes: "32x32" },
+    ],
+    apple: "/apple-icon.png",
   },
 }
 
