@@ -66,7 +66,6 @@ export async function POST(request: Request) {
       years_experience: data.years_experience,
       specialties: data.specialties ? [data.specialties] : [],
       bio: data.bio,
-      updated_at: new Date().toISOString(),
     }
 
     let practitioner
