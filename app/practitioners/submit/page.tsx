@@ -20,6 +20,7 @@ export default function SubmitPractitionerPage() {
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
+    console.log("[v0] Form submitted, starting submission process")
     setIsSubmitting(true)
 
     const formData = new FormData(e.currentTarget)
@@ -43,6 +44,8 @@ export default function SubmitPractitionerPage() {
       bio: formData.get("bio"),
     }
 
+    console.log("[v0] Submitting data:", { email: data.email, clinic: data.clinic_name })
+
     try {
       const response = await fetch("/api/practitioners/submit", {
         method: "POST",
@@ -50,21 +53,28 @@ export default function SubmitPractitionerPage() {
         body: JSON.stringify(data),
       })
 
+      console.log("[v0] Response status:", response.status)
       const result = await response.json()
+      console.log("[v0] Response result:", result)
 
       if (!response.ok) {
         throw new Error(result.error || "Failed to submit")
       }
 
-      setIsSubmitted(true)
-      toast({
-        title: result.isUpdate ? "Information Updated!" : "Application Submitted!",
-        description: result.isUpdate
-          ? "Your practitioner information has been updated successfully."
-          : "We'll review your application and contact you soon.",
-      })
+      // Show toast for updates, redirect for new submissions
+      if (result.isUpdate) {
+        setIsSubmitted(true)
+        toast({
+          title: "Information Updated!",
+          description: "Your practitioner information has been updated successfully.",
+        })
+      } else {
+        // Redirect to thank you page for new submissions
+        console.log("[v0] Submission successful, redirecting to thank you page")
+        router.push("/practitioners/submit/thank-you")
+      }
     } catch (error) {
-      console.error("Submission error:", error)
+      console.error("[v0] Submission error:", error)
       toast({
         title: "Submission Failed",
         description: error instanceof Error ? error.message : "Please try again.",
@@ -83,11 +93,10 @@ export default function SubmitPractitionerPage() {
             <CheckCircle2 className="mx-auto mb-6 h-16 w-16 text-secondary" />
             <h2 className="mb-4 text-2xl font-bold text-foreground">Thank You!</h2>
             <p className="mb-6 text-muted-foreground leading-relaxed">
-              Your information has been successfully submitted. If this is a new application, we will review it and
-              contact you within 2-3 business days. If you updated existing information, the changes have been saved.
+              Your practitioner information has been successfully updated. The changes have been saved to your profile.
             </p>
             <p className="mb-6 text-sm text-muted-foreground">
-              Once approved, your practice will appear in our practitioner directory for patients to find you.
+              Your practice details in our practitioner directory will reflect these updates.
             </p>
             <Button onClick={() => router.push("/")} className="bg-primary hover:bg-primary/90">
               Return to Home
