@@ -80,25 +80,28 @@ export async function POST(request: Request) {
         .single()
 
       if (error) {
-        console.error("[v0] Database error:", error.message)
+        console.error("[v0] Database update error:", error.message, error.code, error.details)
         return NextResponse.json({ error: error.message || "Failed to update information" }, { status: 500 })
       }
 
       practitioner = updated
       console.log("[v0] Successfully updated practitioner:", practitioner.id)
     } else {
-      console.log("[v0] Creating new practitioner")
+      console.log("[v0] Creating new practitioner with data keys:", Object.keys(practitionerData))
+      const insertData = {
+        ...practitionerData,
+        status: "pending",
+      }
+      console.log("[v0] Insert data keys:", Object.keys(insertData))
+      
       const { data: created, error } = await supabase
         .from("practitioners")
-        .insert({
-          ...practitionerData,
-          status: "pending",
-        })
+        .insert(insertData)
         .select()
         .single()
 
       if (error) {
-        console.error("[v0] Database error:", error.message)
+        console.error("[v0] Database insert error:", error.message, error.code, error.details, error.hint)
         return NextResponse.json({ error: error.message || "Failed to submit application" }, { status: 500 })
       }
 
