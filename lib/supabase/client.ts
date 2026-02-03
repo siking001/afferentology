@@ -1,32 +1,16 @@
-import { createBrowserClient } from "@supabase/ssr"
+import { createClient as createSupabaseClient } from "@supabase/supabase-js"
 
 const getSupabaseClient = () => {
-  if (typeof window === "undefined") {
-    throw new Error("createClient can only be used in browser context")
-  }
-
   // Store client on globalThis to survive hot module replacement
   if (!(globalThis as any).__supabase) {
-    ;(globalThis as any).__supabase = createBrowserClient(
-      process.env.NEXT_PUBLIC_SUPABASE_URL!,
-      process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
-      {
-        cookies: {
-          get(name: string) {
-            return document.cookie
-              .split("; ")
-              .find((row) => row.startsWith(`${name}=`))
-              ?.split("=")[1]
-          },
-          set(name: string, value: string, options: any) {
-            document.cookie = `${name}=${value}; path=/; ${options.maxAge ? `max-age=${options.maxAge}` : ""}`
-          },
-          remove(name: string, options: any) {
-            document.cookie = `${name}=; path=/; max-age=0`
-          },
-        },
-      },
-    )
+    const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL
+    const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+
+    if (!supabaseUrl || !supabaseKey) {
+      throw new Error("Missing Supabase environment variables")
+    }
+
+    ;(globalThis as any).__supabase = createSupabaseClient(supabaseUrl, supabaseKey)
   }
 
   return (globalThis as any).__supabase
