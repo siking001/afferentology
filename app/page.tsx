@@ -87,55 +87,55 @@ export default function HomePage() {
         {/* Three Value Props */}
         <section className="py-16 md:py-24">
           <div className="container mx-auto px-4">
-            <div className="grid gap-12 md:grid-cols-3">
-              <Card className="border-none shadow-lg">
-                <CardContent className="pt-8">
-                  <div className="relative mb-6 h-16 w-16 overflow-hidden rounded-lg">
-                    <Image
-                      src="/medical-icon-showing-nervous-system-nerve-pathways.jpg"
-                      alt="Nerve pathways"
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
+            <div className="grid gap-8 md:grid-cols-3">
+              <Card className="group border-none shadow-lg overflow-hidden transition-shadow hover:shadow-xl">
+                <div className="relative aspect-[4/3] w-full">
+                  <Image
+                    src="/images/icon-nerve-pathways.jpg"
+                    alt="Person experiencing lower back pain with highlighted lumbar spine"
+                    fill
+                    className="object-cover transition-transform duration-300 group-hover:scale-105"
+                  />
+                </div>
+                <CardContent className="p-6 pt-6">
                   <h3 className="mb-3 text-xl font-bold text-foreground">Make Sense of Pain & Injury</h3>
-                  <p className="mb-8 text-lg text-muted-foreground leading-relaxed">
+                  <p className="text-muted-foreground leading-relaxed">
                     Almost all chronic aches, pains and injury are associated with poor muscle tone. Proper treatment of
                     the underlying problem will return normal muscle tone and improve quality of life.
                   </p>
                 </CardContent>
               </Card>
 
-              <Card className="border-none shadow-lg">
-                <CardContent className="pt-8">
-                  <div className="relative mb-6 h-16 w-16 overflow-hidden rounded-lg">
-                    <Image
-                      src="/medical-icon-showing-brain-and-spinal-cord-connect.jpg"
-                      alt="Brain and spine connection"
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
+              <Card className="group border-none shadow-lg overflow-hidden transition-shadow hover:shadow-xl">
+                <div className="relative aspect-[4/3] w-full">
+                  <Image
+                    src="/images/icon-brain-spine.jpg"
+                    alt="Full human nervous system with brain, spinal cord, and peripheral nerves"
+                    fill
+                    className="object-cover transition-transform duration-300 group-hover:scale-105"
+                  />
+                </div>
+                <CardContent className="p-6 pt-6">
                   <h3 className="mb-3 text-xl font-bold text-foreground">Heal Faster</h3>
-                  <p className="mb-8 text-lg text-muted-foreground leading-relaxed">
+                  <p className="text-muted-foreground leading-relaxed">
                     For the brain and spinal cord to work properly they need afferent input from sensory neurons.
                     Inhibited muscles starve the brain of normal input, causing knock-on weaknesses throughout the body.
                   </p>
                 </CardContent>
               </Card>
 
-              <Card className="border-none shadow-lg">
-                <CardContent className="pt-8">
-                  <div className="relative mb-6 h-16 w-16 overflow-hidden rounded-lg">
-                    <Image
-                      src="/medical-icon-showing-healthy-active-body-in-motion.jpg"
-                      alt="Body in motion"
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
+              <Card className="group border-none shadow-lg overflow-hidden transition-shadow hover:shadow-xl">
+                <div className="relative aspect-[4/3] w-full">
+                  <Image
+                    src="/images/icon-active-body.jpg"
+                    alt="Happy person enjoying outdoor physical activity and running"
+                    fill
+                    className="object-cover transition-transform duration-300 group-hover:scale-105"
+                  />
+                </div>
+                <CardContent className="p-6 pt-6">
                   <h3 className="mb-3 text-xl font-bold text-foreground">And Suffer Less!</h3>
-                  <p className="mb-8 text-lg text-muted-foreground leading-relaxed">
+                  <p className="text-muted-foreground leading-relaxed">
                     Our strength returns even without exercise. We feel younger, less prone to injury. Our joints stay
                     flexible, organs work better, and we have far less pain with injuries healing faster.
                   </p>
