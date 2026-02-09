@@ -92,7 +92,7 @@ export default function HomePage() {
                 <div className="relative aspect-[4/3] w-full">
                   <Image
                     src="/images/icon-nerve-pathways.jpg"
-                    alt="Stylized nerve pathway network illustrating pain and injury diagnosis"
+                    alt="Person experiencing lower back pain with highlighted lumbar spine"
                     fill
                     className="object-cover transition-transform duration-300 group-hover:scale-105"
                   />
@@ -110,7 +110,7 @@ export default function HomePage() {
                 <div className="relative aspect-[4/3] w-full">
                   <Image
                     src="/images/icon-brain-spine.jpg"
-                    alt="Brain and spinal cord connection showing afferent neural signals"
+                    alt="Full human nervous system with brain, spinal cord, and peripheral nerves"
                     fill
                     className="object-cover transition-transform duration-300 group-hover:scale-105"
                   />
@@ -128,7 +128,7 @@ export default function HomePage() {
                 <div className="relative aspect-[4/3] w-full">
                   <Image
                     src="/images/icon-active-body.jpg"
-                    alt="Active human figure radiating restored strength and vitality"
+                    alt="Happy person enjoying outdoor physical activity and running"
                     fill
                     className="object-cover transition-transform duration-300 group-hover:scale-105"
                   />
