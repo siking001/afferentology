@@ -57,10 +57,10 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
   const { slug } = await params
   const supabase = await createClient()
 
-  // Fetch article
+  // Fetch article - only select needed columns to avoid serialization issues
   const { data: article, error } = await supabase
     .from("articles")
-    .select("*")
+    .select("id, title, slug, excerpt, content, author_name, featured_image_url, category, tags, published_at, views")
     .eq("slug", slug)
     .eq("published", true)
     .single()
