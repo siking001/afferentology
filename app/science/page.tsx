@@ -61,11 +61,17 @@ export default async function SciencePage({
       query = query.eq("category", selectedCategory)
     }
     
-    const { data } = await query.order("published_at", { ascending: false })
+    const { data, error: fetchError } = await query.order("published_at", { ascending: false })
 
-    articles = data || []
+    if (fetchError) {
+      console.error("[v0] Articles fetch error:", fetchError)
+      articles = []
+    } else {
+      articles = data || []
+    }
   } catch (error) {
-    console.log("Database not yet set up for articles")
+    console.error("[v0] Database error:", error)
+    articles = []
   }
 
   const featuredArticles = [
