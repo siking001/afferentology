@@ -54,7 +54,7 @@ export default async function SciencePage({
     // Fetch articles with optional category filter
     let query = supabase
       .from("articles")
-      .select("id, title, slug, excerpt, category, published_at, views")
+      .select("id, title, slug, excerpt, featured_image_url, category, published_at, views")
       .eq("published", true)
     
     if (selectedCategory) {
@@ -229,7 +229,16 @@ export default async function SciencePage({
                 {articles.map((article) => (
                   <Link key={article.id} href={`/science/${article.slug}`}>
                     <Card className="group h-full overflow-hidden border-none shadow-lg transition-all hover:shadow-xl">
-                      {/* Image removed to prevent stack overflow from base64 data */}
+                      {article.featured_image_url && !article.featured_image_url.startsWith("data:") && (
+                        <div className="relative aspect-video w-full overflow-hidden">
+                          <Image
+                            src={article.featured_image_url}
+                            alt={article.title}
+                            fill
+                            className="object-cover transition-transform group-hover:scale-105"
+                          />
+                        </div>
+                      )}
                       <CardContent className="p-6">
                         {article.category && (
                           <div className="mb-2">
