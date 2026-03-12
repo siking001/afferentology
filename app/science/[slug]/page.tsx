@@ -57,10 +57,10 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
   const { slug } = await params
   const supabase = await createClient()
 
-  // Fetch article
+  // Fetch article - only select needed columns to avoid serialization issues
   const { data: article, error } = await supabase
     .from("articles")
-    .select("*")
+    .select("id, title, slug, excerpt, content, author_name, featured_image_url, category, tags, published_at, views")
     .eq("slug", slug)
     .eq("published", true)
     .single()
@@ -108,14 +108,14 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
         </div>
       </section>
 
-      {/* Featured Image */}
-      {article.featured_image_url && (
+      {/* Featured Image - only show if it's a URL, not base64 data */}
+      {article.featured_image_url && !article.featured_image_url.startsWith("data:") && (
         <section className="bg-muted/30 py-8">
           <div className="container mx-auto px-4">
             <div className="mx-auto max-w-4xl">
               <div className="relative aspect-video w-full overflow-hidden rounded-lg shadow-xl">
                 <Image
-                  src={article.featured_image_url || "/placeholder.svg"}
+                  src={article.featured_image_url}
                   alt={article.title}
                   fill
                   className="object-cover"

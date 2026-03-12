@@ -61,11 +61,17 @@ export default async function SciencePage({
       query = query.eq("category", selectedCategory)
     }
     
-    const { data } = await query.order("published_at", { ascending: false })
+    const { data, error: fetchError } = await query.order("published_at", { ascending: false })
 
-    articles = data || []
+    if (fetchError) {
+      console.error("[v0] Articles fetch error:", fetchError)
+      articles = []
+    } else {
+      articles = data || []
+    }
   } catch (error) {
-    console.log("Database not yet set up for articles")
+    console.error("[v0] Database error:", error)
+    articles = []
   }
 
   const featuredArticles = [
@@ -226,7 +232,7 @@ export default async function SciencePage({
                       {article.featured_image_url && (
                         <div className="relative aspect-video w-full overflow-hidden">
                           <Image
-                            src={article.featured_image_url || "/placeholder.svg"}
+                            src={article.featured_image_url}
                             alt={article.title}
                             fill
                             className="object-cover transition-transform group-hover:scale-105"

@@ -1,3 +1,4 @@
+import { put } from "@vercel/blob"
 import { type NextRequest, NextResponse } from "next/server"
 
 export async function POST(request: NextRequest) {
@@ -20,13 +21,18 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: "File too large. Maximum size is 5MB." }, { status: 400 })
     }
 
-    // Convert file to base64 data URL
-    const arrayBuffer = await file.arrayBuffer()
-    const buffer = Buffer.from(arrayBuffer)
-    const base64 = buffer.toString("base64")
-    const dataUrl = `data:${file.type};base64,${base64}`
+    // Generate a unique filename with timestamp to avoid collisions
+    const timestamp = Date.now()
+    const extension = file.name.split(".").pop() || "jpg"
+    const filename = `articles/${timestamp}-${file.name.replace(/[^a-zA-Z0-9.-]/g, "_")}`
 
-    return NextResponse.json({ url: dataUrl })
+    // Upload to Vercel Blob storage
+    const blob = await put(filename, file, {
+      access: "public",
+    })
+
+    // Return the public URL from Vercel Blob
+    return NextResponse.json({ url: blob.url })
   } catch (error) {
     console.error("Upload error:", error)
     return NextResponse.json({ error: "Failed to upload image" }, { status: 500 })
