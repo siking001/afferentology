@@ -4,6 +4,7 @@ import Link from "next/link"
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Menu, X } from "lucide-react"
+import { SearchDialog } from "@/components/search-dialog"
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
@@ -35,6 +36,7 @@ export function Header() {
           <Link href="/contact" className="text-sm font-medium text-foreground transition-colors hover:text-primary">
             Contact
           </Link>
+          <SearchDialog />
           <Button asChild className="bg-secondary hover:bg-secondary/90">
             <Link href="/find-practitioner">Find a Practitioner</Link>
           </Button>
@@ -85,6 +87,10 @@ export function Header() {
             >
               Contact
             </Link>
+            <div className="flex items-center gap-2">
+              <span className="text-sm text-muted-foreground">Search articles:</span>
+              <SearchDialog />
+            </div>
             <Button asChild className="bg-secondary hover:bg-secondary/90">
               <Link href="/find-practitioner" onClick={() => setMobileMenuOpen(false)}>
                 Find a Practitioner
