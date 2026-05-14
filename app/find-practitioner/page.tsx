@@ -7,7 +7,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
-import { MapPin, Phone, Globe, ExternalLink, Navigation, Loader2 } from "lucide-react"
+import { MapPin, Phone, Globe, ExternalLink, Navigation, Loader2, Shield } from "lucide-react"
 import Link from "next/link"
 
 interface Practitioner {
@@ -297,6 +297,17 @@ export default function FindPractitionerPage() {
           </div>
         </div>
       </section>
+
+      {/* Discrete admin link */}
+      <div className="flex justify-end px-4 pb-4">
+        <Link
+          href="/admin/practitioners"
+          className="flex items-center gap-1 text-xs text-muted-foreground/40 hover:text-muted-foreground transition-colors"
+        >
+          <Shield className="h-3 w-3" />
+          Admin
+        </Link>
+      </div>
     </div>
   )
 }
