@@ -6,14 +6,22 @@ import Image from "next/image"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: "About - The Association of Certified Afferentologists",
+  title: "About - Association of Certified Afferentologists",
   description:
-    "Learn about the Association of Certified Afferentologists. Our mission is to advance understanding and treatment of nerve interference through education, research, and professional development.",
+    "Learn about the Association of Certified Afferentologists. Advancing nerve interference treatment through education, research, and professional development.",
   keywords: ["afferentology association", "certified afferentologists", "Simon King", "healthcare organization"],
   openGraph: {
     title: "About The Association of Certified Afferentologists",
     description: "Advancing nerve interference treatment through education, certification, and professional community.",
     type: "website",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Association of Certified Afferentologists",
+      },
+    ],
   },
 }
 

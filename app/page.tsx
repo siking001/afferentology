@@ -8,13 +8,21 @@ import type { Metadata } from "next"
 export const metadata: Metadata = {
   title: "Afferentology - Transform Patient Care Through Nerve Science",
   description:
-    "Expert training for health professionals in diagnosing and treating nerve interference. Discover how abnormal afferent input affects chronic pain, muscle tone, and patient outcomes.",
+    "Expert training for health professionals in diagnosing and treating nerve interference. Discover how abnormal afferent input affects chronic pain and patient outcomes.",
   openGraph: {
     title: "Afferentology - Transform Patient Care Through Nerve Science",
     description:
       "Expert training for health professionals in diagnosing and treating nerve interference and muscle inhibition.",
     type: "website",
-    url: "https://afferentology.org",
+    url: "https://www.afferentology.org",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Afferentology - Healthcare Professional Training",
+      },
+    ],
   },
 }
 

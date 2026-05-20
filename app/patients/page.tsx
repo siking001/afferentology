@@ -6,9 +6,9 @@ import Image from "next/image"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: "Your Pain is a Signal, Not the Problem | Afferentology",
+  title: "Your Pain is a Signal, Not the Problem",
   description:
-    "Discover how hidden irritants trigger the Withdrawal Reflex, causing your brain to inhibit muscle function. Like a nail in your foot, the solution isn't stronger muscles—it's finding and removing the irritant.",
+    "Discover how hidden irritants trigger the Withdrawal Reflex, causing your brain to inhibit muscle function. The solution is finding and removing the irritant.",
   keywords: [
     "chronic pain signal",
     "withdrawal reflex",
@@ -24,6 +24,14 @@ export const metadata: Metadata = {
     description:
       "What if your chronic pain isn't about weak muscles, but about hidden irritants corrupting your brain's signals?",
     type: "article",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Afferentology - Understanding Pain Signals",
+      },
+    ],
   },
 }
 

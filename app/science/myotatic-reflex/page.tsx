@@ -5,9 +5,9 @@ import type { Metadata } from "next"
 import Image from "next/image"
 
 export const metadata: Metadata = {
-  title: "The Myotatic Reflex - Your Body's Defense Mechanism | Afferentology",
+  title: "The Myotatic Reflex - Your Body's Defense Mechanism",
   description:
-    "Learn about the myotatic reflex (stretch reflex), your body's most important defense mechanism for controlled movement, injury prevention, and maintaining proper muscle tone. Discover how muscle spindles protect joints from damage.",
+    "Learn about the myotatic reflex (stretch reflex), your body's most important defense mechanism for controlled movement, injury prevention, and maintaining proper muscle tone.",
   keywords: [
     "myotatic reflex",
     "stretch reflex",
@@ -27,10 +27,10 @@ export const metadata: Metadata = {
     description:
       "Discover how the myotatic reflex protects your joints, controls movement, and prevents injuries through automatic muscle responses.",
     type: "article",
-    url: "https://afferentology.org/science/myotatic-reflex",
+    url: "https://www.afferentology.org/science/myotatic-reflex",
     images: [
       {
-        url: "https://afferentology.org/images/knee-jerk-reflex.jpg",
+        url: "/images/knee-jerk-reflex.jpg",
         width: 1200,
         height: 630,
         alt: "Healthcare professional testing patient's myotatic reflex with reflex hammer",
