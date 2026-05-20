@@ -42,13 +42,29 @@ export async function generateMetadata({ params }: ArticlePageProps): Promise<Me
   }
 
   return {
-    title: `${article.title} - Afferentology Science`,
+    title: article.title,
     description: article.excerpt || "Research article from Afferentology",
     openGraph: {
       title: article.title,
       description: article.excerpt || "Research article from Afferentology",
       type: "article",
-      images: article.featured_image_url ? [article.featured_image_url] : [],
+      images: article.featured_image_url
+        ? [
+            {
+              url: article.featured_image_url,
+              width: 1200,
+              height: 630,
+              alt: article.title,
+            },
+          ]
+        : [
+            {
+              url: "/og-image.jpg",
+              width: 1200,
+              height: 630,
+              alt: "Afferentology Science Article",
+            },
+          ],
     },
   }
 }
