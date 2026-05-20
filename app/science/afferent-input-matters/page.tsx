@@ -5,9 +5,9 @@ import type { Metadata } from "next"
 import Image from "next/image"
 
 export const metadata: Metadata = {
-  title: "Why Afferent Input Matters - Understanding Neurological Assessment | Afferentology",
+  title: "Why Afferent Input Matters - Neurological Assessment",
   description:
-    "Discover why paying attention to afferent input is crucial for healthcare professionals. Learn how neurological assessment and the nervous system defense mechanism can prevent injuries and build stronger, more resilient patients.",
+    "Discover why afferent input is crucial for healthcare professionals. Learn how neurological assessment can prevent injuries and build stronger, more resilient patients.",
   keywords: [
     "afferent input",
     "nervous system assessment",
@@ -25,10 +25,10 @@ export const metadata: Metadata = {
     description:
       "Learn how afferent input assessment helps healthcare professionals identify weaknesses and build resilient patients through neurological testing.",
     type: "article",
-    url: "https://afferentology.org/science/afferent-input-matters",
+    url: "https://www.afferentology.org/science/afferent-input-matters",
     images: [
       {
-        url: "https://afferentology.org/images/afferent-input-matters-header.webp",
+        url: "/images/afferent-input-matters-header.webp",
         width: 1200,
         height: 630,
         alt: "Healthcare professional examining patient's nervous system",

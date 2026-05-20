@@ -5,9 +5,9 @@ import Image from "next/image"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: "The Withdrawal Reflex - How Sensory Receptors Control Muscle Tone | Afferentology",
+  title: "The Withdrawal Reflex - How Sensory Receptors Control Muscle Tone",
   description:
-    "Discover how the withdrawal reflex protects us from danger by giving sensory receptors direct control over muscle tone. Learn about pain reflexes, nerve interference, and the impact of piercings, acupuncture, and irritation on muscle function.",
+    "How the withdrawal reflex protects us from danger by giving sensory receptors direct control over muscle tone. Learn about nerve interference, piercings, scars, and muscle inhibition.",
   keywords: [
     "withdrawal reflex",
     "pain reflex",
@@ -27,10 +27,10 @@ export const metadata: Metadata = {
     description:
       "Learn how the withdrawal reflex gives your sensory receptors direct control over muscle tone to protect you from danger without thinking.",
     type: "article",
-    url: "https://afferentology.org/science/withdrawal-reflex",
+    url: "https://www.afferentology.org/science/withdrawal-reflex",
     images: [
       {
-        url: "https://afferentology.org/images/withdrawal-reflex-diagram.jpg",
+        url: "/images/withdrawal-reflex-diagram.jpg",
         width: 1200,
         height: 630,
         alt: "Anatomical diagram of withdrawal reflex showing nerve pathways",

@@ -7,9 +7,9 @@ import { AfferentLoopAnimation } from "@/components/afferent-loop-animation"
 import { PrecisionTestingDashboard } from "@/components/precision-testing-dashboard"
 
 export const metadata: Metadata = {
-  title: "50Hz Resting Tone Protocols - Practitioner Training | Afferentology",
+  title: "50Hz Resting Tone Protocols - Practitioner Training",
   description:
-    "Master the clinical application of neuromuscular reflexes. Train to regard muscles as the beginning and ending of the nervous system. Learn to restore strength by removing afferent irritants.",
+    "Master the clinical application of neuromuscular reflexes. Train to regard muscles as the beginning and ending of the nervous system and restore strength by removing afferent irritants.",
   keywords: [
     "50Hz resting tone",
     "neuromuscular reflexes",
@@ -25,6 +25,14 @@ export const metadata: Metadata = {
     description:
       "Clinical application of neuromuscular reflexes. Learn to restore strength by removing irritants to afferent input.",
     type: "website",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Afferentology Practitioner Training",
+      },
+    ],
   },
 }
 

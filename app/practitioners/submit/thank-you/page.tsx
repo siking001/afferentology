@@ -7,6 +7,7 @@ import { CheckCircle2, Clock, Mail, ArrowLeft } from "lucide-react"
 export const metadata: Metadata = {
   title: "Application Submitted",
   description: "Thank you for submitting your practitioner application to the Afferentology directory.",
+  robots: { index: false, follow: false },
 }
 
 export default function ThankYouPage() {

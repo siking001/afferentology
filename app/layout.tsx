@@ -12,13 +12,13 @@ const _geist = Geist({ subsets: ["latin"] })
 const _geistMono = Geist_Mono({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://afferentology.org"),
+  metadataBase: new URL("https://www.afferentology.org"),
   title: {
-    default: "Afferentology - Transform Your Patient Care Through Nerve Science",
+    default: "Afferentology - Transform Patient Care Through Nerve Science",
     template: "%s | Afferentology",
   },
   description:
-    "Discover how abnormal afferent input and nerve interference affects patient care. Expert training for health professionals in diagnosing and treating muscle inhibition through evidence-based nerve therapy.",
+    "Expert training for health professionals in diagnosing and treating nerve interference and muscle inhibition through evidence-based afferentology.",
   keywords: [
     "afferentology",
     "nerve interference",
@@ -42,10 +42,10 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://afferentology.org",
-    title: "Afferentology - Transform Your Patient Care Through Nerve Science",
+    url: "https://www.afferentology.org",
+    title: "Afferentology - Transform Patient Care Through Nerve Science",
     description:
-      "Expert training for health professionals in diagnosing and treating nerve interference. Discover how abnormal afferent input affects patient outcomes.",
+      "Expert training for health professionals in diagnosing and treating nerve interference and muscle inhibition.",
     siteName: "Afferentology",
     images: [
       {
@@ -58,7 +58,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Afferentology - Transform Your Patient Care",
+    title: "Afferentology - Transform Patient Care",
     description: "Expert training in diagnosing and treating nerve interference for healthcare professionals.",
     images: ["/og-image.jpg"],
   },

@@ -8,12 +8,20 @@ import type { Metadata } from "next"
 export const metadata: Metadata = {
   title: "The Science of Afferentology - Research & Articles",
   description:
-    "Explore the neuroscience behind Afferentology. Read research articles about afferent input, muscle inhibition, and evidence-based approaches to pain relief.",
+    "Explore the neuroscience behind Afferentology. Research articles on afferent input, muscle inhibition, and evidence-based approaches to pain and nerve therapy.",
   keywords: ["afferent input science", "muscle inhibition research", "neuroscience articles", "pain science research"],
   openGraph: {
     title: "The Science of Afferentology - Research Articles",
     description: "Research articles and insights into the neuroscience of afferent input and muscle function.",
     type: "website",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Afferentology Science and Research",
+      },
+    ],
   },
 }
 

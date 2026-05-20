@@ -2,9 +2,9 @@ import type { Metadata } from "next"
 import { PainSignalScreener } from "@/components/pain-signal-screener"
 
 export const metadata: Metadata = {
-  title: "Pain Signal Screener | Afferentology",
+  title: "Pain Signal Screener - Discover Hidden Irritants",
   description:
-    "Discover if your nervous system is stuck in a Withdrawal Reflex. Take our free screening to identify potential hidden irritants causing your chronic pain.",
+    "Discover if your nervous system is stuck in a Withdrawal Reflex. Take our free 2-minute screening to identify potential hidden irritants causing your chronic pain.",
   keywords: [
     "pain screening",
     "chronic pain assessment",
@@ -15,9 +15,17 @@ export const metadata: Metadata = {
     "hidden irritants",
   ],
   openGraph: {
-    title: "Pain Signal Screener | Afferentology",
+    title: "Pain Signal Screener - Discover Hidden Irritants",
     description: "Your pain is a signal, not the problem. Discover what your nervous system is trying to tell you.",
-    url: "https://afferentology.org/screener",
+    url: "https://www.afferentology.org/screener",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Afferentology Pain Signal Screener",
+      },
+    ],
   },
 }
 
