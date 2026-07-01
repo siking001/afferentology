@@ -1,7 +1,24 @@
+import type { Metadata } from "next"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Mail, ExternalLink, BookOpen } from "lucide-react"
 import Image from "next/image"
+
+export const metadata: Metadata = {
+  title: "Simon King",
+  description:
+    "Meet Simon King, founder of Afferentology and Director of The Association of Certified Afferentologists, pioneering the science of treating nerve interference and muscle inhibition.",
+  alternates: {
+    canonical: "/simon-king",
+  },
+  openGraph: {
+    title: "Simon King - Founder of Afferentology",
+    description: "The founder pioneering the science of nerve interference and muscle inhibition treatment.",
+    url: "https://www.afferentology.org/simon-king",
+    type: "profile",
+    images: [{ url: "/images/simon-square.png", width: 300, height: 300, alt: "Simon King" }],
+  },
+}
 
 export default function SimonKingPage() {
   return (

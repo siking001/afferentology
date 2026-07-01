@@ -1,6 +1,22 @@
+import type { Metadata } from "next"
 import { Card, CardContent } from "@/components/ui/card"
 import { Mail, MessageSquare } from "lucide-react"
 import { Button } from "@/components/ui/button"
+
+export const metadata: Metadata = {
+  title: "Contact Us",
+  description:
+    "Get in touch with Afferentology. We're here to help patients, practitioners, and anyone interested in learning more about nerve interference and muscle inhibition.",
+  alternates: {
+    canonical: "/contact",
+  },
+  openGraph: {
+    title: "Contact Afferentology",
+    description: "Questions about Afferentology? Reach out to our team of certified afferentologists.",
+    url: "https://www.afferentology.org/contact",
+    type: "website",
+  },
+}
 
 export default function ContactPage() {
   return (

@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     url: "https://www.afferentology.org",
     images: [
       {
-        url: "/og-image.jpg",
+        url: "/og-image.png",
         width: 1200,
         height: 630,
         alt: "Afferentology - Healthcare Professional Training",

@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next"
 
 export default function robots(): MetadataRoute.Robots {
-  const baseUrl = "https://afferentology.org"
+  const baseUrl = "https://www.afferentology.org"
 
   return {
     rules: [
