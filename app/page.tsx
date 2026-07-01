@@ -105,20 +105,21 @@ export default function HomePage() {
                   In daily practice, we constantly treat the physical framework&mdash;adjusting joints, stretching tight
                   tissues, and assigning rehabilitation exercises to build strength and range of motion. But if a muscle
                   is neurologically inhibited, it cannot properly support the skeleton or generate maximum power, no
-                  matter how much it is exercised or treated.
+                  matter how much it is exercised, stretched or treated.
                 </p>
                 <p>
                   Afferentology focuses on the direct relationship between sensory input and structural function. Every
-                  muscle relies on an automatic, constant firing rate&mdash;a healthy resting tone&mdash;to stabilize
-                  your posture and protect joints from sudden, unpredictable forces. When the nervous system receives an
-                  altered or irritating sensory signal from an old injury, a scar, or an asymmetrical bite, it triggers
-                  a protective reflex.
+                  muscle relies on an automatic, constant firing rate&mdash;a healthy resting muscle tone&mdash;to
+                  stabilise your posture and protect joints from sudden, unpredictable forces. When the nervous system
+                  receives an altered or irritating sensory signal from an old injury, a scar, or a foreign body, it
+                  triggers a protective reflex which can have consequential and hidden effects on movement and function.
                 </p>
                 <p>
-                  The nervous system instantly dials down the power to the surrounding muscles to protect itself. This
-                  leaves the joint exposed, restricting your patient&apos;s flexibility and predisposing them to
-                  re-injury. By identifying these hidden reflex pathways and restoring normal input, you instantly
-                  facilitate full muscle strength, stabilize posture, and restore fluid, pain-free movement.
+                  Any sensory insult to the nervous system dials down the power to associated muscles and activates the
+                  antagonists to protect the body from further injury. This leaves joints predisposed to injury,
+                  restricting flexibility and hindering full recovery. By identifying these sensory short-circuits and
+                  restoring normal input, you instantly facilitate full muscle strength, stabilise posture, assist in
+                  healing and restore fluid, pain-free movement.
                 </p>
               </div>
             </div>
