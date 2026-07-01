@@ -1,6 +1,22 @@
+import type { Metadata } from "next"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Video, ExternalLink } from "lucide-react"
+
+export const metadata: Metadata = {
+  title: "Video Tutorials & Resources",
+  description:
+    "Access practical demonstrations and educational content on Afferentology techniques, including muscle testing and treating nerve interference.",
+  alternates: {
+    canonical: "/tutorials",
+  },
+  openGraph: {
+    title: "Afferentology Video Tutorials & Resources",
+    description: "Practical demonstrations and educational content on Afferentology techniques.",
+    url: "https://www.afferentology.org/tutorials",
+    type: "website",
+  },
+}
 
 export default function TutorialsPage() {
   return (

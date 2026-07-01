@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     siteName: "Afferentology",
     images: [
       {
-        url: "/og-image.jpg",
+        url: "/og-image.png",
         width: 1200,
         height: 630,
         alt: "Afferentology - Healthcare Professional Training",
@@ -60,7 +60,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Afferentology - Transform Patient Care",
     description: "Expert training in diagnosing and treating nerve interference for healthcare professionals.",
-    images: ["/og-image.jpg"],
+    images: ["/og-image.png"],
   },
   robots: {
     index: true,

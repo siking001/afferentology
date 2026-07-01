@@ -1,7 +1,23 @@
+import type { Metadata } from "next"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
+
+export const metadata: Metadata = {
+  title: "Case Studies",
+  description:
+    "Real patient outcomes from Afferentology treatment. See how addressing nerve interference and muscle inhibition resolved chronic pain, recurring injuries, and mobility issues.",
+  alternates: {
+    canonical: "/case-studies",
+  },
+  openGraph: {
+    title: "Afferentology Case Studies",
+    description: "Real-world patient outcomes achieved by treating underlying nerve interference and muscle inhibition.",
+    url: "https://www.afferentology.org/case-studies",
+    type: "website",
+  },
+}
 
 export default function CaseStudiesPage() {
   const caseStudies = [

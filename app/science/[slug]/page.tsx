@@ -59,7 +59,7 @@ export async function generateMetadata({ params }: ArticlePageProps): Promise<Me
           ]
         : [
             {
-              url: "/og-image.jpg",
+              url: "/og-image.png",
               width: 1200,
               height: 630,
               alt: "Afferentology Science Article",
