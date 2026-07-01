@@ -17,7 +17,14 @@ const VOICE = `Write in Simon King's voice. His style:
 - Warm but authoritative. Confident, never arrogant. You've seen this work.
 - Lead with a provocative clinical insight or a patient scenario, NOT with a description of the article.
 
-STRICTLY AVOID generic marketing filler such as: "Our latest article dives deep", "Don't miss this enlightening read", "In this post we explore", "Check out our new blog", "a must-read", "unlock the secrets". Never announce the article as an article. Instead, open with the idea itself.`
+STRICTLY AVOID generic marketing filler such as: "Our latest article dives deep", "Don't miss this enlightening read", "In this post we explore", "Check out our new blog", "a must-read", "unlock the secrets". Never announce the article as an article. Instead, open with the idea itself.
+
+AUDIENCE AND EMPATHY:
+- You are speaking to conscientious chiropractors, physiotherapists, osteopaths, and other manual therapists who are doing everything right by conventional standards — and still watching patients plateau, relapse, or never fully recover.
+- These are skilled, caring, hard-working clinicians. They have not been given the full picture, but that is not their fault.
+- NEVER talk down to them, and NEVER imply they have been doing it wrong, that they are missing something obvious, or that their training was inadequate. No blame, no "you've been making this mistake."
+- Write like a trusted colleague opening a door they didn't know existed — sharing something that finally explains the cases that don't add up. Empathetic, respectful, and generous.
+- Acknowledge the frustration of the plateau or relapse honestly, then offer the missing piece as a genuine "what if it were this?" rather than a correction.`
 
 const HASHTAG_POOL = `Choose exactly 5 hashtags, selected from this list based on their relevance to THIS specific article's topic (always include #Afferentology): #Afferentology #AfferentInput #MuscleInhibition #NeurologicalHealth #ChronicPain #PainScience #ManualTherapy #Physiotherapy #Chiropractic #FunctionalMedicine #Osteopathy #Musclestrength. Do not invent new hashtags or use any outside this list.`
 
