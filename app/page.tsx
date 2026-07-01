@@ -66,11 +66,12 @@ export default function HomePage() {
           <div className="container relative z-10 mx-auto px-4">
             <div className="mx-auto max-w-4xl text-center">
               <h1 className="mb-6 text-4xl font-bold leading-tight md:text-5xl lg:text-6xl text-balance">
-                Transform Your Patient Care with Afferentology
+                Restore True Function. Protect Every Body.
               </h1>
               <p className="mb-8 text-lg text-primary-foreground/90 md:text-xl text-pretty leading-relaxed">
-                Are you equipped to diagnose and treat <span className="font-semibold">nerve interference</span>{" "}
-                effectively?
+                Move beyond simply treating local tight joints and muscles. Discover the hidden neurological reflexes
+                that dictate muscle power, posture, and joint protection&mdash;and learn how to facilitate immediate
+                structural changes that last.
               </p>
               <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
                 <Button asChild size="lg" className="bg-secondary text-secondary-foreground hover:bg-secondary/90">
