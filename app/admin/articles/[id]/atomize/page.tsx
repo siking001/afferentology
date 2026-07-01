@@ -4,11 +4,11 @@ import React, { useState, useEffect } from "react"
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { ArrowLeft, Sparkles, Link2, Copy, Check, Linkedin, ExternalLink, CheckCircle, Loader2 } from "lucide-react"
+import { ArrowLeft, Sparkles, Link2, Copy, Check, CheckCircle, Loader2 } from "lucide-react"
 import Link from "next/link"
 import { useToast } from "@/hooks/use-toast"
 import { AdminAuth } from "@/components/admin-auth"
-import { Textarea } from "@/components/ui/textarea"
+import { AtomizeSocialFormats } from "@/components/atomize-social-formats"
 import { useParams } from "next/navigation"
 
 // Keywords mapped to internal article slugs
@@ -48,6 +48,10 @@ interface Article {
   excerpt: string
   content: string
   category: string
+  linkedin_post?: string | null
+  facebook_post?: string | null
+  substack_intro?: string | null
+  email_snippet?: string | null
 }
 
 export default function AtomizePage() {
@@ -57,7 +61,6 @@ export default function AtomizePage() {
   const [article, setArticle] = useState<Article | null>(null)
   const [isLoading, setIsLoading] = useState(true)
   const [suggestions, setSuggestions] = useState<LinkSuggestion[]>([])
-  const [linkedinPost, setLinkedinPost] = useState("")
   const [copiedStates, setCopiedStates] = useState<Record<string, boolean>>({})
   const [acceptingStates, setAcceptingStates] = useState<Record<string, boolean>>({})
 
@@ -80,7 +83,6 @@ export default function AtomizePage() {
       if (data) {
         setArticle(data)
         analyzeContent(data)
-        generateLinkedInPost(data)
       }
     } catch (error) {
       toast({
@@ -131,20 +133,6 @@ export default function AtomizePage() {
     )
 
     setSuggestions(uniqueSuggestions)
-  }
-
-  function generateLinkedInPost(article: Article) {
-    const hashtags = "#Afferentology #PainRelief #ManualTherapy #HealthcareProfessionals #ChronicPain #NeurologicalHealth"
-    
-    const post = `${article.title}
-
-${article.excerpt || "Discover how understanding afferent input can transform your approach to patient care."}
-
-Read the full article: https://afferentology.org/science/${article.slug}
-
-${hashtags}`
-
-    setLinkedinPost(post)
   }
 
   async function copyToClipboard(text: string, key: string) {
@@ -375,55 +363,8 @@ ${hashtags}`
             </CardContent>
           </Card>
 
-          {/* LinkedIn Post Generator */}
-          <Card>
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                <Linkedin className="h-5 w-5" />
-                LinkedIn Post
-              </CardTitle>
-              <CardDescription>
-                Ready-to-post content for promoting this article on LinkedIn
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              <Textarea
-                value={linkedinPost}
-                onChange={(e) => setLinkedinPost(e.target.value)}
-                rows={10}
-                className="font-sans mb-4"
-              />
-              <div className="flex gap-3">
-                <Button
-                  variant="outline"
-                  className="bg-transparent"
-                  onClick={() => copyToClipboard(linkedinPost, "linkedin")}
-                >
-                  {copiedStates.linkedin ? (
-                    <>
-                      <Check className="h-4 w-4 mr-2" />
-                      Copied!
-                    </>
-                  ) : (
-                    <>
-                      <Copy className="h-4 w-4 mr-2" />
-                      Copy to Clipboard
-                    </>
-                  )}
-                </Button>
-                <Button asChild>
-                  <a
-                    href={`https://www.linkedin.com/sharing/share-offsite/?url=https://afferentology.org/science/${article.slug}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <ExternalLink className="h-4 w-4 mr-2" />
-                    Share on LinkedIn
-                  </a>
-                </Button>
-              </div>
-            </CardContent>
-          </Card>
+          {/* Social Formats Generator */}
+          <AtomizeSocialFormats article={article} />
         </div>
       </div>
     </AdminAuth>
