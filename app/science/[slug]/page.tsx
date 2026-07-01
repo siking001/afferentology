@@ -11,6 +11,35 @@ interface ArticlePageProps {
   params: Promise<{ slug: string }>
 }
 
+/**
+ * Some articles are stored as complete standalone HTML documents
+ * (<!DOCTYPE html><html><head><title>...</title>...</head><body>...</body></html>).
+ * Injecting that whole thing produces duplicate <title>, <meta>, and <style>
+ * tags in the page. This extracts just the body's inner HTML and strips any
+ * stray document-level tags so only the article fragment is rendered.
+ */
+function sanitizeArticleContent(raw: string): string {
+  if (!raw) return ""
+  let html = raw
+
+  // If the content is a full document, keep only what's inside <body>.
+  const bodyMatch = html.match(/<body[^>]*>([\s\S]*?)<\/body>/i)
+  if (bodyMatch) {
+    html = bodyMatch[1]
+  }
+
+  // Remove any remaining document-level tags that should never be in a fragment.
+  html = html
+    .replace(/<!DOCTYPE[^>]*>/gi, "")
+    .replace(/<head[\s\S]*?<\/head>/gi, "")
+    .replace(/<\/?html[^>]*>/gi, "")
+    .replace(/<\/?body[^>]*>/gi, "")
+    .replace(/<title[\s\S]*?<\/title>/gi, "")
+    .replace(/<meta[^>]*>/gi, "")
+
+  return html.trim()
+}
+
 interface Article {
   id: string
   title: string
@@ -164,7 +193,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
     [&_strong]:text-foreground [&_strong]:font-bold
     [&_hr]:my-12 [&_hr]:border-border
     [&_a]:text-primary [&_a]:underline hover:[&_a]:text-secondary"
-  dangerouslySetInnerHTML={{ __html: article.content }}
+  dangerouslySetInnerHTML={{ __html: sanitizeArticleContent(article.content) }}
 />
           </div>
           {/* Tags */}
