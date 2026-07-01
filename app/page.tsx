@@ -121,6 +121,17 @@ export default function HomePage() {
                   restoring normal input, you instantly facilitate full muscle strength, stabilise posture, assist in
                   healing and restore fluid, pain-free movement.
                 </p>
+                <p>
+                  It&apos;s time to elevate your diagnostic clinical skillset. Join a community of forward-thinking
+                  practitioners and master the exact steps to unlock the body&apos;s natural protective mechanisms.
+                </p>
+              </div>
+              <div className="mt-8">
+                <Button asChild size="lg" className="bg-primary hover:bg-primary/90">
+                  <Link href="https://learn.afferentology.org/essentials" target="_blank" rel="noopener noreferrer">
+                    Enrol in Our Free Training
+                  </Link>
+                </Button>
               </div>
             </div>
           </div>
