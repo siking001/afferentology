@@ -93,6 +93,38 @@ export default function HomePage() {
           </div>
         </section>
 
+        {/* Neurological Control of Structural Movement */}
+        <section className="py-16 md:py-24">
+          <div className="container mx-auto px-4">
+            <div className="mx-auto max-w-3xl">
+              <h2 className="mb-8 text-3xl font-bold text-foreground md:text-4xl text-balance">
+                The Neurological Control of Structural Movement
+              </h2>
+              <div className="space-y-6 text-lg text-muted-foreground leading-relaxed text-pretty">
+                <p>
+                  In daily practice, we constantly treat the physical framework&mdash;adjusting joints, stretching tight
+                  tissues, and assigning rehabilitation exercises to build strength and range of motion. But if a muscle
+                  is neurologically inhibited, it cannot properly support the skeleton or generate maximum power, no
+                  matter how much it is exercised or treated.
+                </p>
+                <p>
+                  Afferentology focuses on the direct relationship between sensory input and structural function. Every
+                  muscle relies on an automatic, constant firing rate&mdash;a healthy resting tone&mdash;to stabilize
+                  your posture and protect joints from sudden, unpredictable forces. When the nervous system receives an
+                  altered or irritating sensory signal from an old injury, a scar, or an asymmetrical bite, it triggers
+                  a protective reflex.
+                </p>
+                <p>
+                  The nervous system instantly dials down the power to the surrounding muscles to protect itself. This
+                  leaves the joint exposed, restricting your patient&apos;s flexibility and predisposing them to
+                  re-injury. By identifying these hidden reflex pathways and restoring normal input, you instantly
+                  facilitate full muscle strength, stabilize posture, and restore fluid, pain-free movement.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Three Value Props */}
         <section className="py-16 md:py-24">
           <div className="container mx-auto px-4">
