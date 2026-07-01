@@ -66,16 +66,17 @@ export default function HomePage() {
           <div className="container relative z-10 mx-auto px-4">
             <div className="mx-auto max-w-4xl text-center">
               <h1 className="mb-6 text-4xl font-bold leading-tight md:text-5xl lg:text-6xl text-balance">
-                Transform Your Patient Care with Afferentology
+                Restore True Function. Protect Every Body.
               </h1>
               <p className="mb-8 text-lg text-primary-foreground/90 md:text-xl text-pretty leading-relaxed">
-                Are you equipped to diagnose and treat <span className="font-semibold">nerve interference</span>{" "}
-                effectively?
+                Move beyond treating stuck joints and tight muscles. Discover the hidden neurological reflexes that
+                dictate power, posture, protection and performance &mdash; and learn how to facilitate immediate
+                functional changes that last.
               </p>
               <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
                 <Button asChild size="lg" className="bg-secondary text-secondary-foreground hover:bg-secondary/90">
                   <Link href="https://learn.afferentology.org/essentials">
-                    Start with our FREE course
+                    Explore Our Training Programs
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </Link>
                 </Button>
@@ -87,6 +88,39 @@ export default function HomePage() {
                 >
                   <Link href="/find-practitioner">Find a Practitioner</Link>
                 </Button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Neurological Control of Structural Movement */}
+        <section className="py-16 md:py-24">
+          <div className="container mx-auto px-4">
+            <div className="mx-auto max-w-3xl">
+              <h2 className="mb-8 text-3xl font-bold text-foreground md:text-4xl text-balance">
+                The Neurological Control of Movement
+              </h2>
+              <div className="space-y-6 text-lg text-muted-foreground leading-relaxed text-pretty">
+                <p>
+                  In daily practice, we constantly treat the physical framework&mdash;adjusting joints, stretching tight
+                  tissues, and assigning rehabilitation exercises to build strength and range of motion. But if a muscle
+                  is neurologically inhibited, it cannot properly support the skeleton or generate maximum power, no
+                  matter how much it is exercised, stretched or treated.
+                </p>
+                <p>
+                  Afferentology focuses on the direct relationship between sensory input and structural function. Every
+                  muscle relies on an automatic, constant firing rate&mdash;a healthy resting muscle tone&mdash;to
+                  stabilise your posture and protect joints from sudden, unpredictable forces. When the nervous system
+                  receives an altered or irritating sensory signal from an old injury, a scar, or a foreign body, it
+                  triggers a protective reflex which can have consequential and hidden effects on movement and function.
+                </p>
+                <p>
+                  Any sensory insult to the nervous system dials down the power to associated muscles and activates the
+                  antagonists to protect the body from further injury. This leaves joints predisposed to injury,
+                  restricting flexibility and hindering full recovery. By identifying these sensory short-circuits and
+                  restoring normal input, you instantly facilitate full muscle strength, stabilise posture, assist in
+                  healing and restore fluid, pain-free movement.
+                </p>
               </div>
             </div>
           </div>
