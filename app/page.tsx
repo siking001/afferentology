@@ -76,7 +76,7 @@ export default function HomePage() {
               <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
                 <Button asChild size="lg" className="bg-secondary text-secondary-foreground hover:bg-secondary/90">
                   <Link href="https://learn.afferentology.org/essentials">
-                    Start with our FREE course
+                    Explore Our Training Programs
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </Link>
                 </Button>
