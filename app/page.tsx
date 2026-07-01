@@ -69,9 +69,9 @@ export default function HomePage() {
                 Restore True Function. Protect Every Body.
               </h1>
               <p className="mb-8 text-lg text-primary-foreground/90 md:text-xl text-pretty leading-relaxed">
-                Move beyond simply treating local tight joints and muscles. Discover the hidden neurological reflexes
-                that dictate muscle power, posture, and joint protection&mdash;and learn how to facilitate immediate
-                structural changes that last.
+                Move beyond treating stuck joints and tight muscles. Discover the hidden neurological reflexes that
+                dictate power, posture, protection and performance &mdash; and learn how to facilitate immediate
+                functional changes that last.
               </p>
               <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
                 <Button asChild size="lg" className="bg-secondary text-secondary-foreground hover:bg-secondary/90">
