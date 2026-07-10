@@ -31,7 +31,7 @@ export function PrecisionTestingDashboard() {
       {/* Header */}
       <div className="flex items-center justify-between mb-8">
         <div>
-          <h3 className="text-xl font-bold text-white">Precision Muscle Testing</h3>
+          <h3 className="text-xl font-bold text-white">Protective Reflex Testing</h3>
           <p className="text-slate-500 text-sm">Real-time diagnostic interface</p>
         </div>
         <div

@@ -160,7 +160,7 @@ export default function SimonKingPage() {
                   <div className="relative h-[300px] w-full overflow-hidden rounded-lg shadow-lg">
                     <Image
                       src="/images/img-7782-201.jpg"
-                      alt="Live demonstration of precision muscle testing at training seminar"
+                      alt="Live demonstration of protective reflex testing at training seminar"
                       fill
                       className="object-cover"
                     />

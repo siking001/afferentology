@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     "afferent input",
     "muscle testing",
     "practitioner training",
-    "precision muscle testing",
+    "protective reflex testing",
     "withdrawal reflex",
   ],
   openGraph: {
@@ -164,7 +164,7 @@ export default function PractitionersPage() {
                 <p className="text-amber-600 text-sm font-semibold uppercase tracking-wider mb-3">
                   Clinical Application
                 </p>
-                <h2 className="mb-4 text-3xl font-bold text-slate-900 md:text-4xl">Precision Muscle Testing</h2>
+                <h2 className="mb-4 text-3xl font-bold text-slate-900 md:text-4xl">Protective Reflex Testing</h2>
                 <p className="text-lg text-slate-700 leading-relaxed max-w-2xl mx-auto">
                   Learn to challenge the muscle's ability to maintain its 50Hz resting tone. When a muscle fails to
                   "lock," you've found a window into the nervous system's protective response.
@@ -184,7 +184,7 @@ export default function PractitionersPage() {
                       <div>
                         <strong className="text-slate-900">Challenge the Muscle</strong>
                         <p className="text-slate-600 mt-1 text-sm">
-                          Use Precision Muscle Testing to feel for the muscle's ability to maintain its 50Hz resting
+                          Use Protective Reflex Testing to feel for the muscle's ability to maintain its 50Hz resting
                           tone against a stable external force. A healthy muscle will instantly adapt to resist a
                           steadily increasing external force—a compromised muscle will fail.
                         </p>

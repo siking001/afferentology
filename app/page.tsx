@@ -231,7 +231,7 @@ export default function HomePage() {
                 <div className="relative aspect-video w-full">
                   <Image
                     src="/images/img-7789-202.jpg"
-                    alt="Practitioner demonstrating precision muscle testing during training"
+                    alt="Practitioner demonstrating protective reflex testing during training"
                     fill
                     className="object-cover"
                   />

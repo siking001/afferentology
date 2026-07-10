@@ -357,7 +357,7 @@ export default function PatientsPage() {
                   <CardContent className="pt-8 text-center">
                     <h3 className="mb-4 text-2xl font-bold text-foreground">For Practitioners</h3>
                     <p className="mb-6 text-muted-foreground leading-relaxed">
-                      Learn the 50Hz Resting Tone protocols. Use Precision Muscle Testing to identify noxious afferent
+                      Learn the 50Hz Resting Tone protocols. Use Protective Reflex Testing to identify noxious afferent
                       input and restore neurological function instantly.
                     </p>
                     <Button asChild size="lg" className="w-full bg-primary text-primary-foreground hover:bg-primary/90">
@@ -377,7 +377,7 @@ export default function PatientsPage() {
           <div className="container mx-auto px-4 text-center">
             <h2 className="mb-4 text-3xl font-bold md:text-4xl">Ready to Find the Nail?</h2>
             <p className="mx-auto mb-8 max-w-2xl text-lg text-primary-foreground/90 leading-relaxed">
-              A certified Afferentology practitioner can use Precision Muscle Testing to identify exactly what's
+              A certified Afferentology practitioner can use Protective Reflex Testing to identify exactly what's
               triggering your Withdrawal Reflex—and neutralize it in the same session.
             </p>
             <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">

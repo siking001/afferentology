@@ -23,7 +23,7 @@ const KEYWORD_MAP: Record<string, { slug: string; title: string }> = {
   "muscle inhibition": { slug: "muscle-reflexes", title: "Muscle Reflexes" },
   "neurological inhibition": { slug: "afferent-input-matters", title: "Why Afferent Input Matters" },
   "muscle testing": { slug: "testing-the-adductors", title: "Testing the Adductors" },
-  "precision muscle testing": { slug: "testing-the-adductors", title: "Testing the Adductors" },
+  "protective reflex testing": { slug: "testing-the-adductors", title: "Testing the Adductors" },
   "dental": { slug: "slipped-disc-from-a-dental-crown", title: "Slipped Disc From A Dental Crown" },
   "filling": { slug: "touching-metal-filling-body-stronger", title: "Metal Fillings & Muscle Strength" },
   "earring": { slug: "earrings-hip-pain", title: "Earrings Causing Hip Pain" },

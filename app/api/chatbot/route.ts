@@ -13,7 +13,7 @@ Key Concepts:
 - Common hidden irritants include: dental work (crowns, fillings, root canals), scar tissue, piercings, joint dysfunction
 - The 50Hz Resting Tone represents the neurological frequency required for muscle readiness and stability
 - When irritants are present, the brain down-regulates the 50Hz signal, causing muscle weakness
-- Precision Muscle Testing is used to identify which muscles are inhibited and locate the source of aberrant afferent input
+- Protective Reflex Testing is used to identify which muscles are inhibited and locate the source of aberrant afferent input
 - Treatment involves "negating" the corrupted sensory signal, allowing the brain to restore normal muscle tone
 
 Clinical Framework:
