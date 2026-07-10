@@ -167,7 +167,8 @@ export default function PractitionersPage() {
                 <h2 className="mb-4 text-3xl font-bold text-slate-900 md:text-4xl">Protective Reflex Testing</h2>
                 <p className="text-lg text-slate-700 leading-relaxed max-w-2xl mx-auto">
                   Learn to challenge the muscle's ability to maintain its 50Hz resting tone. When a muscle fails to
-                  "lock," you've found a window into the nervous system's protective response.
+                  respond adequately to an external force, you've found a window into a compromised protective
+                  response.
                 </p>
               </div>
 
