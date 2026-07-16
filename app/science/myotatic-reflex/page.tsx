@@ -115,8 +115,8 @@ export default function MyotaticReflexPage() {
 
       
 
-      <h2>The Mechanics of the 50Hz Signal</h2>
-      <p>Muscles constantly monitor their own length and tension via the muscle spindle. These spindles spontaneously produce afferent impulses—the <strong>50Hz resting tone</strong>—sent directly to the spinal cord. Without this constant "hum" of data, controlled movement would be impossible.</p>
+      <h2>The Mechanics of the Resting Tone Signal</h2>
+      <p>Muscles constantly monitor their own length and tension via the muscle spindle. These spindles spontaneously produce afferent impulses—the <strong>resting tone</strong>—sent directly to the spinal cord. Without this constant "hum" of data, controlled movement would be impossible.</p>
 
       <blockquote>
         "Any sudden change in tension or stretch increases this feedback. If the software is clear, the spinal cord produces an instantaneous increase in muscle tone to protect the joint."

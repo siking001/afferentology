@@ -7,11 +7,11 @@ import { AfferentLoopAnimation } from "@/components/afferent-loop-animation"
 import { PrecisionTestingDashboard } from "@/components/precision-testing-dashboard"
 
 export const metadata: Metadata = {
-  title: "50Hz Resting Tone Protocols - Practitioner Training",
+  title: "Protective Reflex Testing - Practitioner Training",
   description:
     "Master the clinical application of neuromuscular reflexes. Train to regard muscles as the beginning and ending of the nervous system and restore strength by removing afferent irritants.",
   keywords: [
-    "50Hz resting tone",
+    "resting tone",
     "neuromuscular reflexes",
     "Sherrington",
     "afferent input",
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     "withdrawal reflex",
   ],
   openGraph: {
-    title: "50Hz Resting Tone Protocols - Practitioner Training",
+    title: "Protective Reflex Testing - Practitioner Training",
     description:
       "Clinical application of neuromuscular reflexes. Learn to restore strength by removing irritants to afferent input.",
     type: "website",
@@ -40,7 +40,7 @@ export default function PractitionersPage() {
   const courseSchema = {
     "@context": "https://schema.org",
     "@type": "Course",
-    name: "50Hz Resting Tone Protocols",
+    name: "Protective Reflex Testing",
     description: "Clinical application of neuromuscular reflexes for healthcare professionals",
     provider: {
       "@type": "Organization",
@@ -72,7 +72,7 @@ export default function PractitionersPage() {
                 Building on Sir Charles Sherrington's 1906 Nobel Prize-Winning Research
               </p>
               <h1 className="mb-6 text-4xl font-bold leading-tight md:text-5xl text-balance">
-                The 50Hz Resting Tone Protocols
+                Protective Reflex Testing
               </h1>
               <p className="mb-8 text-lg text-primary-foreground/90 leading-relaxed text-pretty">
                 We train physical health practitioners to regard muscles as the beginning and ending of the nervous
@@ -82,7 +82,7 @@ export default function PractitionersPage() {
                 <Button asChild size="lg" className="bg-primary-foreground text-primary hover:bg-primary-foreground/90">
                   <a href="https://learn.afferentology.org/essentials" target="_blank" rel="noopener noreferrer">
                     <GraduationCap className="mr-2 h-5 w-5" />
-                    Learn the 50Hz Protocols
+                    Learn Protective Reflex Testing
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </a>
                 </Button>
@@ -147,7 +147,7 @@ export default function PractitionersPage() {
                   </div>
                   <h3 className="text-slate-900 font-bold text-lg mb-2">Efferent Output</h3>
                   <p className="text-slate-600 text-sm leading-relaxed">
-                    The efferent signal—the 50Hz resting tone—determines muscle readiness and stability. Remove the
+                    The efferent signal—the resting tone—determines muscle readiness and stability. Remove the
                     irritant, restore the signal.
                   </p>
                 </div>
@@ -166,7 +166,7 @@ export default function PractitionersPage() {
                 </p>
                 <h2 className="mb-4 text-3xl font-bold text-slate-900 md:text-4xl">Protective Reflex Testing</h2>
                 <p className="text-lg text-slate-700 leading-relaxed max-w-2xl mx-auto">
-                  Learn to challenge the muscle's ability to maintain its 50Hz resting tone. When a muscle fails to
+                  Learn to challenge the muscle's ability to maintain its resting tone. When a muscle fails to
                   respond adequately to an external force, you've found a window into a compromised protective
                   response.
                 </p>
@@ -185,7 +185,7 @@ export default function PractitionersPage() {
                       <div>
                         <strong className="text-slate-900">Challenge the Muscle</strong>
                         <p className="text-slate-600 mt-1 text-sm">
-                          Use Protective Reflex Testing to feel for the muscle's ability to maintain its 50Hz resting
+                          Use Protective Reflex Testing to feel for the muscle's ability to maintain its resting
                           tone against a stable external force. A healthy muscle will instantly adapt to resist a
                           steadily increasing external force—a compromised muscle will fail.
                         </p>
@@ -231,7 +231,7 @@ export default function PractitionersPage() {
               <div className="mb-12 text-center">
                 <h2 className="mb-4 text-3xl font-bold text-foreground md:text-4xl">Software, Not Hardware</h2>
                 <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto">
-                  The 50Hz resting tone represents the foundational neurological frequency required for muscle readiness
+                  The resting tone represents the foundational neurological frequency required for muscle readiness
                   and joint stability.
                 </p>
               </div>
@@ -247,7 +247,7 @@ export default function PractitionersPage() {
                     </p>
                     <p className="text-lg leading-relaxed mb-6">
                       When a hidden afferent irritant—such as active scar tissue or dental interference—triggers the{" "}
-                      <strong className="text-foreground">Withdrawal Reflex</strong>, the brain inhibits the 50Hz signal
+                      <strong className="text-foreground">Withdrawal Reflex</strong>, the brain inhibits the resting tone signal
                       to the associated musculature to protect the system.
                     </p>
                     <p className="text-lg leading-relaxed mb-0">
@@ -339,7 +339,7 @@ export default function PractitionersPage() {
                             target="_blank"
                             rel="noopener noreferrer"
                           >
-                            Start the 50Hz Protocols - FREE
+                            Start Protective Reflex Testing - FREE
                             <ArrowRight className="ml-2 h-4 w-4" />
                           </a>
                         </Button>
@@ -379,7 +379,7 @@ export default function PractitionersPage() {
         {/* CTA Section */}
         <section className="bg-primary py-16 text-primary-foreground">
           <div className="container mx-auto px-4 text-center">
-            <h2 className="mb-4 text-3xl font-bold md:text-4xl">Master the 50Hz Resting Tone Protocols</h2>
+            <h2 className="mb-4 text-3xl font-bold md:text-4xl">Master Protective Reflex Testing</h2>
             <p className="mx-auto mb-8 max-w-2xl text-lg text-primary-foreground/90 leading-relaxed">
               Join the growing community of practitioners who understand that muscles are the beginning and ending of
               the nervous system. Start your free training today.
@@ -388,7 +388,7 @@ export default function PractitionersPage() {
               <Button asChild size="lg" className="bg-primary-foreground text-primary hover:bg-primary-foreground/90">
                 <a href="https://learn.afferentology.org/essentials" target="_blank" rel="noopener noreferrer">
                   <GraduationCap className="mr-2 h-5 w-5" />
-                  Learn the 50Hz Protocols - FREE
+                  Learn Protective Reflex Testing - FREE
                 </a>
               </Button>
               <Button

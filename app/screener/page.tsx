@@ -99,7 +99,7 @@ export default function ScreenerPage() {
               </div>
               <h3 className="font-semibold text-slate-900 mb-2">The Solution</h3>
               <p className="text-sm text-slate-600">
-                Identify and neutralize the irritant to restore your nervous system&apos;s 50Hz resting tone instantly.
+                Identify and neutralize the irritant to restore your nervous system&apos;s resting tone instantly.
               </p>
             </div>
           </div>

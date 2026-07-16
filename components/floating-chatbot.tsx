@@ -62,7 +62,7 @@ export function FloatingChatbot() {
             {messages.length === 0 && (
               <div className="text-center text-muted-foreground py-8">
                 <p className="text-sm">
-                  Ask me anything about Afferentology, the 50Hz Resting Tone Protocol, or finding a practitioner.
+                  Ask me anything about Afferentology, Protective Reflex Testing, or finding a practitioner.
                 </p>
               </div>
             )}

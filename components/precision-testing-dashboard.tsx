@@ -78,7 +78,9 @@ export function PrecisionTestingDashboard() {
           </div>
           <div className="mt-2 text-xs text-slate-500">
             Target:{" "}
-            <span className={frequency >= 48 && frequency <= 52 ? "text-emerald-400" : "text-amber-400"}>50Hz</span>
+            <span className={frequency >= 48 && frequency <= 52 ? "text-emerald-400" : "text-amber-400"}>
+              Resting Tone
+            </span>
           </div>
         </div>
 
@@ -185,7 +187,7 @@ export function PrecisionTestingDashboard() {
         >
           <div className="text-xs text-slate-500 uppercase tracking-wider mb-1">Step 1</div>
           <div className="text-white font-semibold">Challenge the Muscle</div>
-          <div className="text-slate-500 text-sm mt-1">Test ability to maintain 50Hz resting tone</div>
+          <div className="text-slate-500 text-sm mt-1">Test ability to maintain resting tone</div>
         </div>
 
         <div

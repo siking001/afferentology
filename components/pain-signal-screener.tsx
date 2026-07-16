@@ -256,7 +256,7 @@ export function PainSignalScreener() {
               <p className="text-slate-300 text-sm leading-relaxed mb-4">
                 Your pain isn&apos;t the problem — it&apos;s a signal. A certified Afferentologist can use Precision
                 Muscle Testing to identify the exact source of the corrupted afferent input and restore your nervous
-                system&apos;s 50Hz resting tone. Many patients experience immediate improvement once the
+                system&apos;s resting tone. Many patients experience immediate improvement once the
                 &quot;nail&quot; is found and neutralized.
               </p>
               <p className="text-slate-400 text-xs italic">

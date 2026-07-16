@@ -167,8 +167,8 @@ export default function SimonKingPage() {
                   </div>
                 </div>
                 <p className="mt-6 text-center text-sm text-muted-foreground">
-                  Simon conducts hands-on training seminars where healthcare professionals learn to apply the 50Hz
-                  Resting Tone Protocols and identify hidden afferent irritants.
+                  Simon conducts hands-on training seminars where healthcare professionals learn to apply Protective Reflex
+                  Testing and identify hidden afferent irritants.
                 </p>
               </CardContent>
             </Card>

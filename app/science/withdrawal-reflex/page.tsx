@@ -129,7 +129,7 @@ export default function WithdrawalReflexPage() {
       </blockquote>
 
       <h2>Beyond Pain: The "Silent" Withdrawal</h2>
-      <p>While we recognize the reflex in extreme pain, it operates throughout the body in response to any persistent irritation. A pebble in your shoe may not 'hurt,' but it forces a limp. Your nervous system hates irritation; it requires the skin to be free of insult to maintain a clean <strong>50Hz resting tone</strong>.</p>
+      <p>While we recognize the reflex in extreme pain, it operates throughout the body in response to any persistent irritation. A pebble in your shoe may not 'hurt,' but it forces a limp. Your nervous system hates irritation; it requires the skin to be free of insult to maintain a clean <strong>resting tone</strong>.</p>
 
       <div className="my-10 rounded-lg bg-primary/5 p-8 border-l-4 border-primary">
         <p className="text-xl font-bold mb-0 italic">
@@ -149,7 +149,7 @@ export default function WithdrawalReflexPage() {
       <ul>
         <li><strong>Reflexology:</strong> Stimulating receptors in the feet to facilitate or inhibit tone throughout the body.</li>
         <li><strong>Acupuncture:</strong> Inducing a specific, powerful withdrawal reflex through the stimulation of free nerve endings.</li>
-        <li><strong>Manual Therapy:</strong> Adjusting joints to clear the "noise" from mechanoreceptors, allowing the 50Hz signal to stabilize.</li>
+        <li><strong>Manual Therapy:</strong> Adjusting joints to clear the "noise" from mechanoreceptors, allowing the resting tone signal to stabilize.</li>
       </ul>
 
       <h2>Foreign Bodies and Long-Term Stability</h2>

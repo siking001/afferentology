@@ -31,7 +31,6 @@ export default function EditArticlePage() {
     "withdrawal reflex": { slug: "withdrawal-reflex", title: "The Withdrawal Reflex" },
     "myotatic reflex": { slug: "myotatic-reflex", title: "The Myotatic Reflex" },
     "stretch reflex": { slug: "myotatic-reflex", title: "The Myotatic Reflex" },
-    "50hz": { slug: "afferent-input-matters", title: "Why Afferent Input Matters" },
     "resting tone": { slug: "muscle-reflexes", title: "Muscle Reflexes" },
     "afferent input": { slug: "afferent-input-universal-treatment", title: "Afferent Input - Universal Treatment" },
     "muscle inhibition": { slug: "muscle-reflexes", title: "Muscle Reflexes" },

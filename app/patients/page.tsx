@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     "withdrawal reflex",
     "hidden irritants",
     "muscle inhibition",
-    "50Hz resting tone",
+    "resting tone",
     "afferent input",
     "nail in foot analogy",
     "neurological pain",
@@ -48,7 +48,7 @@ export default function PatientsPage() {
       alternateName: "Withdrawal Reflex Activation",
       possibleTreatment: {
         "@type": "MedicalTherapy",
-        name: "Afferentology Treatment - 50Hz Resting Tone Protocol",
+        name: "Afferentology Treatment - Protective Reflex Testing",
       },
     },
   }
@@ -193,9 +193,9 @@ export default function PatientsPage() {
               <div className="space-y-6">
                 <Card>
                   <CardContent className="pt-6">
-                    <h3 className="mb-2 text-lg font-bold text-foreground">The 50Hz Resting Tone</h3>
+                    <h3 className="mb-2 text-lg font-bold text-foreground">The Resting Tone</h3>
                     <p className="text-muted-foreground leading-relaxed">
-                      Every muscle in your body requires a constant neurological signal—firing at approximately 50 times
+                      Every muscle in your body requires a constant neurological signal—firing at approximately 5 times
                       per second—to maintain
                       <strong className="text-foreground"> resting tone</strong>. This tone is what gives you muscle
                       readiness and joint stability, even when you're not consciously using the muscle.
@@ -208,7 +208,7 @@ export default function PatientsPage() {
                     <h3 className="mb-2 text-lg font-bold text-foreground">When the Signal Gets Corrupted</h3>
                     <p className="text-muted-foreground leading-relaxed">
                       When a hidden irritant triggers your Withdrawal Reflex, your brain deliberately down-regulates
-                      this 50Hz signal. The muscle doesn't fail because it's weak—it fails because your brain has turned
+                      this resting tone signal. The muscle doesn't fail because it's weak—it fails because your brain has turned
                       down the volume to protect you from perceived threat.
                     </p>
                   </CardContent>
@@ -357,12 +357,12 @@ export default function PatientsPage() {
                   <CardContent className="pt-8 text-center">
                     <h3 className="mb-4 text-2xl font-bold text-foreground">For Practitioners</h3>
                     <p className="mb-6 text-muted-foreground leading-relaxed">
-                      Learn the 50Hz Resting Tone protocols. Use Protective Reflex Testing to identify noxious afferent
+                      Learn Protective Reflex Testing. Use it to identify noxious afferent
                       input and restore neurological function instantly.
                     </p>
                     <Button asChild size="lg" className="w-full bg-primary text-primary-foreground hover:bg-primary/90">
                       <Link href="/practitioners">
-                        Learn the 50Hz Protocols
+                        Learn Protective Reflex Testing
                         <ArrowRight className="ml-2 h-5 w-5" />
                       </Link>
                     </Button>
