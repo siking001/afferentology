@@ -119,7 +119,7 @@ export default function AfferentInputMattersPage() {
       </blockquote>
 
       <h2>The Nervous System: Your Primary Defense</h2>
-      <p>Afferentology allows qualified professionals to test the body's main defense system: the nervous system. By auditing the <strong>50Hz resting tone</strong>, clinicians can find the hidden weaknesses that make a patient susceptible to chronic injury or systemic decline.</p>
+      <p>Afferentology allows qualified professionals to test the body's main defense system: the nervous system. By auditing the <strong>resting tone</strong>, clinicians can find the hidden weaknesses that make a patient susceptible to chronic injury or systemic decline.</p>
 
       <p>Once a neurological weakness is identified, the practitioner can work backward to find the <strong>Afferent Input</strong> responsible for the glitch—the "Nail in the Foot" that is sending threat data to the brain and triggering a <strong>Withdrawal Reflex</strong>.</p>
 

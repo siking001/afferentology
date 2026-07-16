@@ -217,15 +217,15 @@ export function AfferentLoopAnimation() {
             EFFERENT OUTPUT
           </text>
           <text x="530" y="125" textAnchor="middle" fill="#64748b" fontSize="10">
-            (Motor Signal - 50Hz)
+            (Motor Signal - Resting Tone)
           </text>
         </g>
 
-        {/* 50Hz Signal Indicator */}
+        {/* Resting Tone Signal Indicator */}
         <g transform="translate(400, 370)">
           <rect x="-100" y="-20" width="200" height="40" rx="8" fill="#0f172a" stroke="#334155" strokeWidth="2" />
           <text x="0" y="5" textAnchor="middle" fill="#f8fafc" fontSize="14" fontWeight="700">
-            50Hz RESTING TONE
+            RESTING TONE
           </text>
 
           {/* Frequency indicator bars */}
@@ -292,7 +292,7 @@ export function AfferentLoopAnimation() {
         </div>
         <div className="flex items-center gap-2">
           <div className="w-3 h-3 rounded-full bg-emerald-500"></div>
-          <span className="text-slate-400">Efferent Signal (50Hz)</span>
+          <span className="text-slate-400">Efferent Signal (Resting Tone)</span>
         </div>
       </div>
     </div>
