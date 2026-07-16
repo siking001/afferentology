@@ -195,7 +195,7 @@ export default function PatientsPage() {
                   <CardContent className="pt-6">
                     <h3 className="mb-2 text-lg font-bold text-foreground">The Resting Tone</h3>
                     <p className="text-muted-foreground leading-relaxed">
-                      Every muscle in your body requires a constant neurological signal—firing at approximately 50 times
+                      Every muscle in your body requires a constant neurological signal—firing at approximately 5 times
                       per second—to maintain
                       <strong className="text-foreground"> resting tone</strong>. This tone is what gives you muscle
                       readiness and joint stability, even when you're not consciously using the muscle.
