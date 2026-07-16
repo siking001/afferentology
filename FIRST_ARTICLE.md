@@ -24,7 +24,7 @@ Muscles are far more than just engines for movement—they're the primary **sens
 - Tension and force
 - Rate of change during movement
 
-Your nervous system processes this continuous feedback and instantly adjusts muscle tone (motor output) to maintain stability, posture, and coordinated movement. This happens automatically, thousands of times per second, without conscious thought.
+Your nervous system processes this continuous feedback and instantly adjusts muscle tone (motor output) to maintain stability, posture, and coordinated movement. This happens automatically, hundreds of times per second, without conscious thought.
 
 ### When Reflexes Work: Functional Strength
 

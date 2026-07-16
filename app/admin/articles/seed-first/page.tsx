@@ -41,7 +41,7 @@ export default function SeedFirstArticlePage() {
   <li>Rate of change during movement</li>
 </ul>
 
-<p>Your nervous system processes this continuous feedback and instantly adjusts muscle tone (motor output) to maintain stability, posture, and coordinated movement. This happens automatically, thousands of times per second, without conscious thought.</p>
+<p>Your nervous system processes this continuous feedback and instantly adjusts muscle tone (motor output) to maintain stability, posture, and coordinated movement. This happens automatically, hundreds of times per second, without conscious thought.</p>
 
 <h3>When Reflexes Work: Functional Strength</h3>
 
