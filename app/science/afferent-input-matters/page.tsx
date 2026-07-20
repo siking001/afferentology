@@ -3,6 +3,7 @@ import { ArrowLeft, BookOpen } from "lucide-react"
 import Link from "next/link"
 import type { Metadata } from "next"
 import Image from "next/image"
+import { ArticleDisclaimer } from "@/components/article-disclaimer"
 
 export const metadata: Metadata = {
   title: "Why Afferent Input Matters - Neurological Assessment",
@@ -136,6 +137,8 @@ export default function AfferentInputMattersPage() {
       <p>While the Afferent Input system is a powerful diagnostic tool for treatment, its greatest advantage lies in <strong>restoration</strong>. By returning the body to optimal function, we build resilient patients who don't just recover from injury—they prevent it.</p>
 
       <p>Patients who have no neurological weaknesses are fundamentally stronger, healthier, and more capable of handling the stresses of life. That is the goal of Afferentology.</p>
+
+            <ArticleDisclaimer />
 
             <div className="mt-12 rounded-lg bg-muted p-8">
               <h3 className="mb-4 text-2xl font-bold">Learn More About Afferentology</h3>
