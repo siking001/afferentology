@@ -3,6 +3,7 @@ import { ArrowLeft, BookOpen } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 import type { Metadata } from "next"
+import { ArticleDisclaimer } from "@/components/article-disclaimer"
 
 export const metadata: Metadata = {
   title: "The Withdrawal Reflex - How Sensory Receptors Control Muscle Tone",
@@ -160,6 +161,8 @@ export default function WithdrawalReflexPage() {
       </p>
 
       <hr className="my-12 border-border" />
+
+            <ArticleDisclaimer />
 
             <div className="mt-12 rounded-lg bg-muted p-8">
               <h3 className="mb-4 text-2xl font-bold">Learn to Identify and Address Withdrawal Reflex Issues</h3>

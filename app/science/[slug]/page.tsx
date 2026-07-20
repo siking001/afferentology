@@ -6,6 +6,7 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { ArrowLeft, Calendar, Eye, Tag } from "lucide-react"
 import type { Metadata } from "next"
+import { ArticleDisclaimer } from "@/components/article-disclaimer"
 
 interface ArticlePageProps {
   params: Promise<{ slug: string }>
@@ -166,6 +167,8 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
     [&_a]:text-primary [&_a]:underline hover:[&_a]:text-secondary"
   dangerouslySetInnerHTML={{ __html: article.content }}
 />
+
+            <ArticleDisclaimer />
           </div>
           {/* Tags */}
           {article.tags && article.tags.length > 0 && (

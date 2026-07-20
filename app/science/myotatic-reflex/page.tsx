@@ -3,6 +3,7 @@ import { ArrowLeft, BookOpen } from "lucide-react"
 import Link from "next/link"
 import type { Metadata } from "next"
 import Image from "next/image"
+import { ArticleDisclaimer } from "@/components/article-disclaimer"
 
 export const metadata: Metadata = {
   title: "The Myotatic Reflex - Your Body's Defense Mechanism",
@@ -148,7 +149,8 @@ export default function MyotaticReflexPage() {
       <p>Only when the reflex loop is fully operational can the body provide the support and feedback required for true repair and long-term healing.</p>
 
       <hr className="my-12 border-border" />
-    
+
+            <ArticleDisclaimer />
 
             <div className="mt-12 rounded-lg bg-muted p-8">
               <h3 className="mb-4 text-2xl font-bold">Learn to Work With the Myotatic Reflex</h3>
