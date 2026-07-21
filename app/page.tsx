@@ -190,10 +190,9 @@ export default function HomePage() {
                   />
                 </div>
                 <CardContent className="p-6 pt-6">
-                  <h3 className="mb-3 text-xl font-bold text-foreground">And Suffer Less!</h3>
+                  <h3 className="mb-3 text-xl font-bold text-foreground">Deliver Lasting Results!</h3>
                   <p className="text-muted-foreground leading-relaxed">
-                    Our strength returns even without exercise. We feel younger, less prone to injury. Our joints stay
-                    flexible, organs work better, and we have far less pain with injuries healing faster.
+                    Patients regain strength without added exercise, report less pain, and heal faster — building the kind of outcomes that keep them coming back and referring others.
                   </p>
                 </CardContent>
               </Card>
