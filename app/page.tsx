@@ -45,7 +45,11 @@ export default function HomePage() {
       email: "info@afferentology.org",
       contactType: "Customer Service",
     },
-    sameAs: ["https://learn.afferentology.org"],
+    sameAs: [
+  "https://learn.afferentology.org",
+  "https://www.linkedin.com/company/7790996/",
+  "https://www.youtube.com/@theafferentinputsolution4614",
+],
   }
 
   return (
