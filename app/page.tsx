@@ -69,8 +69,8 @@ export default function HomePage() {
                 Restore True Function. Protect Every Body.
               </h1>
               <p className="mb-8 text-lg text-primary-foreground/90 md:text-xl text-pretty leading-relaxed">
-                Move beyond treating stuck joints and tight muscles. Discover the hidden neurological reflexes that
-                dictate power, posture, protection and performance &mdash; and learn how to facilitate immediate
+                Move beyond treating stuck joints and tight muscles. Discover the neurological reflexes that
+                control power, posture, protection and performance &mdash; and learn how to facilitate immediate
                 functional changes that last.
               </p>
               <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
@@ -102,28 +102,28 @@ export default function HomePage() {
               </h2>
               <div className="space-y-6 text-lg text-muted-foreground leading-relaxed text-pretty">
                 <p>
-                  In daily practice, we constantly treat the physical framework&mdash;adjusting joints, stretching tight
-                  tissues, and assigning rehabilitation exercises to build strength and range of motion. But if a muscle
-                  is neurologically inhibited, it cannot properly support the skeleton or generate maximum power, no
-                  matter how much it is exercised, stretched or treated.
+                  You&apos;ve adjusted the joint. You&apos;ve stretched the tight tissue. You&apos;ve built a rehab
+                  program to restore strength and range of motion. And the correction still won&apos;t hold.
                 </p>
                 <p>
-                  Afferentology focuses on the direct relationship between sensory input and structural function. Every
-                  muscle relies on an automatic, constant firing rate&mdash;a healthy resting muscle tone&mdash;to
-                  stabilise your posture and protect joints from sudden, unpredictable forces. When the nervous system
-                  receives an altered or irritating sensory signal from an old injury, a scar, or a foreign body, it
-                  triggers a protective reflex which can have consequential and hidden effects on movement and function.
+                  That&apos;s not a compliance problem, and it&apos;s not a strength problem in the way we usually think
+                  about it. If a muscle is neurologically inhibited, no amount of exercise, stretching, or manual
+                  treatment will restore its ability to support the skeleton or generate power &mdash; because the
+                  limiting factor was never the tissue. It was the signal telling that tissue what to do.
                 </p>
                 <p>
-                  Any sensory insult to the nervous system dials down the power to associated muscles and activates the
-                  antagonists to protect the body from further injury. This leaves joints predisposed to injury,
-                  restricting flexibility and hindering full recovery. By identifying these sensory short-circuits and
-                  restoring normal input, you instantly facilitate full muscle strength, stabilise posture, assist in
-                  healing and restore fluid, pain-free movement.
+                  Most muscle contraction isn&apos;t voluntary. It&apos;s automatic &mdash; a continuous, reflexive
+                  response to position, movement, posture, and load, driven by feedback circuits that monitor the body
+                  and its environment in real time. These circuits are what let a muscle brace before you consciously
+                  register a threat, and what set baseline tone even when you&apos;re standing still. When the sensory
+                  input feeding those circuits is abnormal or corrupted, the reflex doesn&apos;t fail loudly &mdash; it
+                  fails quietly. The muscle goes weak, or it locks up tight and guarded, and the joint you&apos;ve
+                  correctly adjusted has no reliable support either way.
                 </p>
                 <p>
-                  It&apos;s time to elevate your diagnostic clinical skillset. Join a community of forward-thinking
-                  practitioners and master the exact steps to unlock the body&apos;s natural protective mechanisms.
+                  This is the layer conventional treatment doesn&apos;t reach, because it isn&apos;t a structural layer.
+                  It&apos;s a neurological one &mdash; and it&apos;s exactly what Afferentology is built to identify and
+                  correct.
                 </p>
               </div>
               <div className="mt-8">
