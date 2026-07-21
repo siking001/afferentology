@@ -29,9 +29,9 @@ export const metadata: Metadata = {
 export default function HomePage() {
   const organizationSchema = {
     "@context": "https://schema.org",
-    "@type": "MedicalOrganization",
-    name: "Afferentology",
-    alternateName: "The Association of Certified Afferentologists",
+    "@type": "EducationalOrganization",
+    name: "The Association of Afferentology",
+    alternateName: "Afferentology",
     url: "https://afferentology.org",
     logo: "https://afferentology.org/logo.png",
     description:
