@@ -6,11 +6,10 @@ import Image from "next/image"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: "Afferentology - Transform Patient Care Through Nerve Science",
-  description:
-    "Expert training for health professionals in diagnosing and treating nerve interference. Discover how abnormal afferent input affects chronic pain and patient outcomes.",
+  title: "Afferentology - Removing Nerve Interference for Chiropractors",
+description: "Chiropractic training in identifying nerve interference and muscle inhibition. Learn how abnormal afferent input drives chronic pain and poor patient outcomes.",
   openGraph: {
-    title: "Afferentology - Transform Patient Care Through Nerve Science",
+    title: "Afferentology - Removing Nerve Interference for Chiropractors",
     description:
       "Expert training for health professionals in diagnosing and treating nerve interference and muscle inhibition.",
     type: "website",
