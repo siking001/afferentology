@@ -6,11 +6,10 @@ import Image from "next/image"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: "Afferentology - Transform Patient Care Through Nerve Science",
-  description:
-    "Expert training for health professionals in diagnosing and treating nerve interference. Discover how abnormal afferent input affects chronic pain and patient outcomes.",
+  title: "Afferentology - Removing Nerve Interference for Chiropractors",
+description: "Chiropractic training in identifying nerve interference and muscle inhibition. Learn how abnormal afferent input drives chronic pain and poor patient outcomes.",
   openGraph: {
-    title: "Afferentology - Transform Patient Care Through Nerve Science",
+    title: "Afferentology - Removing Nerve Interference for Chiropractors",
     description:
       "Expert training for health professionals in diagnosing and treating nerve interference and muscle inhibition.",
     type: "website",
@@ -29,9 +28,9 @@ export const metadata: Metadata = {
 export default function HomePage() {
   const organizationSchema = {
     "@context": "https://schema.org",
-    "@type": "MedicalOrganization",
-    name: "Afferentology",
-    alternateName: "The Association of Certified Afferentologists",
+    "@type": "EducationalOrganization",
+    name: "The Association of Afferentology",
+    alternateName: "Afferentology",
     url: "https://afferentology.org",
     logo: "https://afferentology.org/logo.png",
     description:
@@ -45,7 +44,11 @@ export default function HomePage() {
       email: "info@afferentology.org",
       contactType: "Customer Service",
     },
-    sameAs: ["https://learn.afferentology.org"],
+    sameAs: [
+  "https://learn.afferentology.org",
+  "https://www.linkedin.com/company/7790996/",
+  "https://www.youtube.com/@theafferentinputsolution4614",
+],
   }
 
   return (
@@ -187,10 +190,9 @@ export default function HomePage() {
                   />
                 </div>
                 <CardContent className="p-6 pt-6">
-                  <h3 className="mb-3 text-xl font-bold text-foreground">And Suffer Less!</h3>
+                  <h3 className="mb-3 text-xl font-bold text-foreground">Deliver Lasting Results!</h3>
                   <p className="text-muted-foreground leading-relaxed">
-                    Our strength returns even without exercise. We feel younger, less prone to injury. Our joints stay
-                    flexible, organs work better, and we have far less pain with injuries healing faster.
+                    Patients regain strength without added exercise, report less pain, and heal faster — building the kind of outcomes that keep them coming back and referring others.
                   </p>
                 </CardContent>
               </Card>

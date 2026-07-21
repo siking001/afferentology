@@ -13,6 +13,9 @@ const _geistMono = Geist_Mono({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.afferentology.org"),
+  alternates: {
+    canonical: "/",
+  },
   title: {
     default: "Afferentology - Transform Patient Care Through Nerve Science",
     template: "%s | Afferentology",
