@@ -21,6 +21,9 @@ export const metadata: Metadata = {
     "muscle testing",
     "wellness optimization",
   ],
+  alternates: {
+    canonical: "/science/afferent-input-matters",
+  },
   openGraph: {
     title: "Why Afferent Input Matters - Neurological Assessment for Healthcare",
     description:

@@ -23,6 +23,9 @@ export const metadata: Metadata = {
     "afferentology",
     "immediate protection",
   ],
+  alternates: {
+    canonical: "/science/withdrawal-reflex",
+  },
   openGraph: {
     title: "The Withdrawal Reflex - Sensory Control Over Muscle Tone",
     description:

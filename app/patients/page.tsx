@@ -19,6 +19,9 @@ export const metadata: Metadata = {
     "nail in foot analogy",
     "neurological pain",
   ],
+  alternates: {
+    canonical: "/patients",
+  },
   openGraph: {
     title: "Your Pain is a Signal, Not the Problem",
     description:

@@ -10,6 +10,9 @@ export const metadata: Metadata = {
   description:
     "Explore the neuroscience behind Afferentology. Research articles on afferent input, muscle inhibition, and evidence-based approaches to pain and nerve therapy.",
   keywords: ["afferent input science", "muscle inhibition research", "neuroscience articles", "pain science research"],
+  alternates: {
+    canonical: "/science",
+  },
   openGraph: {
     title: "The Science of Afferentology - Research Articles",
     description: "Research articles and insights into the neuroscience of afferent input and muscle function.",
