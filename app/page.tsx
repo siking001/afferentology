@@ -101,7 +101,7 @@ export default function HomePage() {
           <div className="container mx-auto px-4">
             <div className="mx-auto max-w-3xl">
               <h2 className="mb-8 text-3xl font-bold text-foreground md:text-4xl text-balance">
-                The Neurological Control of Movement
+                You&apos;re Treating the Wrong System
               </h2>
               <div className="space-y-6 text-lg text-muted-foreground leading-relaxed text-pretty">
                 <p>
