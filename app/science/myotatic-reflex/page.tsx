@@ -23,6 +23,9 @@ export const metadata: Metadata = {
     "afferentology",
     "spinal cord reflex",
   ],
+  alternates: {
+    canonical: "/science/myotatic-reflex",
+  },
   openGraph: {
     title: "The Myotatic Reflex - Understanding Your Body's Defense Mechanism",
     description:

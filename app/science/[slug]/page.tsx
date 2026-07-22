@@ -45,6 +45,9 @@ export async function generateMetadata({ params }: ArticlePageProps): Promise<Me
   return {
     title: article.title,
     description: article.excerpt || "Research article from Afferentology",
+    alternates: {
+      canonical: `/science/${slug}`,
+    },
     openGraph: {
       title: article.title,
       description: article.excerpt || "Research article from Afferentology",

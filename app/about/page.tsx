@@ -10,6 +10,9 @@ export const metadata: Metadata = {
   description:
     "Learn about the Association of Certified Afferentologists. Advancing nerve interference treatment through education, research, and professional development.",
   keywords: ["afferentology association", "certified afferentologists", "Simon King", "healthcare organization"],
+  alternates: {
+    canonical: "/about",
+  },
   openGraph: {
     title: "About The Association of Certified Afferentologists",
     description: "Advancing nerve interference treatment through education, certification, and professional community.",

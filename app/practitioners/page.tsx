@@ -20,6 +20,9 @@ export const metadata: Metadata = {
     "protective reflex testing",
     "withdrawal reflex",
   ],
+  alternates: {
+    canonical: "/practitioners",
+  },
   openGraph: {
     title: "Protective Reflex Testing - Practitioner Training",
     description:

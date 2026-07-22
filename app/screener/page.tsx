@@ -14,6 +14,9 @@ export const metadata: Metadata = {
     "muscle weakness",
     "hidden irritants",
   ],
+  alternates: {
+    canonical: "/screener",
+  },
   openGraph: {
     title: "Pain Signal Screener - Discover Hidden Irritants",
     description: "Your pain is a signal, not the problem. Discover what your nervous system is trying to tell you.",
