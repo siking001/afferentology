@@ -95,7 +95,7 @@ export default function PractitionersPage() {
                   variant="outline"
                   className="border-primary-foreground/20 text-primary-foreground hover:bg-primary-foreground/10 bg-transparent"
                 >
-                  <a href="https://learn.afferentology.org/courses" target="_blank" rel="noopener noreferrer">
+                  <a href="https://learn.afferentology.org" target="_blank" rel="noopener noreferrer">
                     View All Courses
                   </a>
                 </Button>
@@ -365,7 +365,7 @@ export default function PractitionersPage() {
                           Afferentology practitioner.
                         </p>
                         <Button asChild variant="outline">
-                          <a href="https://learn.afferentology.org/courses" target="_blank" rel="noopener noreferrer">
+                          <a href="https://learn.afferentology.org" target="_blank" rel="noopener noreferrer">
                             Browse All Courses
                             <ArrowRight className="ml-2 h-4 w-4" />
                           </a>

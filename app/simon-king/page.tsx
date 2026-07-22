@@ -133,7 +133,7 @@ export default function SimonKingPage() {
                         </a>
                       </Button>
                       <Button asChild variant="outline" className="w-full bg-transparent">
-                        <a href="https://learn.afferentology.org/courses" target="_blank" rel="noopener noreferrer">
+                        <a href="https://learn.afferentology.org" target="_blank" rel="noopener noreferrer">
                           View Training Programs
                           <ExternalLink className="ml-2 h-4 w-4" />
                         </a>
