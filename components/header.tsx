@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link"
+import Image from "next/image"
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Menu, X } from "lucide-react"
@@ -12,8 +13,15 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <nav className="container mx-auto flex h-16 items-center justify-between px-4">
-        <Link href="/" className="flex items-center space-x-2">
-          <div className="text-2xl font-bold text-primary">Afferentology</div>
+        <Link href="/" className="flex items-center">
+          <Image
+            src="/images/afferentology-logo.png"
+            alt="Afferentology — Restoring Strength, Relieving Pain"
+            width={1560}
+            height={280}
+            priority
+            className="h-9 w-auto"
+          />
         </Link>
 
         {/* Desktop Navigation */}
