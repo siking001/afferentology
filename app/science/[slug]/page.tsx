@@ -7,6 +7,10 @@ import { Button } from "@/components/ui/button"
 import { ArrowLeft, Calendar, Eye, Tag } from "lucide-react"
 import type { Metadata } from "next"
 import { ArticleDisclaimer } from "@/components/article-disclaimer"
+import { buildSeoTitle, buildSeoDescription } from "@/lib/seo"
+
+const SITE_URL = "https://www.afferentology.org"
+const DEFAULT_DESCRIPTION = "Research article from Afferentology"
 
 interface ArticlePageProps {
   params: Promise<{ slug: string }>
@@ -42,15 +46,18 @@ export async function generateMetadata({ params }: ArticlePageProps): Promise<Me
     }
   }
 
+  const seoTitle = buildSeoTitle(article.title)
+  const seoDescription = buildSeoDescription(article.excerpt, DEFAULT_DESCRIPTION)
+
   return {
-    title: article.title,
-    description: article.excerpt || "Research article from Afferentology",
+    title: { absolute: seoTitle },
+    description: seoDescription,
     alternates: {
       canonical: `/science/${slug}`,
     },
     openGraph: {
-      title: article.title,
-      description: article.excerpt || "Research article from Afferentology",
+      title: seoTitle,
+      description: seoDescription,
       type: "article",
       images: article.featured_image_url
         ? [
@@ -80,7 +87,9 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
   // Fetch article - only select needed columns to avoid serialization issues
   const { data: article, error } = await supabase
     .from("articles")
-    .select("id, title, slug, excerpt, content, author_name, featured_image_url, category, tags, published_at, views")
+    .select(
+      "id, title, slug, excerpt, content, author_name, featured_image_url, category, tags, published_at, updated_at, views",
+    )
     .eq("slug", slug)
     .eq("published", true)
     .single()
@@ -96,8 +105,36 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
     .update({ views: (article.views || 0) + 1 })
     .eq("id", article.id)
 
+  const canonicalUrl = `${SITE_URL}/science/${article.slug}`
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: article.title,
+    description: buildSeoDescription(article.excerpt, DEFAULT_DESCRIPTION),
+    ...(article.featured_image_url && !article.featured_image_url.startsWith("data:")
+      ? { image: article.featured_image_url }
+      : {}),
+    author: {
+      "@type": "Person",
+      name: article.author_name || "Simon King",
+      url: `${SITE_URL}/simon-king`,
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "The Association of Certified Afferentologists",
+      url: SITE_URL,
+    },
+    datePublished: article.published_at,
+    ...(article.updated_at ? { dateModified: article.updated_at } : {}),
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": canonicalUrl,
+    },
+  }
+
   return (
     <div className="flex flex-col">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
       {/* Header */}
       <section className="bg-gradient-to-br from-primary to-secondary py-12 text-primary-foreground">
         <div className="container mx-auto px-4">
@@ -178,7 +215,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
             <div className="mt-12 border-t pt-8">
               <div className="flex flex-wrap items-center gap-2">
                 <Tag className="h-4 w-4 text-muted-foreground" />
-                {article.tags.map((tag) => (
+                {article.tags.map((tag: string) => (
                   <span key={tag} className="rounded-full bg-muted px-3 py-1 text-sm text-muted-foreground">
                     {tag}
                   </span>

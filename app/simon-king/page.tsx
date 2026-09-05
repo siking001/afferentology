@@ -21,8 +21,24 @@ export const metadata: Metadata = {
 }
 
 export default function SimonKingPage() {
+  const personSchema = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: "Simon King",
+    jobTitle: "Founder, The Association of Certified Afferentologists",
+    url: "https://www.afferentology.org/simon-king",
+    description:
+      "Founder of Afferentology and Director of The Association of Certified Afferentologists, pioneering the science of treating nerve interference and muscle inhibition.",
+    sameAs: [
+      "https://www.painsolutions.uk/about",
+      "https://learn.afferentology.org",
+      "https://www.amazon.co.uk/Live-Without-Pain-Theory-Whats/dp/0955986907/",
+    ],
+  }
+
   return (
     <div className="flex flex-col">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }} />
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-primary via-primary to-primary/80 py-16 text-primary-foreground md:py-20">
         <div className="container mx-auto px-4">
