@@ -115,9 +115,9 @@ export default function HomePage() {
                   limiting factor was never the tissue. It was the signal telling that tissue what to do.
                 </p>
                 <p>
-                  Most muscle contraction isn&apos;t voluntary. It&apos;s automatic &mdash; a continuous, reflexive
-                  response to position, movement, posture, and load, driven by feedback circuits that monitor the body
-                  and its environment in real time. These circuits are what let a muscle brace before you consciously
+                  Most muscle contraction happens automatically &mdash; your body constantly adjusts muscles based on how
+                  you move and hold yourself, without you even thinking about it. These circuits are what let a muscle
+                  brace before you consciously
                   register a threat, and what set baseline tone even when you&apos;re standing still. When the sensory
                   input feeding those circuits is abnormal or corrupted, the reflex doesn&apos;t fail loudly &mdash; it
                   fails quietly. The muscle goes weak, or it locks up tight and guarded, and the joint you&apos;ve
