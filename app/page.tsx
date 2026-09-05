@@ -192,7 +192,8 @@ export default function HomePage() {
                 <CardContent className="p-6 pt-6">
                   <h3 className="mb-3 text-xl font-bold text-foreground">Deliver Lasting Results!</h3>
                   <p className="text-muted-foreground leading-relaxed">
-                    Patients regain strength without added exercise, report less pain, and heal faster — building the kind of outcomes that keep them coming back and referring others.
+                    Patients often notice improved strength and less pain, helping them recover more comfortably and
+                    encouraging them to return and refer others.
                   </p>
                 </CardContent>
               </Card>
