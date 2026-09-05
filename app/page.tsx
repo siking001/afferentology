@@ -156,8 +156,8 @@ export default function HomePage() {
                 <CardContent className="p-6 pt-6">
                   <h3 className="mb-3 text-xl font-bold text-foreground">Make Sense of Pain & Injury</h3>
                   <p className="text-muted-foreground leading-relaxed">
-                    Almost all chronic aches, pains and injury are associated with poor muscle tone. Proper treatment of
-                    the underlying problem will return normal muscle tone and improve quality of life.
+                    Many chronic aches, pains, and injuries involve poor muscle tone that traditional treatments often
+                    miss.
                   </p>
                 </CardContent>
               </Card>
