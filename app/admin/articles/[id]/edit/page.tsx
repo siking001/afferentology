@@ -15,6 +15,7 @@ import { useToast } from "@/hooks/use-toast"
 import { slugify } from "@/lib/utils/slugify"
 import Image from "next/image"
 import { AdminAuth } from "@/components/admin-auth"
+import { AudioUpload } from "@/components/audio-upload"
 
 export default function EditArticlePage() {
   const params = useParams()
@@ -347,6 +348,15 @@ export default function EditArticlePage() {
                     </div>
                   )}
                 </div>
+
+                <AudioUpload
+                  onInsert={(embedHtml) =>
+                    setFormData((prev) => ({
+                      ...prev,
+                      content: prev.content ? `${prev.content}\n\n${embedHtml}` : embedHtml,
+                    }))
+                  }
+                />
 
                 <div className="grid gap-6 md:grid-cols-2">
                   <div className="space-y-2">
