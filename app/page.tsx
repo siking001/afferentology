@@ -115,9 +115,9 @@ export default function HomePage() {
                   limiting factor was never the tissue. It was the signal telling that tissue what to do.
                 </p>
                 <p>
-                  Most muscle contraction isn&apos;t voluntary. It&apos;s automatic &mdash; a continuous, reflexive
-                  response to position, movement, posture, and load, driven by feedback circuits that monitor the body
-                  and its environment in real time. These circuits are what let a muscle brace before you consciously
+                  Most muscle contraction happens automatically &mdash; your body constantly adjusts muscles based on how
+                  you move and hold yourself, without you even thinking about it. These circuits are what let a muscle
+                  brace before you consciously
                   register a threat, and what set baseline tone even when you&apos;re standing still. When the sensory
                   input feeding those circuits is abnormal or corrupted, the reflex doesn&apos;t fail loudly &mdash; it
                   fails quietly. The muscle goes weak, or it locks up tight and guarded, and the joint you&apos;ve
@@ -156,8 +156,8 @@ export default function HomePage() {
                 <CardContent className="p-6 pt-6">
                   <h3 className="mb-3 text-xl font-bold text-foreground">Make Sense of Pain & Injury</h3>
                   <p className="text-muted-foreground leading-relaxed">
-                    Almost all chronic aches, pains and injury are associated with poor muscle tone. Proper treatment of
-                    the underlying problem will return normal muscle tone and improve quality of life.
+                    Many chronic aches, pains, and injuries involve poor muscle tone that traditional treatments often
+                    miss.
                   </p>
                 </CardContent>
               </Card>
@@ -192,7 +192,8 @@ export default function HomePage() {
                 <CardContent className="p-6 pt-6">
                   <h3 className="mb-3 text-xl font-bold text-foreground">Deliver Lasting Results!</h3>
                   <p className="text-muted-foreground leading-relaxed">
-                    Patients regain strength without added exercise, report less pain, and heal faster — building the kind of outcomes that keep them coming back and referring others.
+                    Patients often notice improved strength and less pain, helping them recover more comfortably and
+                    encouraging them to return and refer others.
                   </p>
                 </CardContent>
               </Card>
@@ -265,8 +266,7 @@ export default function HomePage() {
                 <Microscope className="mx-auto mb-6 h-16 w-16" />
                 <h2 className="mb-4 text-3xl font-bold md:text-4xl">Explore The Science</h2>
                 <p className="mx-auto mb-8 max-w-2xl text-lg text-primary-foreground/90 leading-relaxed">
-                  Dive deep into the research and evidence behind Afferentology. Understand how sensory input and muscle
-                  tone affect overall health and recovery.
+                  Explore clear research showing how sensory input and muscle tone affect health and recovery.
                 </p>
                 <Button asChild size="lg" className="bg-primary-foreground text-primary hover:bg-primary-foreground/90">
                   <Link href="/science">
