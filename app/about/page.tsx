@@ -43,9 +43,19 @@ export default function AboutPage() {
     url: "https://afferentology.org/about",
   }
 
+  const definedTermSchema = {
+    "@context": "https://schema.org",
+    "@type": "DefinedTerm",
+    name: "Afferentology",
+    description:
+      "The study of afferent, or sensory, input and its relationship to strength and health, developed by Simon King.",
+    inDefinedTermSet: "https://www.afferentology.org/about",
+  }
+
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(definedTermSchema) }} />
       <div className="flex flex-col">
         {/* Hero Section */}
         <section className="bg-gradient-to-br from-primary to-secondary py-16 text-primary-foreground md:py-24">
@@ -58,6 +68,28 @@ export default function AboutPage() {
                 Advancing the understanding and treatment of nerve interference through education, research, and
                 professional development.
               </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Definition Section */}
+        <section className="py-12 md:py-16">
+          <div className="container mx-auto px-4">
+            <div className="mx-auto max-w-4xl">
+              <Card className="border-l-4 border-l-primary shadow-lg">
+                <CardContent className="p-8 md:p-10">
+                  <p className="text-lg leading-relaxed text-foreground md:text-xl">
+                    <span className="font-bold text-primary">Afferentology (n.):</span> the study of afferent, or
+                    sensory, input and its relationship to strength and health. Coined by Simon King, it treats muscle
+                    output&mdash;strength, tone, and responsiveness&mdash;as a measurable readout of nervous system
+                    function, allowing a practitioner to reverse-engineer deficiencies or excesses in that output to
+                    identify the sensory interference causing them. Afferentology distinguishes this natural,
+                    neurologically-driven strength from acquired strength (e.g. from resistance training), and focuses
+                    on removing interference&mdash;commonly from foreign bodies and other sensory
+                    disruptions&mdash;to restore it.
+                  </p>
+                </CardContent>
+              </Card>
             </div>
           </div>
         </section>
