@@ -266,8 +266,7 @@ export default function HomePage() {
                 <Microscope className="mx-auto mb-6 h-16 w-16" />
                 <h2 className="mb-4 text-3xl font-bold md:text-4xl">Explore The Science</h2>
                 <p className="mx-auto mb-8 max-w-2xl text-lg text-primary-foreground/90 leading-relaxed">
-                  Dive deep into the research and evidence behind Afferentology. Understand how sensory input and muscle
-                  tone affect overall health and recovery.
+                  Explore clear research showing how sensory input and muscle tone affect health and recovery.
                 </p>
                 <Button asChild size="lg" className="bg-primary-foreground text-primary hover:bg-primary-foreground/90">
                   <Link href="/science">
