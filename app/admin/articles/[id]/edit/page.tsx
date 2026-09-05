@@ -16,6 +16,7 @@ import { slugify } from "@/lib/utils/slugify"
 import Image from "next/image"
 import { AdminAuth } from "@/components/admin-auth"
 import { AudioUpload } from "@/components/audio-upload"
+import { VideoUpload } from "@/components/video-upload"
 
 export default function EditArticlePage() {
   const params = useParams()
@@ -350,6 +351,15 @@ export default function EditArticlePage() {
                 </div>
 
                 <AudioUpload
+                  onInsert={(embedHtml) =>
+                    setFormData((prev) => ({
+                      ...prev,
+                      content: prev.content ? `${prev.content}\n\n${embedHtml}` : embedHtml,
+                    }))
+                  }
+                />
+
+                <VideoUpload
                   onInsert={(embedHtml) =>
                     setFormData((prev) => ({
                       ...prev,
