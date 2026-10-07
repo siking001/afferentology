@@ -68,6 +68,11 @@ export default function EditArticlePage() {
     tags: "",
     published: false,
     scheduled_at: "",
+    cta_heading: "",
+    cta_body: "",
+    cta_label: "",
+    cta_url: "",
+    show_patient_cta: false,
   })
   const [isScheduling, setIsScheduling] = useState(false)
 
@@ -99,6 +104,11 @@ export default function EditArticlePage() {
           tags: Array.isArray(data.tags) ? data.tags.join(", ") : "",
           published: data.published || false,
           scheduled_at: data.scheduled_at || "",
+          cta_heading: data.cta_heading || "",
+          cta_body: data.cta_body || "",
+          cta_label: data.cta_label || "",
+          cta_url: data.cta_url || "",
+          show_patient_cta: Boolean(data.show_patient_cta),
         })
         // If there's a scheduled_at date, enable scheduling mode
         if (data.scheduled_at) {
@@ -201,6 +211,11 @@ export default function EditArticlePage() {
         published: publishedState,
         published_at: publishedAt,
         scheduled_at: scheduledAt,
+        cta_heading: formData.cta_heading.trim() || null,
+        cta_body: formData.cta_body.trim() || null,
+        cta_label: formData.cta_label.trim() || null,
+        cta_url: formData.cta_url.trim() || null,
+        show_patient_cta: formData.show_patient_cta,
       }
 
       const response = await fetch("/api/articles/update", {
@@ -445,6 +460,71 @@ export default function EditArticlePage() {
                     </div>
                   )}
                 </div>
+
+                <fieldset className="space-y-4 rounded-lg border p-4 bg-muted/20">
+                  <legend className="px-1 text-base font-medium">Call to action</legend>
+                  <p className="text-sm text-muted-foreground">
+                    The practitioner box appears only when a CTA URL is set. It is placed before the references
+                    heading and replaces the generic training button.
+                  </p>
+                  <div className="space-y-2">
+                    <Label htmlFor="cta_heading">CTA Heading</Label>
+                    <Input
+                      id="cta_heading"
+                      value={formData.cta_heading}
+                      onChange={(e) => setFormData({ ...formData, cta_heading: e.target.value })}
+                      placeholder="e.g., Learn to test the withdrawal reflex"
+                      className="bg-background"
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="cta_body">CTA Body</Label>
+                    <Textarea
+                      id="cta_body"
+                      value={formData.cta_body}
+                      onChange={(e) => setFormData({ ...formData, cta_body: e.target.value })}
+                      placeholder="One or two sentences for practitioners"
+                      rows={3}
+                      className="bg-background"
+                    />
+                  </div>
+                  <div className="grid gap-4 md:grid-cols-2">
+                    <div className="space-y-2">
+                      <Label htmlFor="cta_label">Button Label</Label>
+                      <Input
+                        id="cta_label"
+                        value={formData.cta_label}
+                        onChange={(e) => setFormData({ ...formData, cta_label: e.target.value })}
+                        placeholder="e.g., Start the course"
+                        className="bg-background"
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="cta_url">CTA URL</Label>
+                      <Input
+                        id="cta_url"
+                        type="url"
+                        value={formData.cta_url}
+                        onChange={(e) => setFormData({ ...formData, cta_url: e.target.value })}
+                        placeholder="https://learn.afferentology.org/..."
+                        className="bg-background"
+                      />
+                      <p className="text-xs text-muted-foreground">UTM parameters are added automatically.</p>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <input
+                      id="show_patient_cta"
+                      type="checkbox"
+                      checked={formData.show_patient_cta}
+                      onChange={(e) => setFormData({ ...formData, show_patient_cta: e.target.checked })}
+                      className="h-4 w-4 rounded border-input accent-primary"
+                    />
+                    <Label htmlFor="show_patient_cta" className="font-normal">
+                      Show patient line (&ldquo;Find an Afferentology practitioner near you&rdquo;)
+                    </Label>
+                  </div>
+                </fieldset>
 
                 {/* Scheduling Section */}
                 <div className="space-y-4 rounded-lg border p-4 bg-muted/20">

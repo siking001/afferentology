@@ -8,9 +8,22 @@ import { ArrowLeft, Calendar, Eye, Tag } from "lucide-react"
 import type { Metadata } from "next"
 import { ArticleDisclaimer } from "@/components/article-disclaimer"
 import { buildSeoTitle, buildSeoDescription } from "@/lib/seo"
+import { ArticleCta } from "@/components/article-cta"
+import { splitAtReferences } from "@/lib/split-article-references"
 
 const SITE_URL = "https://www.afferentology.org"
 const DEFAULT_DESCRIPTION = "Research article from Afferentology"
+
+const ARTICLE_CONTENT_CLASSES = `article-content w-full
+    [&_h2]:text-3xl [&_h2]:font-bold [&_h2]:mt-12 [&_h2]:mb-6 [&_h2]:text-foreground [&_h2]:tracking-tight [&_h2]:border-b [&_h2]:border-border [&_h2]:pb-2
+    [&_h3]:text-2xl [&_h3]:font-semibold [&_h3]:mt-8 [&_h3]:mb-4 [&_h3]:text-foreground
+    [&_p]:text-lg [&_p]:leading-relaxed [&_p]:mb-6 [&_p]:text-foreground/80
+    [&_blockquote]:border-l-4 [&_blockquote]:border-primary [&_blockquote]:bg-muted/30 [&_blockquote]:p-6 [&_blockquote]:my-8 [&_blockquote]:italic [&_blockquote]:rounded-r-lg
+    [&_ul]:list-disc [&_ul]:ml-6 [&_ul]:mb-6 [&_ul]:space-y-2
+    [&_li]:text-foreground/80
+    [&_strong]:text-foreground [&_strong]:font-bold
+    [&_hr]:my-12 [&_hr]:border-border
+    [&_a]:text-primary [&_a]:underline hover:[&_a]:text-secondary`
 
 interface ArticlePageProps {
   params: Promise<{ slug: string }>
@@ -27,7 +40,13 @@ interface Article {
   category?: string
   tags?: string[]
   published_at: string
+  updated_at?: string | null
   views: number
+  cta_heading: string | null
+  cta_body: string | null
+  cta_label: string | null
+  cta_url: string | null
+  show_patient_cta: boolean | null
 }
 
 export async function generateMetadata({ params }: ArticlePageProps): Promise<Metadata> {
@@ -88,15 +107,18 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
   const { data: article, error } = await supabase
     .from("articles")
     .select(
-      "id, title, slug, excerpt, content, author_name, featured_image_url, category, tags, published_at, updated_at, views",
+      "id, title, slug, excerpt, content, author_name, featured_image_url, category, tags, published_at, updated_at, views, cta_heading, cta_body, cta_label, cta_url, show_patient_cta",
     )
     .eq("slug", slug)
     .eq("published", true)
-    .single()
+    .single<Article>()
 
   if (error || !article) {
     notFound()
   }
+
+  const hasTopicCta = Boolean(article.cta_url) || Boolean(article.show_patient_cta)
+  const { main: mainContent, references: referencesContent } = splitAtReferences(article.content || "")
 
   // Increment view count (using admin client to bypass RLS)
   const adminSupabase = createAdminClient()
@@ -194,19 +216,20 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
               </p>
             )}
 
-            <div
-  className="article-content w-full
-    [&_h2]:text-3xl [&_h2]:font-bold [&_h2]:mt-12 [&_h2]:mb-6 [&_h2]:text-foreground [&_h2]:tracking-tight [&_h2]:border-b [&_h2]:border-border [&_h2]:pb-2
-    [&_h3]:text-2xl [&_h3]:font-semibold [&_h3]:mt-8 [&_h3]:mb-4 [&_h3]:text-foreground
-    [&_p]:text-lg [&_p]:leading-relaxed [&_p]:mb-6 [&_p]:text-foreground/80
-    [&_blockquote]:border-l-4 [&_blockquote]:border-primary [&_blockquote]:bg-muted/30 [&_blockquote]:p-6 [&_blockquote]:my-8 [&_blockquote]:italic [&_blockquote]:rounded-r-lg
-    [&_ul]:list-disc [&_ul]:ml-6 [&_ul]:mb-6 [&_ul]:space-y-2
-    [&_li]:text-foreground/80
-    [&_strong]:text-foreground [&_strong]:font-bold
-    [&_hr]:my-12 [&_hr]:border-border
-    [&_a]:text-primary [&_a]:underline hover:[&_a]:text-secondary"
-  dangerouslySetInnerHTML={{ __html: article.content }}
-/>
+            <div className={ARTICLE_CONTENT_CLASSES} dangerouslySetInnerHTML={{ __html: mainContent }} />
+
+            <ArticleCta
+              slug={article.slug}
+              ctaHeading={article.cta_heading}
+              ctaBody={article.cta_body}
+              ctaLabel={article.cta_label}
+              ctaUrl={article.cta_url}
+              showPatientCta={article.show_patient_cta}
+            />
+
+            {referencesContent && (
+              <div className={ARTICLE_CONTENT_CLASSES} dangerouslySetInnerHTML={{ __html: referencesContent }} />
+            )}
 
             <ArticleDisclaimer />
           </div>
@@ -234,16 +257,18 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
             <Button asChild size="lg" className="bg-primary-foreground text-primary hover:bg-primary-foreground/90">
               <Link href="/science">View More Articles</Link>
             </Button>
-            <Button
-              asChild
-              size="lg"
-              variant="outline"
-              className="border-primary-foreground/20 bg-transparent text-primary-foreground hover:bg-primary-foreground/10"
-            >
-              <a href="https://learn.afferentology.org" target="_blank" rel="noopener noreferrer">
-                Explore Training
-              </a>
-            </Button>
+            {!hasTopicCta && (
+              <Button
+                asChild
+                size="lg"
+                variant="outline"
+                className="border-primary-foreground/20 bg-transparent text-primary-foreground hover:bg-primary-foreground/10"
+              >
+                <a href="https://learn.afferentology.org" target="_blank" rel="noopener noreferrer">
+                  Explore Training
+                </a>
+              </Button>
+            )}
           </div>
         </div>
       </section>
