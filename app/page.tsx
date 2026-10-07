@@ -78,7 +78,7 @@ export default function HomePage() {
               </p>
               <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
                 <Button asChild size="lg" className="bg-secondary text-secondary-foreground hover:bg-secondary/90">
-                  <Link href="https://learn.afferentology.org/essentials">
+                  <Link href="https://learn.afferentology.org/start-here">
                     Explore Our Training Programs
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </Link>
@@ -131,7 +131,7 @@ export default function HomePage() {
               </div>
               <div className="mt-8">
                 <Button asChild size="lg" className="bg-primary hover:bg-primary/90">
-                  <Link href="https://learn.afferentology.org/essentials" target="_blank" rel="noopener noreferrer">
+                  <Link href="https://learn.afferentology.org/start-here" target="_blank" rel="noopener noreferrer">
                     Enrol in Our Free Training
                   </Link>
                 </Button>
