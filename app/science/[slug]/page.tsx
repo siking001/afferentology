@@ -118,7 +118,9 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
   }
 
   const hasTopicCta = Boolean(article.cta_url) || Boolean(article.show_patient_cta)
-  const { main: mainContent, references: referencesContent } = splitAtReferences(article.content || "")
+  // The page title is the only H1; demote any H1 embedded in the article body.
+  const bodyHtml = (article.content || "").replace(/<(\/?)h1\b/gi, "<$1h2")
+  const { main: mainContent, references: referencesContent } = splitAtReferences(bodyHtml)
 
   // Increment view count (using admin client to bypass RLS)
   const adminSupabase = createAdminClient()
