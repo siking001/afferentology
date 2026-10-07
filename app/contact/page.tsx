@@ -92,7 +92,7 @@ export default function ContactPage() {
                     <p className="text-muted-foreground leading-relaxed">
                       Start with our{" "}
                       <a
-                        href="https://learn.afferentology.org/essentials"
+                        href="https://learn.afferentology.org/start-here"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-primary hover:underline"

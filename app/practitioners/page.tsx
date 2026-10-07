@@ -83,7 +83,7 @@ export default function PractitionersPage() {
               </p>
               <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
                 <Button asChild size="lg" className="bg-primary-foreground text-primary hover:bg-primary-foreground/90">
-                  <a href="https://learn.afferentology.org/essentials" target="_blank" rel="noopener noreferrer">
+                  <a href="https://learn.afferentology.org/start-here" target="_blank" rel="noopener noreferrer">
                     <GraduationCap className="mr-2 h-5 w-5" />
                     Learn Protective Reflex Testing
                     <ArrowRight className="ml-2 h-5 w-5" />
@@ -338,7 +338,7 @@ export default function PractitionersPage() {
                         </p>
                         <Button asChild className="bg-primary hover:bg-primary/90">
                           <a
-                            href="https://learn.afferentology.org/essentials"
+                            href="https://learn.afferentology.org/start-here"
                             target="_blank"
                             rel="noopener noreferrer"
                           >
@@ -389,7 +389,7 @@ export default function PractitionersPage() {
             </p>
             <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
               <Button asChild size="lg" className="bg-primary-foreground text-primary hover:bg-primary-foreground/90">
-                <a href="https://learn.afferentology.org/essentials" target="_blank" rel="noopener noreferrer">
+                <a href="https://learn.afferentology.org/start-here" target="_blank" rel="noopener noreferrer">
                   <GraduationCap className="mr-2 h-5 w-5" />
                   Learn Protective Reflex Testing - FREE
                 </a>
