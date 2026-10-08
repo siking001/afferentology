@@ -4,7 +4,10 @@ const nextConfig = {
     ignoreBuildErrors: true,
   },
   images: {
-    unoptimized: true,
+    remotePatterns: [
+      { protocol: 'https', hostname: '*.public.blob.vercel-storage.com' },
+      { protocol: 'https', hostname: 'd1ddrv8boso99h.cloudfront.net' },
+    ],
   },
   redirects: async () => {
     return [
