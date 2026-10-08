@@ -6,10 +6,10 @@ import Image from "next/image"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: "Afferentology - Removing Nerve Interference for Chiropractors",
-description: "Chiropractic training in identifying nerve interference and muscle inhibition. Learn how abnormal afferent input drives chronic pain and poor patient outcomes.",
+  title: { absolute: "Afferentology: Why Weak Muscles Aren't Lazy" },
+  description: "Learn how abnormal afferent input drives chronic pain and poor patient outcomes.",
   openGraph: {
-    title: "Afferentology - Removing Nerve Interference for Chiropractors",
+  title: "Afferentology: Why Weak Muscles Aren't Lazy",
     description:
       "Expert training for health professionals in diagnosing and treating nerve interference and muscle inhibition.",
     type: "website",
@@ -69,12 +69,13 @@ export default function HomePage() {
           <div className="container relative z-10 mx-auto px-4">
             <div className="mx-auto max-w-4xl text-center">
               <h1 className="mb-6 text-4xl font-bold leading-tight md:text-5xl lg:text-6xl text-balance">
-                Restore True Function. Protect Every Body.
+                Weak muscles aren&apos;t lazy. They&apos;re stuck protecting you.
               </h1>
               <p className="mb-8 text-lg text-primary-foreground/90 md:text-xl text-pretty leading-relaxed">
-                Move beyond treating stuck joints and tight muscles. Discover the neurological reflexes that
-                control power, posture, protection and performance &mdash; and learn how to facilitate immediate
-                functional changes that last.
+                Protective reflexes turn some muscles up and others down. Pull out the nail in the foot and
+                they reset. But some irritants stay hidden for years, and no amount of training or stretching
+                will undo the weakness. Afferentology is the study of disruptive sensory inputs and their
+                effects on strength, health and longevity.
               </p>
               <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
                 <Button asChild size="lg" className="bg-secondary text-secondary-foreground hover:bg-secondary/90">
@@ -243,8 +244,8 @@ export default function HomePage() {
                   <BookOpen className="mb-4 h-10 w-10 text-secondary" />
                   <h3 className="mb-3 text-2xl font-bold text-foreground">In Practice?</h3>
                   <p className="mb-6 text-muted-foreground leading-relaxed">
-                    Are you a Health Professional wanting answers to difficult patients? Discover how abnormal afferent
-                    input is sabotaging your results and hurting your patients.
+  Move beyond treating stuck joints and tight muscles. Learn the reflexes that control strength,
+  posture and protection, and how to change them in the treatment room.
                   </p>
                   <Button asChild className="bg-secondary hover:bg-secondary/90">
                     <Link href="/practitioners">
