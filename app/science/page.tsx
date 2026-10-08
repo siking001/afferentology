@@ -144,6 +144,7 @@ export default async function SciencePage({
                         src={article.image || "/placeholder.svg"}
                         alt={article.title}
                         fill
+                        sizes="(max-width: 768px) 100vw, (max-width: 1152px) 33vw, 384px"
                         className="object-cover transition-transform group-hover:scale-105"
                       />
                     </div>
@@ -246,6 +247,7 @@ export default async function SciencePage({
                             src={article.featured_image_url}
                             alt={article.title}
                             fill
+                            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, (max-width: 1152px) 33vw, 384px"
                             className="object-cover transition-transform group-hover:scale-105"
                           />
                         </div>

@@ -102,6 +102,7 @@ export default function MyotaticReflexPage() {
           src="/images/knee-jerk-reflex.jpg"
           alt="Medical professional demonstrating myotatic reflex test - using reflex hammer to test patient's knee-jerk stretch reflex response for neurological assessment"
           fill
+          sizes="100vw"
           className="object-cover"
           priority
         />

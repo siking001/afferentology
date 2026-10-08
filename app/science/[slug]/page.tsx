@@ -1,6 +1,6 @@
 import { createClient } from "@/lib/supabase/server"
-import { createClient as createAdminClient } from "@/lib/supabase/admin"
 import { notFound } from "next/navigation"
+import { ArticleViewTracker } from "@/components/article-view-tracker"
 import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
@@ -10,6 +10,14 @@ import { ArticleDisclaimer } from "@/components/article-disclaimer"
 import { buildSeoTitle, buildSeoDescription } from "@/lib/seo"
 import { ArticleCta } from "@/components/article-cta"
 import { splitAtReferences } from "@/lib/split-article-references"
+
+export const revalidate = 300
+
+export async function generateStaticParams() {
+  const supabase = await createClient()
+  const { data } = await supabase.from("articles").select("slug").eq("published", true)
+  return (data ?? []).map(({ slug }) => ({ slug }))
+}
 
 const SITE_URL = "https://www.afferentology.org"
 const DEFAULT_DESCRIPTION = "Research article from Afferentology"
@@ -122,13 +130,6 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
   const bodyHtml = (article.content || "").replace(/<(\/?)h1\b/gi, "<$1h2")
   const { main: mainContent, references: referencesContent } = splitAtReferences(bodyHtml)
 
-  // Increment view count (using admin client to bypass RLS)
-  const adminSupabase = createAdminClient()
-  await adminSupabase
-    .from("articles")
-    .update({ views: (article.views || 0) + 1 })
-    .eq("id", article.id)
-
   const canonicalUrl = `${SITE_URL}/science/${article.slug}`
   const articleSchema = {
     "@context": "https://schema.org",
@@ -159,6 +160,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
   return (
     <div className="flex flex-col">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
+      <ArticleViewTracker articleId={article.id} />
       {/* Header */}
       <section className="bg-gradient-to-br from-primary to-secondary py-12 text-primary-foreground">
         <div className="container mx-auto px-4">
@@ -199,6 +201,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
                   src={article.featured_image_url}
                   alt={article.title}
                   fill
+                  sizes="(max-width: 896px) 100vw, 896px"
                   className="object-cover"
                   priority
                 />

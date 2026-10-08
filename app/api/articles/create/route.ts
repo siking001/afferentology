@@ -1,5 +1,6 @@
 import { createClient } from "@/lib/supabase/admin"
 import { NextResponse } from "next/server"
+import { revalidateArticlePages } from "@/lib/revalidate-articles"
 
 export async function POST(request: Request) {
   try {
@@ -12,6 +13,8 @@ export async function POST(request: Request) {
       console.error("[v0] Error creating article:", error)
       return NextResponse.json({ error: error.message }, { status: 500 })
     }
+
+    revalidateArticlePages(data?.slug)
 
     return NextResponse.json(data)
   } catch (error) {
