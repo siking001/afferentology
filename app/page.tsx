@@ -72,9 +72,10 @@ export default function HomePage() {
                 Weak muscles aren&apos;t lazy. They&apos;re stuck protecting you.
               </h1>
               <p className="mb-8 text-lg text-primary-foreground/90 md:text-xl text-pretty leading-relaxed">
-  Protective reflexes turn some muscles up and others down. Pull out the splinter and they reset.
-  But some irritants stay hidden for years, like a tooth, a scar or a piercing, and no amount of
-  training or stretching will undo the weakness. Afferentology finds them.
+                Protective reflexes turn some muscles up and others down. Pull out the nail in the foot and
+                they reset. But some irritants stay hidden for years, and no amount of training or stretching
+                will undo the weakness. Afferentology is the study of disruptive sensory inputs and their
+                effects on strength, health and longevity.
               </p>
               <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
                 <Button asChild size="lg" className="bg-secondary text-secondary-foreground hover:bg-secondary/90">
