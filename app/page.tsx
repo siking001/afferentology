@@ -69,7 +69,7 @@ export default function HomePage() {
           <div className="container relative z-10 mx-auto px-4">
             <div className="mx-auto max-w-4xl text-center">
               <h1 className="mb-6 text-4xl font-bold leading-tight md:text-5xl lg:text-6xl text-balance">
-                Restore True Function. Protect Every Body.
+                Weak muscles aren&apos;t lazy. They&apos;re stuck protecting you.
               </h1>
               <p className="mb-8 text-lg text-primary-foreground/90 md:text-xl text-pretty leading-relaxed">
                 Move beyond treating stuck joints and tight muscles. Discover the neurological reflexes that
