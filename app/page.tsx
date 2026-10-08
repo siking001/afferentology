@@ -244,8 +244,8 @@ export default function HomePage() {
                   <BookOpen className="mb-4 h-10 w-10 text-secondary" />
                   <h3 className="mb-3 text-2xl font-bold text-foreground">In Practice?</h3>
                   <p className="mb-6 text-muted-foreground leading-relaxed">
-                    Are you a Health Professional wanting answers to difficult patients? Discover how abnormal afferent
-                    input is sabotaging your results and hurting your patients.
+  Move beyond treating stuck joints and tight muscles. Learn the reflexes that control strength,
+  posture and protection, and how to change them in the treatment room.
                   </p>
                   <Button asChild className="bg-secondary hover:bg-secondary/90">
                     <Link href="/practitioners">
