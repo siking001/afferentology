@@ -7,7 +7,7 @@ import type { Metadata } from "next"
 
 export const metadata: Metadata = {
   title: { absolute: "Afferentology: Why Weak Muscles Aren't Lazy" },
-description: "Chiropractic training in identifying nerve interference and muscle inhibition. Learn how abnormal afferent input drives chronic pain and poor patient outcomes.",
+  description: "Learn how abnormal afferent input drives chronic pain and poor patient outcomes.",
   openGraph: {
   title: "Afferentology: Why Weak Muscles Aren't Lazy",
     description:
