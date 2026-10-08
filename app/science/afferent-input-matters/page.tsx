@@ -102,7 +102,7 @@ export default function AfferentInputMattersPage() {
           src="/images/afferent-input-matters-header.webp"
           alt="Healthcare professional performing neurological examination and assessing patient's nervous system function to identify weaknesses"
           fill
-          sizes="(max-width: 896px) 100vw, 896px"
+          sizes="100vw"
           className="object-cover"
           priority
         />
