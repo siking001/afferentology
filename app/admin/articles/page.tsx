@@ -8,6 +8,7 @@ import Link from "next/link"
 import { Plus, Edit, Trash2, Eye, EyeOff, Calendar } from "lucide-react"
 import { useToast } from "@/hooks/use-toast"
 import { AdminAuth } from "@/components/admin-auth"
+import { deleteArticleAction, setArticlePublishedAction } from "./actions"
 
 interface Article {
   id: string
@@ -58,10 +59,7 @@ export default function AdminArticlesPage() {
     if (!confirm("Are you sure you want to delete this article?")) return
 
     try {
-      const supabase = createClient()
-      const { error } = await supabase.from("articles").delete().eq("id", id)
-
-      if (error) throw error
+      await deleteArticleAction(id)
 
       toast({
         title: "Success",
@@ -81,16 +79,7 @@ export default function AdminArticlesPage() {
 
   async function togglePublished(id: string, currentStatus: boolean) {
     try {
-      const supabase = createClient()
-      const { error } = await supabase
-        .from("articles")
-        .update({
-          published: !currentStatus,
-          published_at: !currentStatus ? new Date().toISOString() : null,
-        })
-        .eq("id", id)
-
-      if (error) throw error
+      await setArticlePublishedAction(id, !currentStatus)
 
       toast({
         title: "Success",

@@ -1,5 +1,6 @@
 import { createClient } from "@/lib/supabase/admin"
 import { NextResponse } from "next/server"
+import { revalidateArticlePages } from "@/lib/revalidate-articles"
 
 // This endpoint publishes articles that have a scheduled_at time in the past
 // It can be called by a Vercel Cron job or triggered manually
@@ -66,6 +67,10 @@ export async function POST(request: Request) {
           slug: article.slug,
         })
       }
+    }
+
+    if (publishedArticles.length > 0) {
+      revalidateArticlePages(...publishedArticles.map((a) => a.slug))
     }
 
     return NextResponse.json({
@@ -139,6 +144,10 @@ export async function GET(request: Request) {
           slug: article.slug,
         })
       }
+    }
+
+    if (publishedArticles.length > 0) {
+      revalidateArticlePages(...publishedArticles.map((a) => a.slug))
     }
 
     return NextResponse.json({
