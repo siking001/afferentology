@@ -6,10 +6,10 @@ import Image from "next/image"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: "Afferentology - Removing Nerve Interference for Chiropractors",
+  title: { absolute: "Afferentology: Why Weak Muscles Aren't Lazy" },
 description: "Chiropractic training in identifying nerve interference and muscle inhibition. Learn how abnormal afferent input drives chronic pain and poor patient outcomes.",
   openGraph: {
-    title: "Afferentology - Removing Nerve Interference for Chiropractors",
+  title: "Afferentology: Why Weak Muscles Aren't Lazy",
     description:
       "Expert training for health professionals in diagnosing and treating nerve interference and muscle inhibition.",
     type: "website",
