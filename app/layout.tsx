@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     url: "https://www.afferentology.org",
     title: "Afferentology - Transform Patient Care Through Nerve Science",
     description:
-      "Expert training for health professionals in diagnosing and treating nerve interference and muscle inhibition.",
+      "Expert training for health professionals in diagnosing and treating abnormal afferent input.",
     siteName: "Afferentology",
     images: [
       {

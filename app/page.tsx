@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   openGraph: {
   title: "Afferentology: Why Weak Muscles Aren't Lazy",
     description:
-      "Expert training for health professionals in diagnosing and treating nerve interference and muscle inhibition.",
+      "Expert training for health professionals in diagnosing and treating abnormal afferent input.",
     type: "website",
     url: "https://www.afferentology.org",
     images: [

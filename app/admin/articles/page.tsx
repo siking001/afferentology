@@ -22,6 +22,18 @@ interface Article {
   views: number
 }
 
+function articleDate(article: Article) {
+  const date = article.published ? article.published_at || article.created_at : article.created_at
+  return new Date(date).getTime() || 0
+}
+
+function sortArticles(articles: Article[]) {
+  return [...articles].sort((a, b) => {
+    if (a.published !== b.published) return a.published ? 1 : -1
+    return articleDate(b) - articleDate(a)
+  })
+}
+
 export default function AdminArticlesPage() {
   const [articles, setArticles] = useState<Article[]>([])
   const [isLoading, setIsLoading] = useState(true)
@@ -136,7 +148,7 @@ export default function AdminArticlesPage() {
             </Card>
           ) : (
             <div className="space-y-4">
-              {articles.map((article) => (
+              {sortArticles(articles).map((article) => (
                 <Card key={article.id}>
                   <CardHeader>
                     <div className="flex items-start justify-between">
