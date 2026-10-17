@@ -69,12 +69,13 @@ export default function HomePage() {
           <div className="container relative z-10 mx-auto px-4">
             <div className="mx-auto max-w-4xl text-center">
               <h1 className="mb-6 text-4xl font-bold leading-tight md:text-5xl lg:text-6xl text-balance">
-                Weak muscles aren&apos;t lazy. They&apos;re stuck protecting you.
+                Weak muscles don&apos;t lack exercise. They are compromised.
               </h1>
               <p className="mb-8 text-lg text-primary-foreground/90 md:text-xl text-pretty leading-relaxed">
-  Protective reflexes increase or decrease muscle activity. When you remove a painful trigger,
-  like a nail in your foot, muscles reset. But some irritants aren&apos;t painful and can stay
-  hidden for years. No amount of exercise or stretching can fix the weakness they cause.
+                A nail in your foot triggers a protective reflex that activates some muscles and
+                deactivates others. When you remove the trigger, the muscles reset. But some irritants
+                aren&apos;t painful and can stay hidden for years. No amount of exercise or stretching
+                can fix the weakness they cause.
               </p>
               <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
                 <Button asChild size="lg" className="bg-secondary text-secondary-foreground hover:bg-secondary/90">
