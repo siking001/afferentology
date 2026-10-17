@@ -116,10 +116,9 @@ export default function HomePage() {
                   limiting factor was never the tissue. It was the signal telling that tissue what to do.
                 </p>
                 <p>
-                  Most muscle contraction happens automatically &mdash; your body constantly adjusts muscles based on how
-                  you move and hold yourself, without you even thinking about it. These circuits are what let a muscle
-                  brace before you consciously
-                  register a threat, and what set baseline tone even when you&apos;re standing still. When the sensory
+                  Most muscles work automatically. They adjust how tight or loose they are based on how you move and hold
+                  your body &mdash; all without you thinking. For example, your muscles brace before you even notice a
+                  threat, and they keep a steady tone when you stand still. When the sensory
                   input feeding those circuits is abnormal or corrupted, the reflex doesn&apos;t fail loudly &mdash; it
                   fails quietly. The muscle goes weak, or it locks up tight and guarded, and the joint you&apos;ve
                   correctly adjusted has no reliable support either way.
