@@ -74,7 +74,7 @@ export default function HomePage() {
               <p className="mb-8 text-lg text-primary-foreground/90 md:text-xl text-pretty leading-relaxed">
   Protective reflexes increase or decrease muscle activity. When you remove a painful trigger,
   like a nail in your foot, muscles reset. But some irritants aren&apos;t painful and can stay
-  hidden for years, and no amount of exercise or stretching can fix the weakness they cause.
+  hidden for years. No amount of exercise or stretching can fix the weakness they cause.
               </p>
               <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
                 <Button asChild size="lg" className="bg-secondary text-secondary-foreground hover:bg-secondary/90">
