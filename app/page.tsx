@@ -102,31 +102,42 @@ export default function HomePage() {
           <div className="container mx-auto px-4">
             <div className="mx-auto max-w-3xl">
               <h2 className="mb-8 text-3xl font-bold text-foreground md:text-4xl text-balance">
-                You&apos;re Treating the Wrong System
+                The Success of Chiropractic Depends on the Assessment, Not the Adjustment
               </h2>
               <div className="space-y-6 text-lg text-muted-foreground leading-relaxed text-pretty">
                 <p>
-                  You&apos;ve adjusted the joint. You&apos;ve stretched the tight tissue. You&apos;ve built a rehab
-                  program to restore strength and range of motion. And the correction still won&apos;t hold.
+                  Being able to adjust is a skill. Knowing what to adjust is the skill that actually matters.
                 </p>
                 <p>
-                  That&apos;s not a compliance problem, and it&apos;s not a strength problem in the way we usually think
-                  about it. If a muscle is neurologically inhibited, no amount of exercise, stretching, or manual
-                  treatment will restore its ability to support the skeleton or generate power &mdash; because the
-                  limiting factor was never the tissue. It was the signal telling that tissue what to do.
+                  If you&apos;ve been in practice any length of time, you already know this: a good number of your
+                  adjustments make no real difference. You just can&apos;t tell which ones. Not until after the fact.
+                  Imagine a system that told you in advance, before you ever adjusted, which corrections would hold and
+                  which wouldn&apos;t.
                 </p>
                 <p>
-                  Most muscles work automatically. They adjust how tight or loose they are based on how you move and hold
-                  your body &mdash; all without you thinking. For example, your muscles brace before you even notice a
-                  threat, and they keep a steady tone when you stand still. When the sensory
-                  input feeding those circuits is abnormal or corrupted, the reflex doesn&apos;t fail loudly &mdash; it
-                  fails quietly. The muscle goes weak, or it locks up tight and guarded, and the joint you&apos;ve
-                  correctly adjusted has no reliable support either way.
+                  An adjustment only works when it changes the output of the nervous system, because it&apos;s the
+                  nervous system running movement, repair, stability and flexibility. The easiest way to read that
+                  output is to assess muscle tone, responsiveness and strength. After all, it&apos;s muscles that move
+                  bones. Not chiropractors.
+                </p>
+                <p>
+                  If a muscle is neurologically inhibited, no amount of exercise, stretching or &ldquo;cracking&rdquo;
+                  will restore its ability to support the skeleton or generate power. The limiting factor was never the
+                  tissue. It was the signal telling that tissue what to do. Exercising an inhibited muscle is like
+                  racing a car whose wheels are out of alignment: more effort, same fault.
+                </p>
+                <p>
+                  Most muscles never wait for instruction from the brain. They set their own tone through cord-based
+                  reflexes and propriospinal tracts: signals resolved at the spinal cord that never reach conscious
+                  awareness. Your muscles brace before you even register a threat, and hold a steady tone while you
+                  simply stand still. When the afferent input feeding those circuits is abnormal or corrupted, the
+                  reflex doesn&apos;t fail loudly. It fails quietly: the muscle goes weak, or it locks up tight and
+                  guarded, and the joint you&apos;ve just adjusted has no reliable support either way.
                 </p>
                 <p>
                   This is the layer conventional treatment doesn&apos;t reach, because it isn&apos;t a structural layer.
-                  It&apos;s a neurological one &mdash; and it&apos;s exactly what Afferentology is built to identify and
-                  correct.
+                  It&apos;s a neurological one, and it&apos;s exactly what Afferentology, and Protective Reflex Testing,
+                  are built to identify and correct.
                 </p>
               </div>
               <div className="mt-8">
