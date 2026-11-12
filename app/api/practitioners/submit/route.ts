@@ -2,6 +2,7 @@ import { NextResponse } from "next/server"
 import { createAdminClient } from "@/lib/supabase/admin"
 import { geocodeAddress } from "@/lib/geocoding"
 import { Resend } from "resend"
+import { checkSubmissionForSpam, escapeHtml } from "@/lib/spam-protection"
 
 // Initialize Resend only if API key is available
 const resendApiKey = process.env.RESEND_API_KEY
@@ -16,6 +17,17 @@ export async function POST(request: Request) {
   try {
     const data = await request.json()
     console.log("[v0] Received data:", { email: data.email, clinic: data.clinic_name })
+
+    const spamCheck = await checkSubmissionForSpam({
+      honeypot: data.company_fax,
+      formStartedAt: data.form_started_at,
+      turnstileToken: data.turnstile_token,
+      remoteIp: request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ?? null,
+    })
+    if (!spamCheck.ok) {
+      console.warn("[v0] Rejected practitioner submission:", spamCheck.reason)
+      return NextResponse.json({ error: spamCheck.userMessage }, { status: 400 })
+    }
 
     const supabase = createAdminClient()
 
@@ -123,19 +135,19 @@ export async function POST(request: Request) {
             <h2>${isUpdate ? "Practitioner Information Updated" : "New Practitioner Application Submitted"}</h2>
             <p>${
               isUpdate
-                ? `${data.first_name} ${data.last_name} has updated their practitioner information:`
+                ? `${escapeHtml(data.first_name)} ${escapeHtml(data.last_name)} has updated their practitioner information:`
                 : "A new practitioner has applied to join the directory:"
             }</p>
             
             <h3>Practitioner Details:</h3>
             <ul>
-              <li><strong>Name:</strong> ${data.first_name} ${data.last_name}</li>
-              <li><strong>Clinic:</strong> ${data.clinic_name}</li>
-              <li><strong>Email:</strong> ${data.email}</li>
-              <li><strong>Phone:</strong> ${data.phone || "N/A"}</li>
-              <li><strong>Location:</strong> ${data.city}, ${data.state}, ${data.country}</li>
-              <li><strong>Years Experience:</strong> ${data.years_experience || "N/A"}</li>
-              ${isUpdate ? `<li><strong>Current Status:</strong> ${existingPractitioner.status}</li>` : ""}
+              <li><strong>Name:</strong> ${escapeHtml(data.first_name)} ${escapeHtml(data.last_name)}</li>
+              <li><strong>Clinic:</strong> ${escapeHtml(data.clinic_name)}</li>
+              <li><strong>Email:</strong> ${escapeHtml(data.email)}</li>
+              <li><strong>Phone:</strong> ${escapeHtml(data.phone || "N/A")}</li>
+              <li><strong>Location:</strong> ${escapeHtml(data.city)}, ${escapeHtml(data.state)}, ${escapeHtml(data.country)}</li>
+              <li><strong>Years Experience:</strong> ${escapeHtml(data.years_experience || "N/A")}</li>
+              ${isUpdate ? `<li><strong>Current Status:</strong> ${escapeHtml(existingPractitioner.status)}</li>` : ""}
             </ul>
 
             <p><a href="https://afferentology.org/admin/practitioners" style="background-color: #1e40af; color: white; padding: 12px 24px; text-decoration: none; border-radius: 6px; display: inline-block; margin-top: 16px;">${
