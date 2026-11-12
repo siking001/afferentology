@@ -22,7 +22,7 @@ export async function checkSubmissionForSpam(input: SpamCheckInput): Promise<Spa
     return { ok: false, reason: "too-fast", userMessage: GENERIC_MESSAGE }
   }
 
-  const secret = process.env.TURNSTILE_SECRET_KEY
+  const secret = process.env.TURNSTILE_SECRET || process.env.TURNSTILE_SECRET_KEY
   if (!secret) {
     return { ok: true }
   }
