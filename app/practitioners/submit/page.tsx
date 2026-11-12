@@ -11,10 +11,12 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Label } from "@/components/ui/label"
 import { CheckCircle2 } from "lucide-react"
 import { useToast } from "@/hooks/use-toast"
+import { TurnstileWidget } from "@/components/turnstile-widget"
 
 export default function SubmitPractitionerPage() {
   const router = useRouter()
   const { toast } = useToast()
+  const [formStartedAt] = useState(() => Date.now())
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
 
@@ -42,6 +44,9 @@ export default function SubmitPractitionerPage() {
       certifications: formData.get("certifications"),
       specialties: formData.get("specialties"),
       bio: formData.get("bio"),
+      company_fax: formData.get("company_fax"),
+      form_started_at: formStartedAt,
+      turnstile_token: formData.get("cf-turnstile-response"),
     }
 
     console.log("[v0] Submitting data:", { email: data.email, clinic: data.clinic_name })
@@ -80,6 +85,8 @@ export default function SubmitPractitionerPage() {
         description: error instanceof Error ? error.message : "Please try again.",
         variant: "destructive",
       })
+      const turnstile = (window as unknown as { turnstile?: { reset: () => void } }).turnstile
+      turnstile?.reset()
     } finally {
       setIsSubmitting(false)
     }
@@ -213,6 +220,14 @@ export default function SubmitPractitionerPage() {
                     rows={5}
                   />
                 </div>
+
+                {/* Honeypot: hidden from people, filled in by bots */}
+                <div aria-hidden="true" className="absolute -left-[9999px] h-0 w-0 overflow-hidden">
+                  <label htmlFor="company_fax">Company fax</label>
+                  <input id="company_fax" name="company_fax" type="text" tabIndex={-1} autoComplete="off" />
+                </div>
+
+                <TurnstileWidget />
 
                 <Button type="submit" disabled={isSubmitting} className="w-full bg-primary hover:bg-primary/90">
                   {isSubmitting ? "Submitting..." : "Submit Application"}
